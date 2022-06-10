@@ -10,12 +10,11 @@
 </head>
 
 <body>
+    </div>
     <header th:fragment="header">
-        <div class="align-items-center">
-            <div class="row">
-                <div class="col-6 offset-2">
-                    <img src="/images/logo.png" height="100px"  wclass="  align-right" alt="">
-                </div>
+        <div class="">
+            <div class="col-6 offset-2">
+                <img src="/images/logo.png" height="100px" alt="">
             </div>
         </div>
         <nav class="navbar navbar-expand-lg navbar-dark  " style="background-color:#2A499B;">
@@ -32,8 +31,11 @@
                 </button>
                 <div class="collapse navbar-collapse" id="navbarResponsive">
                     <ul class="navbar-nav text-uppercase ms-auto py-4 py-lg-0 ">
-                        <li class="nav-item m-1 "><a class="nav-link" th:href="@{/votantes/listaV}"><i class="fa-regular fa-user"></i>     Ingresar</a></li>
-                        <li class="nav-item m-1"><a class="nav-link btn btn-primary text-white" th:href="@{/candidatos/listaC}"><i class="fa-solid fa-right-to-bracket"></i>    Registrarme</a>
+                        <li class="nav-item m-1 "><a class="nav-link" th:href="@{/votantes/listaV}"><i
+                                    class="fa-regular fa-user"></i> Ingresar</a></li>
+                        <li class="nav-item m-1"><a class="nav-link btn btn-primary text-white"
+                                th:href="@{/candidatos/listaC}"><i class="fa-solid fa-right-to-bracket"></i>
+                                Registrarme</a>
                         </li>
                     </ul>
                 </div>
@@ -41,8 +43,7 @@
         </nav>
     </header>
 
-
-
+    
     <script type="text/javascript" th:src="@{/webjars/jquery/jquery.min.js}"></script>
     <script type="text/javascript" th:src="@{/webjars/popper.js/umd/popper.min.js}"></script>
     <script type="text/javascript" th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
