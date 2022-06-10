@@ -22,10 +22,15 @@ public class IndexController {
     public String getCiudadanoPage(Model model) {
         return "ciudadanoForm";
     }
+    
     @GetMapping("/registroEmp")
     public String getEmpleadorPage(Model model) {
         return "empleadorForm";
     }
     
+    @GetMapping("/ofertaLab")
+    public String getListaEmpleoPage(Model model) {
+        return "ofertaLaboral";
+    }
 
 }
