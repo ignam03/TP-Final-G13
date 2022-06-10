@@ -20,9 +20,9 @@
         <nav class="navbar navbar-expand-lg navbar-dark  " style="background-color:#2A499B;">
             <div class="container">
                 <a class="navbar-brand m-1 " th:href="@{/empleos/inicio}">Inicio</a>
-                <a class="navbar-brand m-1" th:href="@{/empleos/inicio}">Encontrar Empleo</a>
-                <a class="navbar-brand m-1" th:href="@{/empleos/inicio}">Empresas</a>
-                <a class="navbar-brand m-1" th:href="@{/empleos/inicio}">¿Quienes somos?</a>
+                <a class="navbar-brand m-1" th:href="@{/pci/inicio}">Encontrar Empleo</a>
+                <a class="navbar-brand m-1" th:href="@{/pci/inicio}">Empresas</a>
+                <a class="navbar-brand m-1" th:href="@{/pci/inicio}">¿Quienes somos?</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                     data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false"
                     aria-label="Toggle navigation">
@@ -31,19 +31,60 @@
                 </button>
                 <div class="collapse navbar-collapse" id="navbarResponsive">
                     <ul class="navbar-nav text-uppercase ms-auto py-4 py-lg-0 ">
-                        <li class="nav-item m-1 "><a class="nav-link" th:href="@{/votantes/listaV}"><i
+                        <li class="nav-item m-1 "><a class="nav-link" th:href="@{/empleos/login}"><i
                                     class="fa-regular fa-user"></i> Ingresar</a></li>
-                        <li class="nav-item m-1"><a class="nav-link btn btn-primary text-white"
-                                th:href="@{/candidatos/listaC}"><i class="fa-solid fa-right-to-bracket"></i>
+                        <li class="nav-item m-1"><a class="nav-link btn btn-primary text-white" data-bs-toggle="modal"
+                                data-bs-target="#modalRegistro" th:href="@{/candidatos/listaC}"><i
+                                    class="fa-solid fa-right-to-bracket"></i>
                                 Registrarme</a>
                         </li>
                     </ul>
+
+                    <!-- Modal -->
+                    <div class="modal fade" id="modalRegistro" tabindex="-1" aria-labelledby="exampleModalLabel"
+                        aria-hidden="true">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="exampleModalLabel">REGISTRO</h5>
+                                    <hr class="mb-3">
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                        aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body">
+                                    <div class="card text-center " style="background-color:#ffffff;">
+                                        <div class="bg-image hover-overlay ripple" data-mdb-ripple-color="light">
+                                            <img src="/images/logo.png" class="img-fluid" />
+                                            <a href="#!">
+                                                <div class="mask" style="background-color: rgba(251, 251, 251, 0.15)">
+                                                </div>
+                                            </a>
+                                        </div>
+                                        <div class="card-header"></div>
+                                        <div class="card-body">
+                                            <h5 class="card-title">¿Nuevo/a en Empleos G13? ¡Registrate gratis!:</h5>
+                                            <p class="card-text">
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <div class="d-grid gap-2 d-md-block m-auto">
+                                        <a th:href="@{/empleos/registroCiu}"  class="btn btn-lg btn-warning "  type="button"><i class="fas fa-search"></i> Candidato</a>
+                                        <a th:href="@{/empleos/registroEmp}"  class="btn btn-lg btn-primary " type="button"><i class="fa-solid fa-user-tie"></i>  Empresa</a>
+                                    </div>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary"
+                                        data-bs-dismiss="modal">Close</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </nav>
     </header>
 
-    
+
     <script type="text/javascript" th:src="@{/webjars/jquery/jquery.min.js}"></script>
     <script type="text/javascript" th:src="@{/webjars/popper.js/umd/popper.min.js}"></script>
     <script type="text/javascript" th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>

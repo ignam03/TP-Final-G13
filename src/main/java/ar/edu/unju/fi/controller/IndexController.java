@@ -26,5 +26,6 @@ public class IndexController {
     public String getEmpleadorPage(Model model) {
         return "empleadorForm";
     }
+    
 
 }
