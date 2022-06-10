@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
-@RequestMapping("/Empleo")
+@RequestMapping("/empleos")
 public class IndexController {
     
 
@@ -18,11 +18,11 @@ public class IndexController {
     public String getLoginPage(Model model) {
         return "loginForm";
     }
-    @GetMapping("/login1")
+    @GetMapping("/registroCiu")
     public String getCiudadanoPage(Model model) {
         return "ciudadanoForm";
     }
-    @GetMapping("/login2")
+    @GetMapping("/registroEmp")
     public String getEmpleadorPage(Model model) {
         return "empleadorForm";
     }
