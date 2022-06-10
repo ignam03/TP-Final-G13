@@ -18,15 +18,15 @@ public class IndexController {
     public String getLoginPage(Model model) {
         return "loginForm";
     }
-    @GetMapping("/login1")
+    @GetMapping("/ciudadano")
     public String getCiudadanoPage(Model model) {
         return "ciudadanoForm";
     }
-    @GetMapping("/login2")
+    @GetMapping("/empleador")
     public String getEmpleadorPage(Model model) {
         return "empleadorForm";
     }
-    @GetMapping("/login3")
+    @GetMapping("/oferta")
     public String getoferLabFormPage(Model model) {
         return "oferLabForm";
     }
