@@ -7,12 +7,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
 @RequestMapping("/pci")
-public class IndexController {
+public class FormsController {
     
-
-    @GetMapping("/inicio")
-    public String getInicioPage(Model model) {
-        return "index";
+    @GetMapping("/login")
+    public String getLoginPage(Model model) {
+        return "loginForm";
     }
-
+    
 }
