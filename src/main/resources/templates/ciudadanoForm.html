@@ -2,11 +2,11 @@
 <html lang="en" xmlns:th="http://thymeleaf.org">
 
 <head>
-    <meta charset="UTF-8">
-    <title>Ciudadano Form</title>
-    <link rel="stylesheet" type="text/css" th:href="@{/css/style.css}">
-    <link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}">
-    <link th:rel="stylesheet" type="text/css" th:href="@{/webjars/font-awesome/css/all.min.css}" />
+	<meta charset="UTF-8">
+	<title>Ciudadano Form</title>
+	<link rel="stylesheet" type="text/css" th:href="@{/css/style.css}">
+	<link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}">
+	<link th:rel="stylesheet" type="text/css" th:href="@{/webjars/font-awesome/css/all.min.css}" />
 </head>
 
 <body>
@@ -14,83 +14,88 @@
 	<header th:replace="/layout/header::header"></header>
 
 	<div id="loginform">
-      <div class="row-cols-2 offset-4 p-5">
-	      <div class="card">
-	        <div class="card-body">
-	          <form>
-	            <h1 class="text-center">Formulario Ciudadano</h1>
-	            <!--Dni-->
-	            <div class="mb-3">
-	              <label for="exampleInputDni" class="form-label">DNI</label>
-	              <input type="number" class="form-control" id="exampleInputDni">
-	            </div>
-	            <!--NroTramite-->
-	            <div class="mb-3">
-	              <label for="exampleInputNroTram" class="form-label">Nro de Tramite</label>
-	              <input type="text" class="form-control" id="exampleInputNroTram">
-	            </div>
-	            <!--Email-->
-	            <div class="mb-3">
-	              <label for="exampleInputEmail1" class="form-label">Email</label>
-	              <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
-	            </div>
-	            <!--EstadoCivil-->
-	            <div class="mb-3">
-	              <label for="exampleInputEstCivil" class="form-label">Estado Civil</label>
-	              <div class="form-check">
-	                <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
-	                <label class="form-check-label" for="flexRadioDefault1">Soltero/a</label>
-	              </div>
-	              <div class="form-check">
-	                <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2">
-	                <label class="form-check-label" for="flexRadioDefault2">Casado/a</label>
-	              </div>
-	              <div class="form-check">
-	                <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault3">
-	                <label class="form-check-label" for="flexRadioDefault3">Viudo/a</label>
-	              </div>
-	            </div>
-	            <!--Provincia-->
-	            <div class="mb-3">
-	              <label for="exampleInputProv" class="form-label">Provincia</label>
-	              <select class="form-select" aria-label="Default select example">
-	                <option selected>Seleccione Provincia</option>
-	                <option value="1">Jujuy</option>
-	                <option value="2">Salta</option>
-	                <option value="3">Tierra del Fuego</option>
-	              </select>
-	            </div>
-	            <!--Telefono-->
-	            <div class="mb-3">
-	              <label for="exampleInputTelefono" class="form-label">Telefono</label>
-	              <input type="number" class="form-control" id="exampleInputTelefono" aria-describedby="emailHelp">
-	            </div>
-	            <!--FechaNacimiento-->
-	            <div class="mb-3">
-	              <label for="exampleInputFechaNac" class="form-label">Fecha de Nacimiento</label>
-	              <input type="date" class="form-control" id="exampleInputFechaNac">
-	            </div>
-	            <!--Contrasenia-->
-	            <div class="mb-3">
-	              <label for="exampleInputPassword1" class="form-label">Contraseña</label>
-	              <input type="password" class="form-control" id="exampleInputPassword1">
-	            </div>
-	            <div class="text-center">
-	              <button type="submit" class="btn btn-dark">Registrar</button>
-	              <button type="submit" class="btn btn-dark">Volver</button>
-	            </div>
-	          </form>
-	        </div>
-	      </div>
-	    </div>
-	  </div>
+		<div class="row-cols-2 offset-4 p-5">
+			<div class="card">
+				<div class="card-body">
+					<form>
+						<h1 class="text-center">Formulario Ciudadano</h1>
+						<!--Dni-->
+						<div class="mb-3">
+							<label for="exampleInputDni" class="form-label">DNI</label>
+							<input type="number" class="form-control" id="exampleInputDni">
+						</div>
+						<!--NroTramite-->
+						<div class="mb-3">
+							<label for="exampleInputNroTram" class="form-label">Nro de Tramite</label>
+							<input type="text" class="form-control" id="exampleInputNroTram">
+						</div>
+						<!--Email-->
+						<div class="mb-3">
+							<label for="exampleInputEmail1" class="form-label">Email</label>
+							<input type="email" class="form-control" id="exampleInputEmail1"
+								aria-describedby="emailHelp">
+						</div>
+						<!--EstadoCivil-->
+						<div class="mb-3">
+							<label for="exampleInputEstCivil" class="form-label">Estado Civil</label>
+							<div class="form-check">
+								<input class="form-check-input" type="radio" name="flexRadioDefault"
+									id="flexRadioDefault1">
+								<label class="form-check-label" for="flexRadioDefault1">Soltero/a</label>
+							</div>
+							<div class="form-check">
+								<input class="form-check-input" type="radio" name="flexRadioDefault"
+									id="flexRadioDefault2">
+								<label class="form-check-label" for="flexRadioDefault2">Casado/a</label>
+							</div>
+							<div class="form-check">
+								<input class="form-check-input" type="radio" name="flexRadioDefault"
+									id="flexRadioDefault3">
+								<label class="form-check-label" for="flexRadioDefault3">Viudo/a</label>
+							</div>
+						</div>
+						<!--Provincia-->
+						<div class="mb-3">
+							<label for="exampleInputProv" class="form-label">Provincia</label>
+							<select class="form-select" aria-label="Default select example">
+								<option selected>Seleccione Provincia</option>
+								<option value="1">Jujuy</option>
+								<option value="2">Salta</option>
+								<option value="3">Tierra del Fuego</option>
+							</select>
+						</div>
+						<!--Telefono-->
+						<div class="mb-3">
+							<label for="exampleInputTelefono" class="form-label">Telefono</label>
+							<input type="number" class="form-control" id="exampleInputTelefono"
+								aria-describedby="emailHelp">
+						</div>
+						<!--FechaNacimiento-->
+						<div class="mb-3">
+							<label for="exampleInputFechaNac" class="form-label">Fecha de Nacimiento</label>
+							<input type="date" class="form-control" id="exampleInputFechaNac">
+						</div>
+						<!--Contrasenia-->
+						<div class="mb-3">
+							<label for="exampleInputPassword1" class="form-label">Contraseña</label>
+							<input type="password" class="form-control" id="exampleInputPassword1">
+						</div>
+						<div class="text-center">
+							<button type="submit" class="btn btn-dark">Registrar</button>
+							<button type="submit" class="btn btn-dark">Volver</button>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
 
 
 	<footer th:replace="/layout/footer::footer"></footer>
 
-<script type="text/javascript" th:src="@{/webjars/jquery/dist/jquery.min.js}"></script>
-    <script type="text/javascript" th:src="@{/webjars/popper.js/umd/popper.min.js}"></script>
-    <script type="text/javascript" th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
+	<script type="text/javascript" th:src="@{/webjars/jquery/dist/jquery.min.js}"></script>
+	<script type="text/javascript" th:src="@{/webjars/popper.js/umd/popper.min.js}"></script>
+	<script type="text/javascript" th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
 </body>
 
 </html>

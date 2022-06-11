@@ -14,10 +14,17 @@ public class IndexController {
     public String getInicioPage(Model model) {
         return "index";
     }
-    @GetMapping("/login")
-    public String getLoginPage(Model model) {
-        return "loginForm";
+
+    @GetMapping("/loginCiu")
+    public String getLoginCiudadanoPage(Model model) {
+        return "loginCiudadano";
     }
+
+    @GetMapping("/loginEmp")
+    public String getLoginEmpleadorPage(Model model) {
+        return "loginEmpleador";
+    }
+
     @GetMapping("/registroCiu")
     public String getCiudadanoPage(Model model) {
         return "ciudadanoForm";
@@ -33,4 +40,13 @@ public class IndexController {
         return "ofertaLaboral";
     }
 
+    @GetMapping("/empresas")
+    public String get404Page(Model model) {
+        return "404";
+    }
+
+    @GetMapping("/sobreNosotros")
+    public String getSobreNosotrosPage(Model model) {
+        return "404";
+    }
 }

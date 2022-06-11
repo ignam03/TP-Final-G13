@@ -2,11 +2,11 @@
 <html lang="en" xmlns:th="http://thymeleaf.org">
 
 <head>
-    <meta charset="UTF-8">
-    <title>Empleos G13</title>
-    <link rel="stylesheet" type="text/css" th:href="@{/css/style.css}">
-    <link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}">
-    <link th:rel="stylesheet" type="text/css" th:href="@{/webjars/font-awesome/css/all.min.css}" />
+	<meta charset="UTF-8">
+	<title>Empleos G13</title>
+	<link rel="stylesheet" type="text/css" th:href="@{/css/style.css}">
+	<link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}">
+	<link th:rel="stylesheet" type="text/css" th:href="@{/webjars/font-awesome/css/all.min.css}" />
 </head>
 
 <body>
@@ -17,13 +17,14 @@
 		<div class="row">
 			<div class="row">
 				<div class="col-3 mt-5">
-					<a th:href="@{/pci/inicio}" class="btn btn-outline-primary mb-4"><i class="fa-solid fa-arrow-left"></i>  Volver</a>
+					<a th:href="@{/pci/inicio}" class="btn btn-outline-primary mb-4"><i
+							class="fa-solid fa-arrow-left"></i> Volver</a>
 				</div>
 			</div>
 			<h3 class="mb-3 text-muted">Econtrá Empleo!!!</h3>
 			<hr>
-			<div class="col-12 d-flex justify-content-center" >
-				<table class="table table-shadow bg-primary  align-middle mb-5" >
+			<div class="col-12 d-flex justify-content-center">
+				<table class="table table-shadow bg-primary  align-middle mb-5">
 					<thead class="">
 						<tr>
 							<th scope="col">Codigo</th>
@@ -33,7 +34,7 @@
 							<th scope="col">Cant. Votos</th>
 						</tr>
 					</thead>
-					<tbody >
+					<tbody>
 						<tr th:each="candidato :${candidatos}" class="bg-white">
 							<th scope="row" th:text="${candidato.codigo}"></th>
 							<td th:text="${candidato.nombre}"></td>
@@ -57,7 +58,8 @@
 												aria-label="Close"></button>
 										</div>
 										<div class="modal-body">
-											<p class="text-center text-danger text-uppercase fs-5 fw-bold">Esta seguro de eliminar el candidato?</p>
+											<p class="text-center text-danger text-uppercase fs-5 fw-bold">Esta seguro
+												de eliminar el candidato?</p>
 										</div>
 										<div class="modal-footer">
 											<button type="button" class="btn btn-secondary"
@@ -78,9 +80,9 @@
 
 	<footer th:replace="/layout/footer::footer"></footer>
 
-<script type="text/javascript" th:src="@{/webjars/jquery/dist/jquery.min.js}"></script>
-    <script type="text/javascript" th:src="@{/webjars/popper.js/umd/popper.min.js}"></script>
-    <script type="text/javascript" th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
+	<script type="text/javascript" th:src="@{/webjars/jquery/dist/jquery.min.js}"></script>
+	<script type="text/javascript" th:src="@{/webjars/popper.js/umd/popper.min.js}"></script>
+	<script type="text/javascript" th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
 </body>
 
 </html>

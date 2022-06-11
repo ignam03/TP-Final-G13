@@ -21,8 +21,8 @@
             <div class="container">
                 <a class="navbar-brand m-1 " th:href="@{/empleos/inicio}">Inicio</a>
                 <a class="navbar-brand m-1" th:href="@{/empleos/ofertaLab}">Encontrar Empleo</a>
-                <a class="navbar-brand m-1" th:href="@{/pci/inicio}">Empresas</a>
-                <a class="navbar-brand m-1" th:href="@{/pci/inicio}">¿Quienes somos?</a>
+                <a class="navbar-brand m-1" th:href="@{/empleos/empresas}">Empresas</a>
+                <a class="navbar-brand m-1" th:href="@{/empleos/sobreNosotros}">¿Quienes somos?</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                     data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false"
                     aria-label="Toggle navigation">
@@ -31,7 +31,7 @@
                 </button>
                 <div class="collapse navbar-collapse" id="navbarResponsive">
                     <ul class="navbar-nav text-uppercase ms-auto py-4 py-lg-0 ">
-                        <li class="nav-item m-1 "><a class="nav-link" th:href="@{/empleos/login}"><i
+                        <li class="nav-item m-1 "><a class="nav-link" th:href="@{/empleos/loginCiu}"><i
                                     class="fa-regular fa-user"></i> Ingresar</a></li>
                         <li class="nav-item m-1"><a class="nav-link btn btn-primary text-white" data-bs-toggle="modal"
                                 data-bs-target="#modalRegistro" th:href="@{/candidatos/listaC}"><i
@@ -67,9 +67,11 @@
                                             </p>
                                         </div>
                                     </div>
-                                    <div class="d-grid gap-2 d-md-block m-auto">
-                                        <a th:href="@{/empleos/registroCiu}"  class="btn btn-lg btn-warning "  type="button"><i class="fas fa-search"></i> Candidato</a>
-                                        <a th:href="@{/empleos/registroEmp}"  class="btn btn-lg btn-primary " type="button"><i class="fa-solid fa-user-tie"></i>  Empresa</a>
+                                    <div class="d-grid gap-2 d-md-block m-auto text-center mt-2">
+                                        <a th:href="@{/empleos/registroCiu}" class="btn btn-lg btn-warning "
+                                            type="button"><i class="fas fa-search"></i> Candidato</a>
+                                        <a th:href="@{/empleos/registroEmp}" class="btn btn-lg btn-primary "
+                                            type="button"><i class="fa-solid fa-user-tie"></i> Empresa</a>
                                     </div>
                                 </div>
                                 <div class="modal-footer">
