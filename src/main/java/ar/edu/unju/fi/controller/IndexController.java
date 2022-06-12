@@ -49,4 +49,8 @@ public class IndexController {
     public String getSobreNosotrosPage(Model model) {
         return "404";
     }
+    @GetMapping("/curriculum")
+    public String getCurriculumPage(Model model) {
+        return "cv";
+    }
 }
