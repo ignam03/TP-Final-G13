@@ -4,6 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Inicio</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/style.css}">
     <link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}">
     <link th:rel="stylesheet" type="text/css" th:href="@{/webjars/font-awesome/css/all.min.css}" />
 
@@ -18,11 +19,18 @@
             </div>
         </div>
         <nav class="navbar navbar-expand-lg navbar-dark  " style="background-color:#2A499B;">
-            <div class="container">
-                <a class="navbar-brand m-1 " th:href="@{/empleos/inicio}">Inicio</a>
-                <a class="navbar-brand m-1" th:href="@{/empleos/ofertaLab}">Encontrar Empleo</a>
-                <a class="navbar-brand m-1" th:href="@{/empleos/empresas}">Empresas</a>
-                <a class="navbar-brand m-1" th:href="@{/empleos/sobreNosotros}">¿Quienes somos?</a>
+            <div class="container ">
+                <a class="hov navbar-brand m-1 me-2 pe-2" th:href="@{/empleos/inicio}" style="border-right: 1px solid #fff;">Inicio</a>
+                <a class="hov navbar-brand m-1 me-2 pe-2" th:href="@{/empleos/ofertaLab}"style="border-right: 1px solid #fff;">Encontrar Empleo</a>
+                <div class="" sec:authorize="isAuthenticated() == false">
+                    <a class="hov navbar-brand m-1 me-2 pe-2" th:href="@{/empleos/empresas}" style="border-right: 1px solid #fff;">Empresas</a>
+                </div>
+                <div class="" sec:authorize="isAuthenticated() == false">
+                    <a class="hov navbar-brand m-1 me-2 pe-2" th:href="@{/empleos/sobreNosotros}"style="border-right: 1px solid #fff;">¿Quienes somos?</a>
+                </div>
+                <div class="" sec:authorize="isAuthenticated() == true">
+                    <a class="hov navbar-brand m-1 me-2 pe-2" th:href="@{/empleos/sobreNosotros}"style="border-right: 1px solid #fff;">Cursos de capacitación</a>
+                </div>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                     data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false"
                     aria-label="Toggle navigation">
@@ -31,15 +39,38 @@
                 </button>
                 <div class="collapse navbar-collapse" id="navbarResponsive">
                     <ul class="navbar-nav text-uppercase ms-auto py-4 py-lg-0 ">
-                        <li class="nav-item m-1 "><a class="nav-link" th:href="@{/empleos/loginCiu}"><i
-                                    class="fa-regular fa-user"></i> Ingresar</a></li>
-                        <li class="nav-item m-1"><a class="nav-link btn btn-primary text-white" data-bs-toggle="modal"
+                        <div class="" sec:authorize="isAuthenticated() == false">
+                            <li class="nav-item m-1 "><a class="nav-link" th:href="@{/empleos/loginCiu}"><i
+                                class="fa-regular fa-user"></i> Ingresar</a></li>
+                        </div>
+                        <div class="" sec:authorize="isAuthenticated() == true">
+                            <div class="nav-item m-1">
+                                <a class="nav-link text-white" th:href="@{/ciudadano/crearCv}">Crear Cv</a>
+                            </div>
+                        </div>
+                        <div class="" sec:authorize="isAuthenticated() == true">
+                            <div class="nav-item m-1">
+                                <a class="nav-link text-white" th:href="@{/empleos/sobreNosotros}">Ver Cv</a>
+                            </div>
+                        </div>
+                        <div class="" sec:authorize="isAuthenticated() == true">
+                            <li  class="nav-item m-1 "><a class="nav-link" href="#" >Bienvenido
+                                    <span sec:authentication="name"></span> <i class="fa fa-sign-out"></i></a>
+                            </li>
+                        </div>
+                        <form th:action="@{/logout}" method="post">
+                            <div class="" sec:authorize="isAuthenticated() == true">
+                                <input  class="nav-link btn "  type="submit" value="Logout"/>
+                            </div>
+                        </form>
+                        <div class="" sec:authorize="isAuthenticated() == false">
+                            <li class="nav-item m-1"><a class="nav-link btn btn-primary text-white" data-bs-toggle="modal"
                                 data-bs-target="#modalRegistro" th:href="@{/candidatos/listaC}"><i
                                     class="fa-solid fa-right-to-bracket"></i>
                                 Registrarme</a>
                         </li>
+                        </div>
                     </ul>
-
                     <!-- Modal -->
                     <div class="modal fade" id="modalRegistro" tabindex="-1" aria-labelledby="exampleModalLabel"
                         aria-hidden="true">
@@ -68,7 +99,7 @@
                                         </div>
                                     </div>
                                     <div class="d-grid gap-2 d-md-block m-auto text-center mt-2">
-                                        <a th:href="@{/empleos/registroCiu}" class="btn btn-lg btn-warning "
+                                        <a th:href="@{/ciudadano/nuevo}" class="btn btn-lg btn-warning "
                                             type="button"><i class="fas fa-search"></i> Candidato</a>
                                         <a th:href="@{/empleos/registroEmp}" class="btn btn-lg btn-primary "
                                             type="button"><i class="fa-solid fa-user-tie"></i> Empresa</a>

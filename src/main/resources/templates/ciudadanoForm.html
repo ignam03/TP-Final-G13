@@ -13,72 +13,229 @@
 
 	<header th:replace="/layout/header::header"></header>
 
-	<div id="loginform">
+	<div id="booking" class="section">
+		<div class="section-center">
+			<div class="container">
+				<div>
+					<h1 class="text-center text-white">Registro Candidato</h1>
+					<div class="booking-form">
+						<form th:action="@{/ciudadano/guardar}" method="POST" th:object="${ciudadano}">
+							<div class="form-group">
+								<input type="hidden" th:field="*{ciudadanoNumber}" />
+							</div>
+							<div class="row">
+								<div class="col-md-6">
+									<div class="form-group">
+										<span for="dniId" class="form-label">DNI</span>
+										<input th:field="*{dni}" class="form-control" id="dniId" type="text"
+											placeholder="Numero de DNI">
+										<div class="alert alert-danger text-black" role="alert"
+											th:if="${#fields.hasErrors('dni')}" th:errors="*{dni}"></div>
+									</div>
+								</div>
+								<div class="col-md-6">
+									<div class="form-group">
+										<span for="emailId" class="form-label">Email</span>
+										<input th:field="*{email}" class="form-control" id="emailId" type="email"
+											placeholder="Ingresar email">
+										<div class="alert alert-danger text-black" role="alert"
+											th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></div>
+									</div>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-md-6">
+									<div class="form-group">
+										<span for="tramiteId" class="form-label">Nro de Tramite</span>
+										<input th:field="*{nroTramite}" class="form-control" id="tramiteId" type="text"
+											placeholder="Ingrese numero de tramite">
+										<div class="alert alert-danger text-black" role="alert"
+											th:if="${#fields.hasErrors('nroTramite')}" th:errors="*{nroTramite}"></div>
+									</div>
+								</div>
+								<div class="col-md-6">
+									<div class="form-group">
+										<span for="telefonoId" class="form-label">Telefono</span>
+										<input th:field="*{telefono}" class="form-control" id="telefonoId" type="text"
+											placeholder="Ingrese numero de tramite">
+										<div class="alert alert-danger text-black" role="alert"
+											th:if="${#fields.hasErrors('telefono')}" th:errors="*{telefono}"></div>
+									</div>
+								</div>
+								<div class="col-md-4">
+									<div class="form-group">
+										<span for="fechaFinId" class="form-label">Fecha de Nacimiento</span>
+										<input th:field="*{fechaNac}" class="form-control" th:value="*{fechaNac}"
+											id="fechaNacId" type="date" >
+										<div class="alert alert-danger text-black" role="alert"
+											th:if="${#fields.hasErrors('fechaNac')}" th:errors="*{fechaNac}"></div>
+									</div>
+								</div>
+								<div class="col-md-4">
+									<div class="form-group">
+										<span for="provinciaId" class="form-label">Provincia</span>
+										<select class="form-control" th:field="*{provincia}" id="provinciaId"
+											name="provincia">
+											<!-- <option th:each="provincia : ${provincias}" th:value="${provincia.codigo}"
+												th:text="${provincia.nombreP}">
+											</option> -->
+											<option value="">Seleccione</option>
+											<option value="Buenos Aires">Buenos Aires</option>
+											<option value="Catamarca">Catamarca</option>
+											<option value="Chaco">Chaco</option>
+											<option value="Chubut">Chubut</option>
+											<option value="Córdoba">Córdoba</option>
+											<option value="Entre Ríos">Entre Ríos</option>
+											<option value="Formosa">Formosa</option>
+											<option value="Jujuy">Jujuy</option>
+											<option value="La Pampa">La Pampa</option>
+											<option value="La Rioja">La Rioja</option>
+											<option value="Mendoza">Mendoza</option>
+											<option value="Misiones">Misiones</option>
+											<option value="Neuquén">Neuquén</option>
+											<option value="Río Negro">Río Negro</option>
+											<option value="Salta">Salta</option>
+											<option value="San Juan">San Juan</option>
+											<option value="San Luis">San Luis</option>
+											<option value="Santa Cruz">Santa Cruz</option>
+											<option value="Santa Fe">Santa Fe</option>
+											<option value="Santiago del Estero">Santiago del Estero</option>
+											<option value="Tierra del Fuego, Antártida e Islas del Atlántico Sur">Tierra del Fuego, Antártida e Islas del Atlántico Sur</option>
+											<option value="Tucumán">Tucumán</option>
+										</select>
+										<div class="alert alert-danger text-black" role="alert"
+											th:if="${#fields.hasErrors('provincia')}" th:errors="*{provincia}"></div>
+									</div>
+								</div>
+								<div class="col-md-4">
+									<div class="form-group">
+										<span for="estadoId" class="form-label">Estado Civil</span>
+										<select class="form-control" th:field="*{estadoCivil}" name="estadoCivil"
+											id="estadoId">
+											<option value="">Seleccione</option>
+											<option value="soltero">Soltero/a</option>
+											<option value="casado">Casado/a</option>
+											<option value="viudo">Viudo/a</option>
+										</select>
+										<div class="alert alert-danger text-black" role="alert"
+											th:if="${#fields.hasErrors('estadoCivil')}" th:errors="*{estadoCivil}">
+										</div>
+									</div>
+								</div>
+								<div hidden class="form-outline mb-4" type="hidden">
+									<label class="form-label" for="perfilId" type="hidden">Perfil </label>
+									<select type="hidden" class="form-select" th:field="*{perfil}" name="perfil"
+										id="perfilId">
+										<option value="ciudadano">Ciudadano</option>
+									</select>
+									<div class="alert alert-danger text-black" role="alert"
+										th:if="${#fields.hasErrors('perfil')}" th:errors="*{perfil}"></div>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-md-6">
+									<div class="form-group">
+										<span for="passwdId" class="form-label">Contraseña</span>
+										<input th:field="*{contrasena}" class="form-control" id="passwdId"
+											type="password" placeholder="Ingrese Contreseña" >
+										<div class="alert alert-danger text-black" role="alert"
+											th:if="${#fields.hasErrors('contrasena')}" th:errors="*{contrasena}"></div>
+									</div>
+								</div>
+								<div class="col-md-3">
+									<div class="form-btn">
+										<button class="submit-btn text-center">Registrar</button>
+									</div>
+								</div>
+								<div class="col-md-3">
+									<div class="form-btn">
+										<a th:ref="@{/empleos/inicio}" class="btn submit-btn text-center">Volver</a>
+									</div>	
+								</div>
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!-- <div id="loginform">
 		<div class="row-cols-2 offset-4 p-5">
 			<div class="card">
 				<div class="card-body">
-					<form>
-						<h1 class="text-center">Formulario Ciudadano</h1>
-						<!--Dni-->
+					<form th:action="@{/ciudadano/guardar}" method="POST" th:object="${ciudadano}">
+						<h1 class="text-center">Registro Candidato</h1>
+						<input type="hidden" th:field="*{ciudadanoNumber}" />
 						<div class="mb-3">
-							<label for="exampleInputDni" class="form-label">DNI</label>
-							<input type="number" class="form-control" id="exampleInputDni">
+							<label for="dniId" class="form-label">DNI</label>
+							<input th:field="*{dni}" type="text" class="form-control" id="dniId">
+							<div class="alert alert-danger text-black" role="alert" th:if="${#fields.hasErrors('dni')}"
+								th:errors="*{dni}"></div>
 						</div>
-						<!--NroTramite-->
 						<div class="mb-3">
-							<label for="exampleInputNroTram" class="form-label">Nro de Tramite</label>
-							<input type="text" class="form-control" id="exampleInputNroTram">
+							<label for="tramiteId" class="form-label">Nro de Tramite</label>
+							<input th:field="*{nroTramite}" type="text" class="form-control" id="tramiteId">
+							<div class="alert alert-danger text-black" role="alert"
+								th:if="${#fields.hasErrors('nroTramite')}" th:errors="*{nroTramite}"></div>
 						</div>
-						<!--Email-->
 						<div class="mb-3">
-							<label for="exampleInputEmail1" class="form-label">Email</label>
-							<input type="email" class="form-control" id="exampleInputEmail1"
+							<label for="emailId" class="form-label">Email</label>
+							<input th:field="*{email}" type="email" class="form-control" id="emailId"
 								aria-describedby="emailHelp">
+							<div class="alert alert-danger text-black" role="alert"
+								th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></div>
 						</div>
-						<!--EstadoCivil-->
-						<div class="mb-3">
-							<label for="exampleInputEstCivil" class="form-label">Estado Civil</label>
-							<div class="form-check">
-								<input class="form-check-input" type="radio" name="flexRadioDefault"
-									id="flexRadioDefault1">
-								<label class="form-check-label" for="flexRadioDefault1">Soltero/a</label>
-							</div>
-							<div class="form-check">
-								<input class="form-check-input" type="radio" name="flexRadioDefault"
-									id="flexRadioDefault2">
-								<label class="form-check-label" for="flexRadioDefault2">Casado/a</label>
-							</div>
-							<div class="form-check">
-								<input class="form-check-input" type="radio" name="flexRadioDefault"
-									id="flexRadioDefault3">
-								<label class="form-check-label" for="flexRadioDefault3">Viudo/a</label>
-							</div>
-						</div>
-						<!--Provincia-->
-						<div class="mb-3">
-							<label for="exampleInputProv" class="form-label">Provincia</label>
-							<select class="form-select" aria-label="Default select example">
-								<option selected>Seleccione Provincia</option>
-								<option value="1">Jujuy</option>
-								<option value="2">Salta</option>
-								<option value="3">Tierra del Fuego</option>
+						<div class="form-outline mb-4">
+							<label class="form-label" for="estadoId">Estado Civil </label>
+							<select class="form-select" th:field="*{estadoCivil}" name="" id="estadoId">
+								<option value="">Seleccione</option>
+								<option value="soltero">Soltero/a</option>
+								<option value="casado">Casado/a</option>
+								<option value="viudo">Viudo/a</option>
 							</select>
+							<div class="alert alert-danger text-black" role="alert"
+								th:if="${#fields.hasErrors('estadoCivil')}" th:errors="*{estadoCivil}"></div>
 						</div>
-						<!--Telefono-->
 						<div class="mb-3">
-							<label for="exampleInputTelefono" class="form-label">Telefono</label>
-							<input type="number" class="form-control" id="exampleInputTelefono"
+							<label for="provinciaId" class="form-label">Provincia</label>
+							<select class="form-select" th:field="*{provincia.codigo}"
+								aria-label="Default select example" name="" id="provinciaId">
+								<option th:each="provincia : ${provincias}" th:value="${provincia.codigo}"
+									th:text="${provincia.nombreP}">
+								</option>
+							</select>
+							<div class="alert alert-danger text-black" role="alert"
+								th:if="${#fields.hasErrors('provincia')}" th:errors="*{provincia}"></div>
+						</div>
+						<div class="mb-3">
+							<label for="telefonoId" class="form-label">Telefono</label>
+							<input th:field="*{telefono}" type="text" class="form-control" id="telefonoId"
 								aria-describedby="emailHelp">
+
+							<div class="alert alert-danger text-black" role="alert"
+								th:if="${#fields.hasErrors('telefono')}" th:errors="*{telefono}"></div>
 						</div>
-						<!--FechaNacimiento-->
-						<div class="mb-3">
-							<label for="exampleInputFechaNac" class="form-label">Fecha de Nacimiento</label>
-							<input type="date" class="form-control" id="exampleInputFechaNac">
+						<div class="form-outline mb-4">
+							<label class="form-label" for="fechaFinId">Fecha Nacimiento </label>
+							<input th:field="*{fechaNac}" type="date" id="fechaNacId" th:value="*{fechaNac}"
+								class="form-control" />
+							<div class="alert alert-danger text-black" role="alert"
+								th:if="${#fields.hasErrors('fechaNac')}" th:errors="*{fechaNac}"></div>
 						</div>
-						<!--Contrasenia-->
 						<div class="mb-3">
-							<label for="exampleInputPassword1" class="form-label">Contraseña</label>
-							<input type="password" class="form-control" id="exampleInputPassword1">
+							<label for="passwdId" class="form-label">Contraseña</label>
+							<input th:field="*{contrasena}" type="password" class="form-control" id="passwdId">
+							<div class="alert alert-danger text-black" role="alert"
+								th:if="${#fields.hasErrors('contrasena')}" th:errors="*{contrasena}"></div>
+						</div>
+						<div class="form-outline mb-4" type="hidden">
+							<label class="form-label" for="perfilId" type="hidden">Estado Civil </label>
+							<select type="hidden" class="form-select" th:field="*{perfil}" name="perfil" id="perfilId">
+								<option value="ciudadano">Ciudadano</option>
+							</select>
+							<div class="alert alert-danger text-black" role="alert"
+								th:if="${#fields.hasErrors('perfil')}" th:errors="*{perfil}"></div>
 						</div>
 						<div class="text-center">
 							<button type="submit" class="btn btn-dark">Registrar</button>
@@ -88,11 +245,12 @@
 				</div>
 			</div>
 		</div>
-	</div>
+	</div> -->
 
 
 	<footer th:replace="/layout/footer::footer"></footer>
 
+	<script th:src="@{/js/FormCiu.js}"></script>
 	<script type="text/javascript" th:src="@{/webjars/jquery/dist/jquery.min.js}"></script>
 	<script type="text/javascript" th:src="@{/webjars/popper.js/umd/popper.min.js}"></script>
 	<script type="text/javascript" th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>

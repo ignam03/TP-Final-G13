@@ -1,6 +1,6 @@
 package ar.edu.unju.fi.entity;
 
-import java.util.ArrayList;
+
 
 public class EstadoCivil {
 	private String estado;
