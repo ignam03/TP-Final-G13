@@ -21,12 +21,21 @@ public class IndexController {
     public String getLoginCiudadanoPage(Model model) {
         return "loginCiudadano";
     }
+    
+    @GetMapping("/login")
+    public String getLoginPage(Model model) {
+        return "loginForm";
+    }
 
     @GetMapping("/loginEmp")
     public String getLoginEmpleadorPage(Model model) {
         return "loginEmpleador";
     }
 
+    @GetMapping("/registroCiu")
+    public String getCiudadanoPage(Model model) {
+        return "ciudadanoForm";
+    }
     
     @GetMapping("/registroEmp")
     public String getEmpleadorPage(Model model) {
