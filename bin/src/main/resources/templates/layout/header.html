@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Inicio</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/style.css}">
+    <link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}">
+    <link th:rel="stylesheet" type="text/css" th:href="@{/webjars/font-awesome/css/all.min.css}" />
+
+</head>
+
+<body>
+    </div>
+    <header th:fragment="header">
+        <div class="">
+            <div class="col-6 offset-2">
+                <img src="/images/logo.png" height="100px" alt="">
+            </div>
+        </div>
+        <nav class="navbar navbar-expand-lg navbar-dark  " style="background-color:#2A499B;">
+            <div class="container ">
+                <a class="hov navbar-brand m-1 me-2 pe-2" th:href="@{/empleos/inicio}" style="border-right: 1px solid #fff;">Inicio</a>
+                <a class="hov navbar-brand m-1 me-2 pe-2" th:href="@{/empleos/ofertaLab}"style="border-right: 1px solid #fff;">Encontrar Empleo</a>
+                <div class="" sec:authorize="isAuthenticated() == false">
+                    <a class="hov navbar-brand m-1 me-2 pe-2" th:href="@{/empleos/empresas}" style="border-right: 1px solid #fff;">Empresas</a>
+                </div>
+                <div class="" sec:authorize="isAuthenticated() == false">
+                    <a class="hov navbar-brand m-1 me-2 pe-2" th:href="@{/empleos/sobreNosotros}"style="border-right: 1px solid #fff;">¿Quienes somos?</a>
+                </div>
+                <div class="" sec:authorize="isAuthenticated() == true">
+                    <a class="hov navbar-brand m-1 me-2 pe-2" th:href="@{/empleos/sobreNosotros}"style="border-right: 1px solid #fff;">Cursos de capacitación</a>
+                </div>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false"
+                    aria-label="Toggle navigation">
+                    Menu
+                    <i class="fas fa-bars ms-1"></i>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarResponsive">
+                    <ul class="navbar-nav text-uppercase ms-auto py-4 py-lg-0 ">
+                        <div class="" sec:authorize="isAuthenticated() == false">
+                            <li class="nav-item m-1 "><a class="nav-link" th:href="@{/empleos/loginCiu}"><i
+                                class="fa-regular fa-user"></i> Ingresar</a></li>
+                        </div>
+                        <div class="" sec:authorize="isAuthenticated() == true">
+                            <div class="nav-item m-1">
+                                <a class="nav-link text-white" th:href="@{/ciudadano/crearCv}">Crear Cv</a>
+                            </div>
+                        </div>
+                        <div class="" sec:authorize="isAuthenticated() == true">
+                            <div class="nav-item m-1">
+                                <a class="nav-link text-white" th:href="@{/empleos/sobreNosotros}">Ver Cv</a>
+                            </div>
+                        </div>
+                        <div class="" sec:authorize="isAuthenticated() == true">
+                            <li  class="nav-item m-1 "><a class="nav-link" href="#" >Bienvenido
+                                    <span sec:authentication="name"></span> <i class="fa fa-sign-out"></i></a>
+                            </li>
+                        </div>
+                        <form th:action="@{/logout}" method="post">
+                            <div class="" sec:authorize="isAuthenticated() == true">
+                                <input  class="nav-link btn "  type="submit" value="Logout"/>
+                            </div>
+                        </form>
+                        <div class="" sec:authorize="isAuthenticated() == false">
+                            <li class="nav-item m-1"><a class="nav-link btn btn-primary text-white" data-bs-toggle="modal"
+                                data-bs-target="#modalRegistro" th:href="@{/candidatos/listaC}"><i
+                                    class="fa-solid fa-right-to-bracket"></i>
+                                Registrarme</a>
+                        </li>
+                        </div>
+                    </ul>
+                    <!-- Modal -->
+                    <div class="modal fade" id="modalRegistro" tabindex="-1" aria-labelledby="exampleModalLabel"
+                        aria-hidden="true">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="exampleModalLabel">REGISTRO</h5>
+                                    <hr class="mb-3">
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                        aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body">
+                                    <div class="card text-center " style="background-color:#ffffff;">
+                                        <div class="bg-image hover-overlay ripple" data-mdb-ripple-color="light">
+                                            <img src="/images/logo.png" class="img-fluid" />
+                                            <a href="#!">
+                                                <div class="mask" style="background-color: rgba(251, 251, 251, 0.15)">
+                                                </div>
+                                            </a>
+                                        </div>
+                                        <div class="card-header"></div>
+                                        <div class="card-body">
+                                            <h5 class="card-title">¿Nuevo/a en Empleos G13? ¡Registrate gratis!:</h5>
+                                            <p class="card-text">
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <div class="d-grid gap-2 d-md-block m-auto text-center mt-2">
+                                        <a th:href="@{/ciudadano/nuevo}" class="btn btn-lg btn-warning "
+                                            type="button"><i class="fas fa-search"></i> Candidato</a>
+                                        <a th:href="@{/empleos/registroEmp}" class="btn btn-lg btn-primary "
+                                            type="button"><i class="fa-solid fa-user-tie"></i> Empresa</a>
+                                    </div>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary"
+                                        data-bs-dismiss="modal">Close</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+
+    <script type="text/javascript" th:src="@{/webjars/jquery/jquery.min.js}"></script>
+    <script type="text/javascript" th:src="@{/webjars/popper.js/umd/popper.min.js}"></script>
+    <script type="text/javascript" th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
+
+</body>
+
+</html>

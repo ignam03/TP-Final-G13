@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Empleos G13</title>
+    <link rel="icon" href="/images/logo.png">
+    <link rel="stylesheet" type="text/css" th:href="@{/css/style.css}">
+    <link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}">
+    <link th:rel="stylesheet" type="text/css" th:href="@{/webjars/font-awesome/css/all.min.css}" />
+</head>
+
+<body>
+
+
+
+    <header th:replace="/layout/header::header"></header>
+
+    <div class="head">
+        <div class="container">
+            <div class="subheading">Bienvenido Empleos!</div>
+            <div class="heading text-uppercase">TRABAJOS ENCONTRÁ EL TUYO HOY</div>
+            <a style="font-size:1.5rem;" class="btn btn-primary btn-xl text-uppercase" th:href="@{/empleos/ofertaLab}">
+                <i class="fas fa-search"></i> Buscar Trabajo</a>
+        </div>
+    </div>
+
+    </div>
+
+    <div class="container">
+        <div class="row text-center mb-4 pt-5">
+            <div class="empres-title text-center">
+                <div class="masthead-subheading">
+                    EMPRESAS DESTACADAS
+                </div>
+            </div>
+            
+            <hr class="mb-3">
+        </div>
+        <div class="row text-center row-col-12 m-auto">
+            <div class="card card-1" style="width: 19rem;margin:10px">
+                <img src="/images/IntArg.png" class="card-img-top mt-2 btn" alt="..." data-bs-toggle="modal"
+                    data-bs-target="#modalDuki">
+                <div class="card-body">
+                    <h5 class="card-title">IntArg</h5>
+                </div>
+            </div>
+            <div class="card card-1" style="width: 19rem;margin:10px">
+                <img src="/images/Softex.png"
+                    class="card-img-top mt-2 btn" alt="..." data-bs-toggle="modal" data-bs-target="#modalNicky">
+                <div class="card-body">
+                    <h5 class="card-title">Softex</h5>
+                </div>
+            </div>
+            <div class="card card-1" style="width: 19rem;margin:10px">
+                <img src="/images/Argnix.png"
+                    class="card-img-top mt-2 btn" alt="..." data-bs-toggle="modal" data-bs-target="#modalPaulo">
+                <div class="card-body">
+                    <h5 class="card-title">Argnix</h5>
+                </div>
+            </div>
+            <div class="card card-1" style="width: 19rem;margin:10px">
+                <img src="/images/JujuySoft.png"
+                    class="btn card-img-top mt-2" alt="..." data-bs-toggle="modal" data-bs-target="#modalLit">
+                <div class="card-body">
+                    <h5 class="card-title">JujuySoft</h5>
+                </div>
+            </div>
+        </div>
+        
+        <hr class="mb-5">
+        <div class="text-center m-5">
+            <h5 class="empres-title">¿Quienes Somos?</h5>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis ipsa minima placeat, sit quaerat fugit vitae impedit ex id fugiat modi excepturi voluptatem natus veritatis nobis reiciendis incidunt in? Laboriosam natus totam ipsa voluptatem enim et eveniet, cumque illo ab exercitationem aut cupiditate at! Eius, eligendi nisi quae non nulla maxime? Blanditiis commodi dolorum laboriosam aliquid, porro nihil esse iste suscipit, voluptas facere quisquam? Accusantium nostrum, illo possimus, blanditiis nesciunt corporis numquam doloremque sed, dolorem accusamus esse quod dolores laboriosam at nemo fugit consectetur aliquid est? Fugiat nulla perferendis ducimus repellendus harum, nemo consequuntur dolorum debitis eos tenetur! Deserunt aperiam minus id similique? Aperiam illo recusandae harum maiores velit quibusdam fugit fuga quis, qui aut libero repudiandae voluptate esse est deserunt ipsam repellendus. Veniam, recusandae, sapiente hic voluptatem ea provident asperiores earum odit rerum perferendis quis neque eligendi nihil? Fugiat ipsum vel est! Magni ut sit tempore harum, asperiores fugiat.</p>
+        </div>
+        
+        <hr class="mb-3">
+    </div>
+
+    <footer th:replace="/layout/footer::footer"></footer>
+
+
+
+
+
+
+    <script type="text/javascript" th:src="@{/webjars/jquery/dist/jquery.min.js}"></script>
+    <script type="text/javascript" th:src="@{/webjars/popper.js/umd/popper.min.js}"></script>
+    <script type="text/javascript" th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
+</body>
+
+</html>
+<!-- PRUEBA COMMIT AND PUSH-->

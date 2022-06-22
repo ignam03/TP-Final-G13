@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://thymeleaf.org">
+
+<head>
+	<meta charset="UTF-8">
+	<title>Emplea2 Form</title>
+	<link rel="stylesheet" type="text/css" th:href="@{/css/style.css}">
+	<link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}">
+	<link th:rel="stylesheet" type="text/css" th:href="@{/webjars/font-awesome/css/all.min.css}" />
+</head>
+
+<body>
+
+	<header th:replace="/layout/header::header"></header>
+
+	<div id="loginform">
+		<div class="row-cols-2 offset-4 p-5">
+			<div class="card">
+				<div class="card-body">
+					<form>
+						<h1 class="text-center">Registro Empleador</h1>
+						<!--Cuit-->
+						<div class="mb-3">
+							<label for="exampleInputCuit" class="form-label">Cuit</label>
+							<input type="number" class="form-control" id="exampleInputCuit">
+						</div>
+						<!--Contrasenia-->
+						<div class="mb-3">
+							<label for="exampleInputPassword1" class="form-label">Contraseña</label>
+							<input type="password" class="form-control" id="exampleInputPassword1">
+						</div>
+						<!--RazonSocial-->
+						<div class="mb-3">
+							<label for="exampleInputRSocial" class="form-label">Razon Social</label>
+							<input type="text" class="form-control" id="exampleInputRSocial">
+						</div>
+						<!--NombreComercial-->
+						<div class="mb-3">
+							<label for="exampleInputNombreC" class="form-label">Nombre Comercial</label>
+							<input type="number" class="form-control" id="exampleInputNombreC">
+						</div>
+						<!--InicioAct-->
+						<div class="mb-3">
+							<label for="exampleInputFechaIn" class="form-label">Inicio de Actividad</label>
+							<input type="date" class="form-control" id="exampleInputFechaIn">
+						</div>
+						<!--Email-->
+						<div class="mb-3">
+							<label for="exampleInputEmail1" class="form-label">Email</label>
+							<input type="email" class="form-control" id="exampleInputEmail1"
+								aria-describedby="emailHelp">
+						</div>
+						<!--Telefono-->
+						<div class="mb-3">
+							<label for="exampleInputTelefono" class="form-label">Telefono</label>
+							<input type="number" class="form-control" id="exampleInputTelefono"
+								aria-describedby="emailHelp">
+						</div>
+						<!--Domicilio-->
+						<div class="mb-3">
+							<label for="exampleInputDomicilio" class="form-label">Domicilio</label>
+							<input type="number" class="form-control" id="exampleInputDomicilio">
+						</div>
+						<!--Provincia-->
+						<div class="mb-3">
+							<label for="exampleInputProv" class="form-label">Provincia</label>
+							<select class="form-select" aria-label="Default select example">
+								<option selected>Seleccione Provincia</option>
+								<option value="1">Jujuy</option>
+								<option value="2">Salta</option>
+								<option value="3">Tierra del Fuego</option>
+							</select>
+						</div>
+						<!--PagWeb-->
+						<div class="mb-3">
+							<label for="exampleInputPagWeb" class="form-label">Pagina Web</label>
+							<input type="number" class="form-control" id="exampleInputPagWeb">
+						</div>
+						<!--Descripcion-->
+						<div class="mb-3">
+							<label for="exampleFormControlDesc" class="form-label">Descripcion</label>
+							<textarea class="form-control" id="exampleFormControlDesc" rows="1"></textarea>
+						</div>
+						<div class="text-center">
+							<button type="submit" class="btn btn-dark">Registrar</button>
+							<button type="submit" class="btn btn-dark">Volver</button>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+	<footer th:replace="/layout/footer::footer"></footer>
+
+	<script type="text/javascript" th:src="@{/webjars/jquery/dist/jquery.min.js}"></script>
+	<script type="text/javascript" th:src="@{/webjars/popper.js/umd/popper.min.js}"></script>
+	<script type="text/javascript" th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
+</body>
+
+</html>
+<!-- PRUEBA COMMIT AND PUSH-->
