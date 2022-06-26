@@ -25,7 +25,7 @@ public class WebSecurityConfig {
         http
                 .authorizeRequests()
                 .antMatchers(resources).permitAll()
-                .antMatchers("/", "/empleos/inicio", "/ciudadano/nuevo", "/ciudadano/guardar","/ciudadano/cargarCv").permitAll()
+                .antMatchers("/", "/empleos/inicio", "/ciudadano/nuevo", "/ciudadano/guardar","/ciudadano/cargarCv","/empleador/nuevoemp", "/empleador/guardar").permitAll()
                 // .antMatchers("/ciudadano/**", "/employee/**").hasAuthority("ADMINISTRADOR")
                 // .antMatchers("/producto").hasAuthority("administrador")
                 // .antMatchers("/cargarRegistro/","/buscarPersona","/cargarPersona",

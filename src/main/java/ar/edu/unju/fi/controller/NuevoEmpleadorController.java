@@ -30,14 +30,13 @@ public class NuevoEmpleadorController {
 
 	private static final Log LOGGER = LogFactory.getLog(NuevoEmpleadorController.class);
 
-	@GetMapping("/nuevo")
+	@GetMapping("/nuevoemp")
 	public String getFormNewEmpleadorPage(Model model) {
 		model.addAttribute("empleador", new Empleador());
 		ListaProvincia listaProvincia = new ListaProvincia();
 		model.addAttribute("provincias", listaProvincia.getProvincias());
 		return "empleadorForm";
 	}
-	
 	
 	@PostMapping("/guardar")
 	public ModelAndView guardarEmpleador(@Validated @ModelAttribute("empleador") Empleador empleador,

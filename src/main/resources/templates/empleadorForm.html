@@ -18,20 +18,21 @@
          <div class="container">
             <div>
                <div class="booking-form">
-                  <form>
+                  <form th:action="@{/empleador/guardar}" method="POST" th:object="${empleador}">
                      <div class="form-group">
-                     </div>
+						<input type="hidden" th:field="*{empleadorNumber}" />
+					 </div>
                      <div class="row">
                         <div class="col-md-6">
                            <div class="form-group">
                               <span class="form-label">CUIT</span>
-                              <input class="form-control" type="number" placeholder="Numero de Cuit">
+                              <input th:field="*{cuit}" class="form-control" type="number" placeholder="Numero de Cuit">
                            </div>
                         </div>
                         <div class="col-md-6">
                            <div class="form-group">
                               <span class="form-label">Contraseña</span>
-                              <input class="form-control" type="password" placeholder="Ingresar Contraseña">
+                              <input th:field="*{contrasena}" class="form-control" type="password" placeholder="Ingresar Contraseña">
                            </div>
                         </div>
                      </div>
@@ -39,31 +40,31 @@
                         <div class="col-md-6">
                            <div class="form-group">
                               <span class="form-label">Razon Social</span>
-                              <input class="form-control" type="text" placeholder="Ingrese razon social">
+                              <input th:field="*{razon_social}" class="form-control" type="text" placeholder="Ingrese razon social">
                            </div>
                         </div>
                         <div class="col-md-6">
                            <div class="form-group">
                               <span class="form-label">Nombre Comercial</span>
-                              <input class="form-control" type="text" placeholder="Ingrese Nombre Comercial">
+                              <input th:field="*{nom_comercial}" class="form-control" type="text" placeholder="Ingrese Nombre Comercial">
                            </div>
                         </div>
                         <div class="col-md-4">
                            <div class="form-group">
                               <span class="form-label">Inicio de Actividad</span>
-                              <input class="form-control" type="date" required>
+                              <input th:field="*{fechaInic}" class="form-control" type="date" required>
                            </div>
                         </div>
                         <div class="col-md-4">
                            <div class="form-group">
                               <span class="form-label">Email</span>
-                              <input class="form-control" type="email" placeholder="Ingrese Email">
+                              <input th:field="*{email}" class="form-control" type="email" placeholder="Ingrese Email">
                            </div>
                         </div>
                         <div class="col-md-4">
                            <div class="form-group">
                               <span class="form-label">Telefono</span>
-                              <input class="form-control" type="text" placeholder="Ingrese Telefono">
+                              <input th:field="*{telefono}" class="form-control" type="text" placeholder="Ingrese Telefono">
                            </div>
                         </div>
                      </div>
@@ -71,16 +72,36 @@
                         <div class="col-md-6">
                            <div class="form-group">
                               <span class="form-label">Domicilio</span>
-                              <input class="form-control" type="text" placeholder="Ingrese Domicilio" required>
+                              <input th:field="*{domicilio}" class="form-control" type="text" placeholder="Ingrese Domicilio" required>
                            </div>
                         </div>
                         <div class="col-md-6">
                            <div class="form-group">
-                              <span class="form-label">Provincia</span>
-                              <select class="form-control">
-                                 <option>Jujuy</option>
-                                 <option>Salta</option>
-                                 <option>Tierra del Fuego, Antartida e Islas del Atlantico Sur</option>
+                              <span for="provinciaId" class="form-label">Provincia</span>
+                              <select class="form-control" th:field="*{provincia}" id="provinciaId">
+                                 <option value="">Seleccione</option>
+									<option value="Buenos Aires">Buenos Aires</option>
+									<option value="Catamarca">Catamarca</option>
+									<option value="Chaco">Chaco</option>
+									<option value="Chubut">Chubut</option>
+									<option value="Córdoba">Córdoba</option>
+									<option value="Entre Ríos">Entre Ríos</option>
+									<option value="Formosa">Formosa</option>
+									<option value="Jujuy">Jujuy</option>
+									<option value="La Pampa">La Pampa</option>
+									<option value="La Rioja">La Rioja</option>
+									<option value="Mendoza">Mendoza</option>
+									<option value="Misiones">Misiones</option>
+									<option value="Neuquén">Neuquén</option>
+									<option value="Río Negro">Río Negro</option>
+									<option value="Salta">Salta</option>
+									<option value="San Juan">San Juan</option>
+									<option value="San Luis">San Luis</option>
+									<option value="Santa Cruz">Santa Cruz</option>
+									<option value="Santa Fe">Santa Fe</option>
+									<option value="Santiago del Estero">Santiago del Estero</option>
+									<option value="Tierra del Fuego, Antártida e Islas del Atlántico Sur">Tierra del Fuego, Antártida e Islas del Atlántico Sur</option>
+									<option value="Tucumán">Tucumán</option>
                               </select>
                            </div>
                         </div>
@@ -89,13 +110,13 @@
                         <div class="col-md-4">
                            <div class="form-group">
                               <span class="form-label">Pagina Web</span>
-                              <input class="form-control" type="text" placeholder="Ingrese Pagina Web" required>
+                              <input th:field="*{pag_web}" class="form-control" type="text" placeholder="Ingrese Pagina Web" required>
                            </div>
                         </div>
                         <div class="col-md-8">
                            <div class="form-group">
                               <span class="form-label">Descripcion</span>
-                              <textarea class="form-control" id="exampleFormControlDesc" rows="1"></textarea>
+                              <textarea th:field="*{descripcion}" class="form-control" id="exampleFormControlDesc" rows="1"></textarea>
                            </div>
                         </div>
                      </div>
@@ -107,7 +128,7 @@
                         </div>
                         <div class="col-md-3">
                            <div class="form-btn">
-                              <button class="submit-btn text-center">Volver</button>
+                              <button th:ref="@{/empleos/inicio}" class="submit-btn text-center">Volver</button>
                            </div>
                         </div>
                      </div>
