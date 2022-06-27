@@ -1,6 +1,5 @@
 package ar.edu.unju.fi.controller;
 
-
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -9,25 +8,23 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 @RequestMapping("/empleos")
 public class IndexController {
-    
-    
 
     @GetMapping("/inicio")
     public String getInicioPage(Model model) {
         return "index";
     }
 
-    @GetMapping({"/loginCiu"})
+    @GetMapping({ "/loginCiu", "/login?error=true" })
     public String getLoginCiudadanoPage(Model model) {
         return "loginCiudadano";
     }
-    
+
     @GetMapping("/login")
     public String getLoginPage(Model model) {
-        return "loginForm";
+        return "loginCiudadano";
     }
 
-    @GetMapping("/loginEmp")
+    @GetMapping({ "/loginEmp", "/login?error=true" })
     public String getLoginEmpleadorPage(Model model) {
         return "loginEmpleador";
     }
@@ -36,12 +33,12 @@ public class IndexController {
     public String getCiudadanoPage(Model model) {
         return "ciudadanoForm";
     }
-    
+
     @GetMapping("/registroEmp")
     public String getEmpleadorPage(Model model) {
         return "empleadorForm";
     }
-    
+
     @GetMapping("/ofertaLab")
     public String getListaEmpleoPage(Model model) {
         return "ofertaLaboral";
@@ -54,8 +51,12 @@ public class IndexController {
 
     @GetMapping("/sobreNosotros")
     public String getSobreNosotrosPage(Model model) {
-        return "404";
+        return "nosotros";
     }
 
-    
+
+    @GetMapping("/cursos")
+    public String getCursoPage(Model model) {
+        return "curso";
+    }
 }

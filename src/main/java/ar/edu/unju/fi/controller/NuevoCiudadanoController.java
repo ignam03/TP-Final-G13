@@ -1,7 +1,5 @@
 package ar.edu.unju.fi.controller;
 
-import java.util.Optional;
-
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,7 +15,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 import ar.edu.unju.fi.entity.Ciudadano;
-import ar.edu.unju.fi.entity.Provincia;
 import ar.edu.unju.fi.service.ICiudadanoService;
 import ar.edu.unju.fi.util.ListaProvincia;
 
@@ -39,7 +36,6 @@ public class NuevoCiudadanoController {
 		return "ciudadanoForm";
 	}
 
-
 	@PostMapping("/guardar")
 	public ModelAndView guardarCiudadano(@Validated @ModelAttribute("ciudadano") Ciudadano ciudadano,
 			BindingResult bindingResult) {
@@ -55,7 +51,8 @@ public class NuevoCiudadanoController {
 		ModelAndView mov = new ModelAndView("loginCiudadano");
 		// ListaProvincia listaProvincia = new ListaProvincia();
 		// Optional<Provincia> provincia = listaProvincia.getProvincias().stream()
-		// 		.filter(d -> d.getCodigo() == ciudadano.getProvincia().getCodigo()).findFirst();
+		// .filter(d -> d.getCodigo() ==
+		// ciudadano.getProvincia().getCodigo()).findFirst();
 		// LOGGER.info("Provincia"+ provincia.get().getNombreP());
 		// ciudadano.setProvincia(provincia.get());
 		// LOGGER.info("ciudadano pr " + ciudadano.getProvincia().getNombreP());
@@ -63,7 +60,6 @@ public class NuevoCiudadanoController {
 		mov.addObject("inicio");
 		return mov;
 	}
-
 
 	@GetMapping("/crearCv")
 	public String getCreateCvPage(Model model) {
@@ -74,5 +70,10 @@ public class NuevoCiudadanoController {
 	@GetMapping("/cargarCv")
 	public String getCargarCvPage(Model model) {
 		return "cargarCv";
+	}
+
+	@GetMapping("/verCv")
+	public String getCvPage(Model model) {
+		return "cv";
 	}
 }

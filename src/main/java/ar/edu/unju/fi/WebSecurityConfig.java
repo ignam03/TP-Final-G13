@@ -16,6 +16,9 @@ import ar.edu.unju.fi.service.imp.LoginUsuarioImp;
 @Configuration
 public class WebSecurityConfig {
 
+    @Autowired
+    ManejadorAUTH autenticacion;
+
     String[] resources = new String[] {
             "/include/**", "/css/**", "/assets/**", "/js/**", "/layer/**", "/webjars/**", "/images/**"
     };
@@ -25,7 +28,9 @@ public class WebSecurityConfig {
         http
                 .authorizeRequests()
                 .antMatchers(resources).permitAll()
-                .antMatchers("/", "/empleos/inicio", "/ciudadano/nuevo", "/ciudadano/guardar","/ciudadano/cargarCv","/empleador/nuevoemp", "/empleador/guardar").permitAll()
+                .antMatchers("/", "/empleos/sobreNosotros", "/ciudadano/nuevo", "/ciudadano/guardar", "/ciudadano/cargarCv",
+                        "/empleador/nuevo", "/empleador/guardar")
+                .permitAll()
                 // .antMatchers("/ciudadano/**", "/employee/**").hasAuthority("ADMINISTRADOR")
                 // .antMatchers("/producto").hasAuthority("administrador")
                 // .antMatchers("/cargarRegistro/","/buscarPersona","/cargarPersona",
@@ -35,9 +40,10 @@ public class WebSecurityConfig {
                 .formLogin()
                 .loginPage("/empleos/loginCiu")
                 .permitAll()
+                .successHandler(autenticacion)
                 .defaultSuccessUrl("/empleos/inicio")
-                .failureUrl("/login?error")
-                .usernameParameter("dni")
+                .failureUrl("/empleos/login?error=true")
+                .usernameParameter("username")
                 .passwordParameter("password")
                 .and()
                 .logout()
@@ -57,7 +63,6 @@ public class WebSecurityConfig {
 
     @Autowired
     LoginUsuarioImp userDetailsService;
-
 
     @Bean
     public AuthenticationProvider authenticationProvider() {
