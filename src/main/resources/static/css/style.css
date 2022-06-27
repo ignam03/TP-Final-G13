@@ -288,3 +288,22 @@
 .booking-form .submit-btn:focus {
   opacity: 0.9;
 }
+
+/*todo testimonios*/
+
+.card-t {
+  background-color: #fff;
+  padding: 15px;
+  border: none;
+  height: 250px;
+  margin-top: 10px
+}
+
+.u-color {
+  color: #2A499B
+}
+
+.user-image img {
+  border: 3px solid #2A499B;
+  padding: 2px
+}
