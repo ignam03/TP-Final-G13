@@ -4,19 +4,22 @@ import java.io.Serializable;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
 import org.springframework.stereotype.Component;
 
 @Entity
-@Table(name="ofertas_Laborales")
+@Table(name="ofertaLaboral")
 @Component
 public class OfertaLaboral implements Serializable{
     
     private static final long serialVersionUID = -7254071800146150850L;
     @Id
     @Column(name="ofe_id")
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long oferNumber;
 	private int cantVacantes;
     private String puesto;
@@ -48,7 +51,15 @@ public class OfertaLaboral implements Serializable{
         this.disponible = disponible;
     }
 
-    public int getCantVacantes() {
+    public Long getOferNumber() {
+		return oferNumber;
+	}
+
+	public void setOferNumber(Long oferNumber) {
+		this.oferNumber = oferNumber;
+	}
+
+	public int getCantVacantes() {
         return cantVacantes;
     }
 

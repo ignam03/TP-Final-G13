@@ -36,7 +36,7 @@ public class NuevoCvController {
 	private static final Log LOGGER = LogFactory.getLog(NuevoCvController.class);
 
 	@GetMapping("/nuevo")
-	public String getFormNewCiuddanoPage(Model model) {
+	public String getFormNewCurriculumPage(Model model) {
 		model.addAttribute("curriculum", new Curriculum());
 		List<Ciudadano> ciudadanos = ciudadanoSvc.getCiudadanos();
 		model.addAttribute("ciudadanos",ciudadanos);

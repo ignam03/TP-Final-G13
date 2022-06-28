@@ -19,7 +19,7 @@
             <div class="container">
                <div>
                   <div class="booking-form">
-                     <form th:action="@{/newemp/crearEmpleo}" method="POST" th:object="${ofertaLaboral}"><!--
+                     <form th:action="@{/ofertaLaboral/guardar}" method="POST" th:object="${ofertaLaboral}">
                         <div class="form-group">
 							<input type="hidden" th:field="*{oferNumber}" />
 						</div>
@@ -96,7 +96,7 @@
                                    <span class="form-label">Disponible</span>
                                    <input th:field="*{disponible}" class="form-control" type="text" required>
                                 </div>
-                             </div>-->
+                             </div>
                            <div class="col-md-3">
                               <div class="form-btn">
                                  <button class="submit-btn text-center">Registrar</button>
@@ -124,4 +124,3 @@
 </body>
 
 </html>
-<!-- PRUEBA COMMIT AND PUSH-->
