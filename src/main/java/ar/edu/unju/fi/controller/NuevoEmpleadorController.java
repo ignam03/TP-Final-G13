@@ -59,9 +59,4 @@ public class NuevoEmpleadorController {
 		return mov;
 	}
 
-
-	@GetMapping("/crearEmpleo")
-	public String getCrearEmpleoPage(Model model) {
-		return "oferLabForm";
-	}
 }
