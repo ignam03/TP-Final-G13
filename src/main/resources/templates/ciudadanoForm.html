@@ -129,7 +129,7 @@
 									<label class="form-label" for="perfilId" type="hidden">Perfil </label>
 									<select type="hidden" class="form-select" th:field="*{perfil}" name="perfil"
 										id="perfilId">
-										<option value="ciudadano">Ciudadano</option>
+										<option value="CIUDADANO">Ciudadano</option>
 									</select>
 									<div class="alert alert-danger text-black" role="alert"
 										th:if="${#fields.hasErrors('perfil')}" th:errors="*{perfil}"></div>

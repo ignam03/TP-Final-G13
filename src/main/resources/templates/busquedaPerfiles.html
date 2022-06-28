@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Empleos G13</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/perfiles.css}">
+    <link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}">
+    <link th:rel="stylesheet" type="text/css" th:href="@{/webjars/font-awesome/css/all.min.css}" />
+</head>
+
+<body>
+
+    <header th:replace="/layout/header::header"></header>
+
+    <section class="main-banner" style="background:#242c36 url(../images/slider-01.jpg) no-repeat;">
+        <div class="container">
+            <div class="caption">
+                <h2>BUSQUEDA DE PERILES LABORALES</h2>
+                <form>
+                    <fieldset>
+                        <div class="row">
+                            <div class="col-md-4 col-sm-4 no-pad">
+                                <input type="text" class="form-control border-right"
+                                    placeholder="Skills, Programador, Desarrollador" />
+                            </div>
+                            <div class="col-md-4 col-sm-3 no-pad">
+                                <select class="selectpicker border-right">
+                                    <option value="">Provincia</option>
+                                    <option value="Buenos Aires">Buenos Aires</option>
+                                    <option value="Catamarca">Catamarca</option>
+                                    <option value="Chaco">Chaco</option>
+                                    <option value="Chubut">Chubut</option>
+                                    <option value="Córdoba">Córdoba</option>
+                                    <option value="Entre Ríos">Entre Ríos</option>
+                                    <option value="Formosa">Formosa</option>
+                                    <option value="Jujuy">Jujuy</option>
+                                    <option value="La Pampa">La Pampa</option>
+                                    <option value="La Rioja">La Rioja</option>
+                                    <option value="Mendoza">Mendoza</option>
+                                    <option value="Misiones">Misiones</option>
+                                    <option value="Neuquén">Neuquén</option>
+                                    <option value="Río Negro">Río Negro</option>
+                                    <option value="Salta">Salta</option>
+                                    <option value="San Juan">San Juan</option>
+                                    <option value="San Luis">San Luis</option>
+                                    <option value="Santa Cruz">Santa Cruz</option>
+                                    <option value="Santa Fe">Santa Fe</option>
+                                    <option value="Santiago del Estero">Santiago del Estero</option>
+                                    <option value="Tierra del Fuego, Antártida e Islas del Atlántico Sur">Tierra
+                                        del Fuego, Antártida e Islas del Atlántico Sur</option>
+                                    <option value="Tucumán">Tucumán</option>
+                                </select>
+                            </div>
+                            <div class="col-md-4 col-sm-2 no-pad">
+                                <input type="submit" class="btn seub-btn" value="Buscar" />
+                            </div>
+                        </div>
+                    </fieldset>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <div class="container">
+
+        <nav class="navbar navbar-expand-lg navbar-light bg-light m-5">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="#">TODAS LAS CATEGORIAS</a>
+                <!-- <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+					aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+					<span class="navbar-toggler-icon"></span>
+				</button>
+				<div class="collapse navbar-collapse" id="navbarNav">
+					<ul class="navbar-nav topnav  ms-auto">
+						<li class="nav-item">
+							<a class="nav-link active" href="#">Todas las <span>Categorias</span></a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="#">Provincia</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="#">Fecha de publicacion</a>
+						</li>
+					</ul>
+				</div> -->
+            </div>
+        </nav>
+    </div>
+
+    <div class="container d-flex justify-content-center mt-5">
+
+        <div class="card text-center mb-5">
+            <div class="circle-image">
+                <img src="https://i.imgur.com/hczKIze.jpg" width="50">
+            </div>
+            <span class="dot"></span>
+            <span class="name mb-1 fw-500">Bryan Williams</span>
+            <small class="text-black-50">Tata Ace</small>
+            <small class="text-black-50 font-weight-bold">QP09AA9090</small>
+            <div class="location mt-4">
+                <span class="d-block"><i class="fa fa-map-marker start"></i> <small class="text-truncate ml-2">Ganesha
+                        Road, preet vihar new delhi</small> </span>
+                <span><i class="fa fa-map-marker stop mt-2"></i> <small class="text-truncate ml-2">Mandir Road, Mayur
+                        vihar, new delhi</small> </span>
+            </div>
+            <div class="rate bg-success py-3 text-white mt-3">
+                <h6 class="mb-0">Rate your driver</h6>
+                <div class="rating"> <input type="radio" name="rating" value="5" id="5"><label for="5">☆</label> <input
+                        type="radio" name="rating" value="4" id="4"><label for="4">☆</label> <input type="radio"
+                        name="rating" value="3" id="3"><label for="3">☆</label> <input type="radio" name="rating"
+                        value="2" id="2"><label for="2">☆</label> <input type="radio" name="rating" value="1"
+                        id="1"><label for="1">☆</label>
+                </div>
+                <div class="buttons px-4 mt-0">
+                    <button class="btn btn-warning btn-block rating-submit">Submit</button>
+                </div>
+            </div>
+        </div>
+        <div class="card text-center mb-5">
+            <div class="circle-image">
+                <img src="https://i.imgur.com/hczKIze.jpg" width="50">
+            </div>
+            <span class="dot"></span>
+            <span class="name mb-1 fw-500">Bryan Williams</span>
+            <small class="text-black-50">Tata Ace</small>
+            <small class="text-black-50 font-weight-bold">QP09AA9090</small>
+            <div class="location mt-4">
+                <span class="d-block"><i class="fa fa-map-marker start"></i> <small class="text-truncate ml-2">Ganesha
+                        Road, preet vihar new delhi</small> </span>
+                <span><i class="fa fa-map-marker stop mt-2"></i> <small class="text-truncate ml-2">Mandir Road, Mayur
+                        vihar, new delhi</small> </span>
+            </div>
+            <div class="rate bg-success py-3 text-white mt-3">
+                <h6 class="mb-0">Rate your driver</h6>
+                <div class="rating"> <input type="radio" name="rating" value="5" id="5"><label for="5">☆</label> <input
+                        type="radio" name="rating" value="4" id="4"><label for="4">☆</label> <input type="radio"
+                        name="rating" value="3" id="3"><label for="3">☆</label> <input type="radio" name="rating"
+                        value="2" id="2"><label for="2">☆</label> <input type="radio" name="rating" value="1"
+                        id="1"><label for="1">☆</label>
+                </div>
+                <div class="buttons px-4 mt-0">
+                    <button class="btn btn-warning btn-block rating-submit">Submit</button>
+                </div>
+            </div>
+        </div>
+        <div class="card text-center mb-5">
+            <div class="circle-image">
+                <img src="https://i.imgur.com/hczKIze.jpg" width="50">
+            </div>
+            <span class="dot"></span>
+            <span class="name mb-1 fw-500">Bryan Williams</span>
+            <small class="text-black-50">Tata Ace</small>
+            <small class="text-black-50 font-weight-bold">QP09AA9090</small>
+            <div class="location mt-4">
+                <span class="d-block"><i class="fa fa-map-marker start"></i> <small class="text-truncate ml-2">Ganesha
+                        Road, preet vihar new delhi</small> </span>
+                <span><i class="fa fa-map-marker stop mt-2"></i> <small class="text-truncate ml-2">Mandir Road, Mayur
+                        vihar, new delhi</small> </span>
+            </div>
+            <div class="rate bg-success py-3 text-white mt-3">
+                <h6 class="mb-0">Rate your driver</h6>
+                <div class="rating"> <input type="radio" name="rating" value="5" id="5"><label for="5">☆</label> <input
+                        type="radio" name="rating" value="4" id="4"><label for="4">☆</label> <input type="radio"
+                        name="rating" value="3" id="3"><label for="3">☆</label> <input type="radio" name="rating"
+                        value="2" id="2"><label for="2">☆</label> <input type="radio" name="rating" value="1"
+                        id="1"><label for="1">☆</label>
+                </div>
+                <div class="buttons px-4 mt-0">
+                    <button class="btn btn-warning btn-block rating-submit">Submit</button>
+                </div>
+            </div>
+        </div>
+        <div class="card text-center mb-5">
+            <div class="circle-image">
+                <img src="https://i.imgur.com/hczKIze.jpg" width="50">
+            </div>
+            <span class="dot"></span>
+            <span class="name mb-1 fw-500">Bryan Williams</span>
+            <small class="text-black-50">Tata Ace</small>
+            <small class="text-black-50 font-weight-bold">QP09AA9090</small>
+            <div class="location mt-4">
+                <span class="d-block"><i class="fa fa-map-marker start"></i> <small class="text-truncate ml-2">Ganesha
+                        Road, preet vihar new delhi</small> </span>
+                <span><i class="fa fa-map-marker stop mt-2"></i> <small class="text-truncate ml-2">Mandir Road, Mayur
+                        vihar, new delhi</small> </span>
+            </div>
+            <div class="rate bg-success py-3 text-white mt-3">
+                <h6 class="mb-0">Rate your driver</h6>
+                <div class="rating"> <input type="radio" name="rating" value="5" id="5"><label for="5">☆</label> <input
+                        type="radio" name="rating" value="4" id="4"><label for="4">☆</label> <input type="radio"
+                        name="rating" value="3" id="3"><label for="3">☆</label> <input type="radio" name="rating"
+                        value="2" id="2"><label for="2">☆</label> <input type="radio" name="rating" value="1"
+                        id="1"><label for="1">☆</label>
+                </div>
+                <div class="buttons px-4 mt-0">
+                    <button class="btn btn-warning btn-block rating-submit">Submit</button>
+                </div>
+            </div>
+        </div>
+        
+    </div>
+
+    <footer th:replace="/layout/footer::footer"></footer>
+
+    <script type="text/javascript" th:src="@{/webjars/jquery/dist/jquery.min.js}"></script>
+    <script type="text/javascript" th:src="@{/webjars/popper.js/umd/popper.min.js}"></script>
+    <script type="text/javascript" th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
+</body>
+
+</html>

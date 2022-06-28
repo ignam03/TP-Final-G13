@@ -22,17 +22,31 @@
             <div class="container ">
                 <a class="hov navbar-brand m-1 me-2 pe-2" th:href="@{/empleos/inicio}"
                     style="border-right: 1px solid #fff;">Inicio</a>
-                <a class="hov navbar-brand m-1 me-2 pe-2" th:href="@{/empleos/ofertaLab}"
+                <div class="" sec:authorize="hasAuthority('CIUDADANO')">
+                    <a class="hov navbar-brand m-1 me-2 pe-2" th:href="@{/empleos/ofertaLab}"
                     style="border-right: 1px solid #fff;">Encontrar Empleo</a>
+                </div>
+                <div class="" sec:authorize="hasAuthority('EMPLEADOR')">
+                    <a class="hov navbar-brand m-1 me-2 pe-2" th:href="@{/empleos/perfilesLaborales}"
+                    style="border-right: 1px solid #fff;">Buscar Perfil  Laboral</a>
+                </div>
+                <div class="" sec:authorize="hasAuthority('EMPLEADOR')">
+                    <a class="hov navbar-brand m-1 me-2 pe-2" th:href="@{/empleos/ofertaLab}"
+                    style="border-right: 1px solid #fff;">Ofertas Laborales</a>
+                </div>
                 <div class="" sec:authorize="isAuthenticated() == false">
                     <a class="hov navbar-brand m-1 me-2 pe-2" th:href="@{/empleos/empresas}"
                         style="border-right: 1px solid #fff;">Empresas</a>
                 </div>
                 <div class="" sec:authorize="isAuthenticated() == false">
+                    <a class="hov navbar-brand m-1 me-2 pe-2" th:href="@{/empleos/ofertaLab}"
+                    style="border-right: 1px solid #fff;">Ofertas Laborales</a>
+                </div>
+                <div class="" sec:authorize="isAuthenticated() == false">
                     <a class="hov navbar-brand m-1 me-2 pe-2" th:href="@{/empleos/sobreNosotros}"
                         style="border-right: 1px solid #fff;">¿Quienes somos?</a>
                 </div>
-                <div class="" sec:authorize="isAuthenticated() == true">
+                <div class="" sec:authorize="hasAuthority('CIUDADANO')">
                     <a class="hov navbar-brand m-1 me-2 pe-2" th:href="@{/empleos/cursos}"
                         style="border-right: 1px solid #fff;">Cursos de capacitación</a>
                 </div>
@@ -48,25 +62,39 @@
                             <li class="nav-item m-1 "><a class="nav-link" th:href="@{/empleos/loginCiu}"><i
                                         class="fa-regular fa-user"></i> Ingresar</a></li>
                         </div>
-                        <div class="" sec:authorize="isAuthenticated() == true">
+                        <div class="" sec:authorize="hasAuthority('CIUDADANO')">
                             <div class="nav-item m-1">
-                                <a class="nav-link " th:href="@{/ciudadano/crearCv}">Crear Cv</a>
+                                <a class="nav-link " th:href="@{/curriculum/nuevo}">Crear Cv</a>
                             </div>
                         </div>
-                        <div class="" sec:authorize="isAuthenticated() == true">
+                        <div class="" sec:authorize="hasAuthority('CIUDADANO')">
                             <div class="nav-item m-1">
-                                <a class="nav-link " th:href="@{/ciudadano/verCv}">Ver Cv</a>
+                                <a class="nav-link " th:href="@{/curriculum/verCv}">Ver Cv</a>
                             </div>
                         </div>
-                        <!-- <div class="" sec:authorize="isAuthenticated() == true">
-                            <li class="nav-item m-1 "><a class="nav-link" href="#">Bienvenido
+                        <div class="" sec:authorize="hasAuthority('EMPLEADOR')">
+                            <div class="nav-item m-1">
+                                <a class="nav-link " th:href="@{/empleador/crearEmpleo}">Crear Empleo</a>
+                            </div>
+                        </div>
+                        <div class="" sec:authorize="hasAuthority('EMPLEADOR')">
+                            <div class="nav-item m-1">
+                                <a class="nav-link " th:href="@{/empleador/publicaciones}">Mis Publicaciones</a>
+                            </div>
+                        </div>
+                        <!-- <div sec:authorize="hasAuthority('CIUDADANO')">me saliooooo T.T</div> -->
+                        <div class="" sec:authorize="hasRole('CIUDADANO')">
+                            <!-- <li class="nav-item m-1 "><a class="nav-link" href="#">Bienvenido
                                     <span sec:authentication="name"></span> <i class="fa fa-sign-out"></i></a>
                                 <p th:text="${#authentication.getPrincipal()}"></p>
-                            </li>
-                        </div> -->
-                        <!-- <div class="">
-                            <span sec:authentication="principal.authorities"></span>
-                        </div> -->
+                            </li> -->
+                            <P>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sequi, rerum ab. In ad dolor
+                                non autem vel, eaque commodi rerum corporis, similique itaque, ex rem accusamus dolores
+                                tempore numquam maxime!</P>
+                            <div class="">
+                                <span sec:authentication="principal.authorities"></span>
+                            </div>
+                        </div>
                         <form th:action="@{/logout}" method="post">
                             <div class="" sec:authorize="isAuthenticated() == true">
                                 <button class="nav-link btn btn-primary text-white">

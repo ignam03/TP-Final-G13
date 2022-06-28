@@ -59,4 +59,9 @@ public class IndexController {
     public String getCursoPage(Model model) {
         return "curso";
     }
+
+    @GetMapping("/perfilesLaborales")
+    public String getPerfilesLaboralesPage(Model model) {
+        return "busquedaPerfiles";
+    }
 }

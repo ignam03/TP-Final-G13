@@ -13,61 +13,70 @@
 
 	<header th:replace="/layout/header::header"></header>
 
-	
-
-	<!-- <div class="container mt-5">
-		<div class="d-flex justify-content-between">
-			<h4>Recommended Jobs</h4> <button class="btn btn-sm btn-outline-dark">Apply all</button>
+	<section class="main-banner" style="background:#242c36 url(../images/slider-01.jpg) no-repeat;">
+		<div class="container">
+			<div class="caption">
+				<h2>TRABAJOS EN TECNOLOGÍA. ENCONTRÁ EL TUYO HOY</h2>
+				<form>
+					<fieldset>
+						<div class="row">
+							<!-- <div class="col-md-4 col-sm-4 no-pad">
+								<input type="text" class="form-control border-right"
+									placeholder="Skills, Designation, Companies" />
+							</div> -->
+							<div class="col-md-4 col-sm-3 no-pad">
+								<select class="selectpicker border-right">
+									<option value="">Provincia</option>
+									<option value="Buenos Aires">Buenos Aires</option>
+									<option value="Catamarca">Catamarca</option>
+									<option value="Chaco">Chaco</option>
+									<option value="Chubut">Chubut</option>
+									<option value="Córdoba">Córdoba</option>
+									<option value="Entre Ríos">Entre Ríos</option>
+									<option value="Formosa">Formosa</option>
+									<option value="Jujuy">Jujuy</option>
+									<option value="La Pampa">La Pampa</option>
+									<option value="La Rioja">La Rioja</option>
+									<option value="Mendoza">Mendoza</option>
+									<option value="Misiones">Misiones</option>
+									<option value="Neuquén">Neuquén</option>
+									<option value="Río Negro">Río Negro</option>
+									<option value="Salta">Salta</option>
+									<option value="San Juan">San Juan</option>
+									<option value="San Luis">San Luis</option>
+									<option value="Santa Cruz">Santa Cruz</option>
+									<option value="Santa Fe">Santa Fe</option>
+									<option value="Santiago del Estero">Santiago del Estero</option>
+									<option value="Tierra del Fuego, Antártida e Islas del Atlántico Sur">Tierra
+										del Fuego, Antártida e Islas del Atlántico Sur</option>
+									<option value="Tucumán">Tucumán</option>
+								</select>
+							</div>
+							<div class="col-md-4 col-sm-3 no-pad">
+								<select class="selectpicker">
+									<option>Fecha Publicacion</option>
+									<option>Accounf & Finance</option>
+									<option>Information & Technology</option>
+									<option>Marketing</option>
+									<option>Food & Restaurent</option>
+								</select>
+							</div>
+							<div class="col-md-4 col-sm-2 no-pad">
+								<input type="submit" class="btn seub-btn" value="Buscar" />
+							</div>
+						</div>
+					</fieldset>
+				</form>
+			</div>
 		</div>
-		<div class="row mt-2 g-1">
-			<div class="col-md-3">
-				<div class="card p-2">
-					<div class="text-right"> <small>Full Time</small> </div>
-					<div class="text-center mt-2 p-3"> <img src="https://img.icons8.com/color/96/000000/google-logo.png" width="60" /> <span class="d-block font-weight-bold">UX Designer</span>
-						<hr> <span>Google Inc</span>
-						<div class="d-flex flex-row align-items-center justify-content-center"> <i class="fa fa-map-marker"></i> <small class="ml-1">FA 100, OH, USA</small> </div>
-						<div class="d-flex justify-content-between mt-3"> <span>$34,000</span> <button class="btn btn-sm btn-outline-dark">Apply Now</button> </div>
-					</div>
-				</div>
-			</div>
-			<div class="col-md-3">
-				<div class="card p-2">
-					<div class="text-right"> <small>Full Time</small> </div>
-					<div class="text-center mt-2 p-3"> <img src="https://img.icons8.com/fluent/48/000000/instagram-new.png" width="60" /> <span class="d-block font-weight-bold">UX Designer</span>
-						<hr> <span>Instagram Inc</span>
-						<div class="d-flex flex-row align-items-center justify-content-center"> <i class="fa fa-map-marker"></i> <small class="ml-1">FA 104, OH, USA</small> </div>
-						<div class="d-flex justify-content-between mt-3"> <span>$38,000</span> <button class="btn btn-sm btn-outline-dark">Apply Now</button> </div>
-					</div>
-				</div>
-			</div>
-			<div class="col-md-3">
-				<div class="card p-2">
-					<div class="text-right"> <small>Full Time</small> </div>
-					<div class="text-center mt-2 p-3"> <img src="https://img.icons8.com/officel/80/000000/dribbble.png" width="60" /> <span class="d-block font-weight-bold">UX Designer</span>
-						<hr> <span>Dribbble Inc</span>
-						<div class="d-flex flex-row align-items-center justify-content-center"> <i class="fa fa-map-marker"></i> <small class="ml-1">FA 280, OH, USA</small> </div>
-						<div class="d-flex justify-content-between mt-3"> <span>$24,000</span> <button class="btn btn-sm btn-outline-dark">Apply Now</button> </div>
-					</div>
-				</div>
-			</div>
-			<div class="col-md-3">
-				<div class="card p-2">
-					<div class="text-right"> <small>Full Time</small> </div>
-					<div class="text-center mt-2 p-3"> <img src="https://img.icons8.com/color/96/000000/behance.png" width="60" /> <span class="d-block font-weight-bold">UX Designer</span>
-						<hr> <span>Behance Inc</span>
-						<div class="d-flex flex-row align-items-center justify-content-center"> <i class="fa fa-map-marker"></i> <small class="ml-1">FA 130, OH, USA</small> </div>
-						<div class="d-flex justify-content-between mt-3"> <span>$30,000</span> <button class="btn btn-sm btn-outline-dark">Apply Now</button> </div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div> -->
+	</section>
 
 	<div class="container">
+
 		<nav class="navbar navbar-expand-lg navbar-light bg-light m-5">
 			<div class="container-fluid">
-				<a class="navbar-brand" href="#">Encontra Empleo!</a>
-				<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+				<a class="navbar-brand" href="#">TODAS LAS CATEGORIAS</a>
+				<!-- <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
 					aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
 					<span class="navbar-toggler-icon"></span>
 				</button>
@@ -83,7 +92,7 @@
 							<a class="nav-link" href="#">Fecha de publicacion</a>
 						</li>
 					</ul>
-				</div>
+				</div> -->
 			</div>
 		</nav>
 		<div class="row">
@@ -219,9 +228,9 @@
 					</div>
 				</div>
 			</div>
-			<div class="col-12 d-flex align-items-center justify-content-center">
+			<div class="col-12 d-flex align-items-center justify-content-center" sec:authorize="hasAuthority('EMPLEADOR')">
 				<div class="btn btn-primary mb-30">
-					<span>Find More</span>
+					<span>Pulbicar Empleo </span>
 					<span class="fas fa-arrow-right"></span>
 				</div>
 			</div>

@@ -2,7 +2,6 @@ package ar.edu.unju.fi.entity;
 
 import java.io.Serializable;
 import java.time.LocalDate;
-import java.time.temporal.ChronoUnit;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -56,6 +55,9 @@ public class Empleador implements Serializable {
 	@Column(name = "emp_fechaInic")
 	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	private LocalDate fechaInic;
+
+	@Column(name = "emp_perfil")
+	private String perfil;
 	
 	//email
 	@NotEmpty
@@ -209,5 +211,15 @@ public class Empleador implements Serializable {
 	public static long getSerialversionuid() {
 		return serialVersionUID;
 	}
+
+	public String getPerfil() {
+		return perfil;
+	}
+
+	public void setPerfil(String perfil) {
+		this.perfil = perfil;
+	}
+
+	
 
 }

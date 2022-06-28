@@ -15,7 +15,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 import ar.edu.unju.fi.entity.Empleador;
+import ar.edu.unju.fi.entity.Usuario;
 import ar.edu.unju.fi.service.IEmpleadorService;
+import ar.edu.unju.fi.service.IUsuarioService;
 
 @Controller
 @RequestMapping("/empleador")
@@ -24,6 +26,10 @@ public class NuevoEmpleadorController {
 	@Autowired
 	@Qualifier("EmpleadorServiceImp")
 	private IEmpleadorService empleadorSvc;
+
+	@Autowired
+	@Qualifier("UsuarioServiceImp")
+	private IUsuarioService usuarioSvc;
 
 	private static final Log LOGGER = LogFactory.getLog(NuevoEmpleadorController.class);
 
@@ -42,10 +48,20 @@ public class NuevoEmpleadorController {
 			return mov;
 		}
 
-		ModelAndView mov = new ModelAndView("loginEmpleador");
-
+		ModelAndView mov = new ModelAndView("loginCiudadano");
+		Usuario usuario = new Usuario();
+		usuario.setUsername(empleador.getCuit());
+		usuario.setPassword(empleador.getContrasena());
+		usuario.setTipo(empleador.getPerfil());
+		usuarioSvc.saveUsuario(usuario);
 		empleadorSvc.saveEmpleador(empleador);
 		mov.addObject("inicio");
 		return mov;
+	}
+
+
+	@GetMapping("/crearEmpleo")
+	public String getCrearEmpleoPage(Model model) {
+		return "oferLabForm";
 	}
 }

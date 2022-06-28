@@ -15,7 +15,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 import ar.edu.unju.fi.entity.Ciudadano;
+import ar.edu.unju.fi.entity.Usuario;
 import ar.edu.unju.fi.service.ICiudadanoService;
+import ar.edu.unju.fi.service.IUsuarioService;
 import ar.edu.unju.fi.util.ListaProvincia;
 
 @Controller
@@ -25,6 +27,10 @@ public class NuevoCiudadanoController {
 	@Autowired
 	@Qualifier("CiudadanoServiceImp")
 	private ICiudadanoService ciudadanoSvc;
+
+	@Autowired
+	@Qualifier("UsuarioServiceImp")
+	private IUsuarioService usuarioSvc;
 
 	private static final Log LOGGER = LogFactory.getLog(NuevoCiudadanoController.class);
 
@@ -56,16 +62,16 @@ public class NuevoCiudadanoController {
 		// LOGGER.info("Provincia"+ provincia.get().getNombreP());
 		// ciudadano.setProvincia(provincia.get());
 		// LOGGER.info("ciudadano pr " + ciudadano.getProvincia().getNombreP());
+		Usuario usuario = new Usuario();
+		usuario.setUsername(ciudadano.getDni());
+		usuario.setPassword(ciudadano.getContrasena());
+		usuario.setTipo(ciudadano.getPerfil());
+		usuarioSvc.saveUsuario(usuario);
 		ciudadanoSvc.saveCiudadano(ciudadano);
 		mov.addObject("inicio");
 		return mov;
 	}
 
-	@GetMapping("/crearCv")
-	public String getCreateCvPage(Model model) {
-
-		return "createCv";
-	}
 
 	@GetMapping("/cargarCv")
 	public String getCargarCvPage(Model model) {

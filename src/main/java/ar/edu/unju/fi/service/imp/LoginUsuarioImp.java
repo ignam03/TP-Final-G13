@@ -12,7 +12,8 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
-import ar.edu.unju.fi.entity.Ciudadano;
+
+import ar.edu.unju.fi.entity.Usuario;
 import ar.edu.unju.fi.repository.UserRepository;
 
 @Service
@@ -24,14 +25,14 @@ public class LoginUsuarioImp implements UserDetailsService {
     @Override
     public UserDetails loadUserByUsername(String dni) throws UsernameNotFoundException {
 
-        Ciudadano ciudadanoEncontrado = ciudadanoRepo.findBydni(Long.parseLong(dni))
+        Usuario usuarioEncontrado = ciudadanoRepo.findByUsername(Long.parseLong(dni))
                 .orElseThrow(() -> new UsernameNotFoundException("Usuario inválido"));
 
         List<GrantedAuthority> perfiles = new ArrayList<>();
-        GrantedAuthority grantedAuthority = new SimpleGrantedAuthority(ciudadanoEncontrado.getPerfil());
+        GrantedAuthority grantedAuthority = new SimpleGrantedAuthority(usuarioEncontrado.getTipo());
         perfiles.add(grantedAuthority);
 
-        UserDetails user = (UserDetails) new User(dni, ciudadanoEncontrado.getContrasena(), perfiles);
+        UserDetails user = (UserDetails) new User(dni, usuarioEncontrado.getPassword(), perfiles);
         return user;
     }
 

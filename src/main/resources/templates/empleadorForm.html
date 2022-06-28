@@ -113,6 +113,15 @@
                               <textarea th:field="*{descripcion}" class="form-control" id="exampleFormControlDesc" rows="1"></textarea>
                            </div>
                         </div>
+                        <div hidden class="form-outline mb-4" type="hidden">
+									<label class="form-label" for="perfilId" type="hidden">Perfil </label>
+									<select type="hidden" class="form-select" th:field="*{perfil}" name="perfil"
+										id="perfilId">
+										<option value="EMPLEADOR">Empleador</option>
+									</select>
+									<div class="alert alert-danger text-black" role="alert"
+										th:if="${#fields.hasErrors('perfil')}" th:errors="*{perfil}"></div>
+								</div>
                         <div class="col-md-3">
                            <div class="form-btn">
 								<button class="submit-btn text-center">Registrar</button>

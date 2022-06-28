@@ -38,11 +38,11 @@ public class ManejadorAUTH implements AuthenticationSuccessHandler {
         }
 
         if (userCandidato) {
-            redirectStrategy.sendRedirect(request, response, "/candidato/nuevo");
+            redirectStrategy.sendRedirect(request, response, "/empleos/ofertaLab");
 
         } else {
             if (userEmpleador) {
-                redirectStrategy.sendRedirect(request, response, "/empleador/nuevo");
+                redirectStrategy.sendRedirect(request, response, "/empleos/sobreNosotros");
             } else {
                 throw new IllegalStateException();
             }

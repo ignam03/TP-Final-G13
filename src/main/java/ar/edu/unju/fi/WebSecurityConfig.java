@@ -41,7 +41,6 @@ public class WebSecurityConfig {
                 .loginPage("/empleos/loginCiu")
                 .permitAll()
                 .successHandler(autenticacion)
-                .defaultSuccessUrl("/empleos/inicio")
                 .failureUrl("/empleos/login?error=true")
                 .usernameParameter("username")
                 .passwordParameter("password")
