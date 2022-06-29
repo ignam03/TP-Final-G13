@@ -71,7 +71,7 @@
                                 </div>
                                 <span class="time" th:text="${ofertaLaboral.disponible}"></span>
                                 <a href="" class="btn btn-primary">Solicitar</a>
-                                <a href="" class="btn btn-danger">Eliminar</a>
+                                <a th:href="@{/ofertaLaboral/eliminar/}+${ofertaLaboral.oferNumber}" class="btn btn-danger">Eliminar</a>
                             </div>
                         </div>
                     </div>
