@@ -64,4 +64,8 @@ public class IndexController {
     public String getPerfilesLaboralesPage(Model model) {
         return "busquedaPerfiles";
     }
+    @GetMapping("/verC")
+    public String getVerMasC(Model model) {
+        return "vermasC";
+    } 
 }
