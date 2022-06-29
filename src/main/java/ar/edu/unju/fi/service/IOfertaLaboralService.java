@@ -7,4 +7,5 @@ import ar.edu.unju.fi.entity.OfertaLaboral;
 public interface IOfertaLaboralService {
     public void saveOfertaLaboral(OfertaLaboral ofertaLaboral);
     public List<OfertaLaboral> getOfertasLaborales();
+    public void deleteOfertaLaboral(Long id);
 }
