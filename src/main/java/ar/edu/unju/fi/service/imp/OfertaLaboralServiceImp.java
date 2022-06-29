@@ -25,5 +25,12 @@ public class OfertaLaboralServiceImp implements IOfertaLaboralService {
         // TODO Auto-generated method stub
         return ofertaLaboralDaoImp.findAll();
     }
+    
+    @Override
+    public void deleteOfertaLaboral(Long id) {
+        ofertaLaboralDaoImp.deleteById(id);
+    }
+
+    
 
 }
