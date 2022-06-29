@@ -4,7 +4,6 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Oferta Laboral Form</title>
-	<link rel="stylesheet" type="text/css" th:href="@{/css/style.css}">
 	<link rel="stylesheet" type="text/css" th:href="@{/css/ofertaLab.css}">
 	<link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}">
 	<link th:rel="stylesheet" type="text/css" th:href="@{/webjars/font-awesome/css/all.min.css}" />
@@ -18,6 +17,7 @@
          <div class="section-center">
             <div class="container">
                <div>
+               	<h1 class="text-center text-dark">Oferta Laboral</h1>
                   <div class="booking-form">
                      <form th:action="@{/ofertaLaboral/guardar}" method="POST" th:object="${ofertaLaboral}">
                         <div class="form-group">
@@ -85,24 +85,78 @@
                              </div>
                          </div>
                          <div class="row">
-                            <div class="col-md-5">
+                           <div class="col-md-4">
                                 <div class="form-group">
-                                <span class="form-label">Beneficios</span>
-                                <input th:field="*{beneficios}" class="form-control" type="text" required>
+                                <span class="form-label">Provincia</span>
+                                	<select class="form-control" th:field="*{provincia}" id="provinciaId" name="provincia">
+										<option value="">Seleccione</option>
+										<option value="Buenos Aires">Buenos Aires</option>
+										<option value="Catamarca">Catamarca</option>
+										<option value="Chaco">Chaco</option>
+										<option value="Chubut">Chubut</option>
+										<option value="Córdoba">Córdoba</option>
+										<option value="Entre Ríos">Entre Ríos</option>
+										<option value="Formosa">Formosa</option>
+										<option value="Jujuy">Jujuy</option>
+										<option value="La Pampa">La Pampa</option>
+										<option value="La Rioja">La Rioja</option>
+										<option value="Mendoza">Mendoza</option>
+										<option value="Misiones">Misiones</option>
+										<option value="Neuquén">Neuquén</option>
+										<option value="Río Negro">Río Negro</option>
+										<option value="Salta">Salta</option>
+										<option value="San Juan">San Juan</option>
+										<option value="San Luis">San Luis</option>
+										<option value="Santa Cruz">Santa Cruz</option>
+										<option value="Santa Fe">Santa Fe</option>
+										<option value="Santiago del Estero">Santiago del Estero</option>
+										<option value="Tierra del Fuego, Antártida e Islas del Atlántico Sur">Tierra
+											del Fuego, Antártida e Islas del Atlántico Sur</option>
+										<option value="Tucumán">Tucumán</option>
+									</select>
                                 </div>
-                            </div>
-                            <div class="col-md-4">
-                                <div class="form-group">
-                                   <span class="form-label">Disponible</span>
-                                   <input th:field="*{disponible}" class="form-control" type="text" required>
-                                </div>
-                             </div>
-                           <div class="col-md-3">
-                              <div class="form-btn">
-                                 <button class="submit-btn text-center">Registrar</button>
+                           </div>
+                           <div class="col-md-4">
+                              <div class="form-group">
+                                 <span class="form-label">Fecha de Publicacion</span>
+                                 <input th:field="*{fechaPub}" class="form-control" type="date" th:value="*{fechaPub}" id="fechaPubId" required >
                               </div>
                            </div>
+                           <div class="col-md-4">
+                                <div class="form-group">
+                                   <span class="form-label">Disponible</span>
+                                   <div class="text-center">
+	                                <div class="form-check form-check-inline text-white">
+	                                 <input class="form-check-input " th:field="*{disponible}" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="true">
+	                                 <label class="form-check-label" for="inlineRadio1">SI</label>
+	                               </div>
+	                               <div class="form-check form-check-inline text-white">
+	                                 <input class="form-check-input " th:field="*{disponible}" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="false">
+	                                 <label class="form-check-label" for="inlineRadio2">NO</label>
+	                               </div>
+	                              </div>
+                                </div>
+                           </div>
+                           
                         </div>
+                        <div class="row ">
+                           <div class="col-md-6">
+                               <div class="form-group">
+                               <span class="form-label">Beneficios</span>
+                               <input th:field="*{beneficios}" class="form-control" type="text" required>
+                               </div>
+                           </div>
+                           <div class="col-md-3">
+                              <div class="form-btn">
+                                 <button class="submit-btn text-center">Volver</button>
+                              </div>
+                           </div>
+                          <div class="col-md-3">
+                             <div class="form-btn">
+                                <button class="submit-btn text-center bg-info">Registrar</button>
+                             </div>
+                          </div>
+                       </div>
                            <div class="col-md-3">
                               <div class="form-group">
                                  <input hidden type="password">

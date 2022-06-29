@@ -1,6 +1,7 @@
 package ar.edu.unju.fi.entity;
 
 import java.io.Serializable;
+import java.time.LocalDate;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -9,6 +10,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.stereotype.Component;
 
 @Entity
@@ -30,28 +32,36 @@ public class OfertaLaboral implements Serializable{
     private String jornada;
     private String requisitos;
     private double salario;
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
+    private LocalDate fechaPub;
     private String beneficios;
+    private String provincia;
     private Boolean disponible;
 
     public OfertaLaboral() {
     }
+    
+    public OfertaLaboral(Long oferNumber, int cantVacantes, String puesto, String resumen, String disponibilidad,
+			String tareas, String datos, String jornada, String requisitos, double salario, LocalDate fechaPub,
+			String beneficios, String provincia, Boolean disponible) {
+		super();
+		this.oferNumber = oferNumber;
+		this.cantVacantes = cantVacantes;
+		this.puesto = puesto;
+		this.resumen = resumen;
+		this.disponibilidad = disponibilidad;
+		this.tareas = tareas;
+		this.datos = datos;
+		this.jornada = jornada;
+		this.requisitos = requisitos;
+		this.salario = salario;
+		this.fechaPub = fechaPub;
+		this.beneficios = beneficios;
+		this.provincia = provincia;
+		this.disponible = disponible;
+	}
 
-    public OfertaLaboral(int cantVacantes, String puesto, String resumen, String disponibilidad, String tareas,
-            String datos, String jornada, String requisitos, double salario, String beneficios, Boolean disponible) {
-        this.cantVacantes = cantVacantes;
-        this.puesto = puesto;
-        this.resumen = resumen;
-        this.disponibilidad = disponibilidad;
-        this.tareas = tareas;
-        this.datos = datos;
-        this.jornada = jornada;
-        this.requisitos = requisitos;
-        this.salario = salario;
-        this.beneficios = beneficios;
-        this.disponible = disponible;
-    }
-
-    public Long getOferNumber() {
+	public Long getOferNumber() {
 		return oferNumber;
 	}
 
@@ -147,4 +157,21 @@ public class OfertaLaboral implements Serializable{
         this.disponible = disponible;
     }
 
+	public LocalDate getFechaPub() {
+		return fechaPub;
+	}
+
+	public void setFechaPub(LocalDate fechaPub) {
+		this.fechaPub = fechaPub;
+	}
+
+	public String getProvincia() {
+		return provincia;
+	}
+
+	public void setProvincia(String provincia) {
+		this.provincia = provincia;
+	}
+
+    
 }
