@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Empleos G13</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/publicacion.css}">
+    <link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}">
+    <link th:rel="stylesheet" type="text/css" th:href="@{/webjars/font-awesome/css/all.min.css}" />
+</head>
+
+<body>
+
+    <header th:replace="/layout/header::header"></header>
+
+    <div class="container">
+        <nav class="navbar navbar-expand-lg navbar-light bg-light m-5">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="#">TODAS MIS PUBLICACIONES</a>
+                <!-- <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+					aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+					<span class="navbar-toggler-icon"></span>
+				</button>
+				<div class="collapse navbar-collapse" id="navbarNav">
+					<ul class="navbar-nav topnav  ms-auto">
+						<li class="nav-item">
+							<a class="nav-link active" href="#">Todas las <span>Categorias</span></a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="#">Provincia</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="#">Fecha de publicacion</a>
+						</li>
+					</ul>
+				</div> -->
+            </div>
+        </nav>
+        <div class="row">
+            <div class="row">
+                <div class="col-lg-4 col-md-6 col-sm-6" th:each="ofertaLaboral:${ofertasLaborales}">
+                    <div class="category mb-30">
+                        <div class="job">
+                            <div class="text-end">
+                                <a href="" class="btn btn-success mb-1 ">Editar</a>
+                            </div>
+                            <br>
+                            <span class="colors1 mb-4" th:text="${ofertaLaboral.puesto}"></span>
+                            <h5 th:text=" 'Puesto: '+ ${ofertaLaboral.resumen}"><a href="#"> </a></h5>
+                            <ul class="place">
+                                <li>
+                                    <p th:text=" 'Vacantes: '+ ${ofertaLaboral.cantVacantes}"><i
+                                            class="fas fa-map-marker-alt pe-2"></i></p>
+                                </li>
+                                <li>
+                                    <p th:text=" 'Jornada: ' + ${ofertaLaboral.jornada}" class="ps-5"><i
+                                            class="fas fa-map-marker-alt pe-2"></i></p>
+                                </li>
+                                <li>
+                                    <p th:text=" 'Salario: ' + ${ofertaLaboral.salario}+'$'" class="ps-5"><i
+                                            class="fas fa-map-marker-alt pe-2"></i></p>
+                                </li>
+                                <li>
+                                    <p th:text=" 'Datos: ' + ${ofertaLaboral.datos}" class="ps-5"><i
+                                            class="fas fa-map-marker-alt pe-2"></i></p>
+                                </li>
+                            </ul>
+                            <div class="d-flex align-items-center justify-content-between">
+                                <div class="left">
+                                    <p th:text="${ofertaLaboral.tareas}">Globe Solution Ltd.</p>
+                                </div>
+                                <span class="time" th:text="${ofertaLaboral.disponible}"></span>
+                                <a href="" class="btn btn-primary">Solicitar</a>
+                                <a href="" class="btn btn-danger">Eliminar</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 d-flex align-items-center justify-content-center"
+                sec:authorize="hasAuthority('EMPLEADOR')">
+                <div>
+                    <a class="btn btn-primary mb-30" th:href="@{/ofertaLaboral/nuevo}">Publicar Empleo <span
+                            class="fas fa-arrow-right"></span></a>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <footer th:replace="/layout/footer::footer"></footer>
+
+    <script type="text/javascript" th:src="@{/webjars/jquery/dist/jquery.min.js}"></script>
+    <script type="text/javascript" th:src="@{/webjars/popper.js/umd/popper.min.js}"></script>
+    <script type="text/javascript" th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
+</body>
+
+</html>

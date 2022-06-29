@@ -23,7 +23,7 @@
                 <a class="hov navbar-brand m-1 me-2 pe-2" th:href="@{/empleos/inicio}"
                     style="border-right: 1px solid #fff;">Inicio</a>
                 <div class="" sec:authorize="hasAuthority('CIUDADANO')">
-                    <a class="hov navbar-brand m-1 me-2 pe-2" th:href="@{/empleos/ofertaLab}"
+                    <a class="hov navbar-brand m-1 me-2 pe-2" th:href="@{/ofertaLaboral/verEmpleos}"
                     style="border-right: 1px solid #fff;">Encontrar Empleo</a>
                 </div>
                 <div class="" sec:authorize="hasAuthority('EMPLEADOR')">
@@ -31,7 +31,7 @@
                     style="border-right: 1px solid #fff;">Buscar Perfil  Laboral</a>
                 </div>
                 <div class="" sec:authorize="hasAuthority('EMPLEADOR')">
-                    <a class="hov navbar-brand m-1 me-2 pe-2" th:href="@{/empleos/ofertaLab}"
+                    <a class="hov navbar-brand m-1 me-2 pe-2" th:href="@{/ofertaLaboral/verEmpleos}"
                     style="border-right: 1px solid #fff;">Ofertas Laborales</a>
                 </div>
                 <div class="" sec:authorize="isAuthenticated() == false">
