@@ -1,5 +1,8 @@
 package ar.edu.unju.fi.controller;
 
+import java.util.List;
+import java.util.Optional;
+
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,13 +13,17 @@ import org.springframework.validation.BindingResult;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import ar.edu.unju.fi.entity.Ciudadano;
+import ar.edu.unju.fi.entity.OfertaLaboral;
 import ar.edu.unju.fi.entity.Usuario;
 import ar.edu.unju.fi.service.ICiudadanoService;
+import ar.edu.unju.fi.service.IOfertaLaboralService;
 import ar.edu.unju.fi.service.IUsuarioService;
 import ar.edu.unju.fi.util.ListaProvincia;
 
@@ -27,6 +34,10 @@ public class NuevoCiudadanoController {
 	@Autowired
 	@Qualifier("CiudadanoServiceImp")
 	private ICiudadanoService ciudadanoSvc;
+
+	@Autowired
+    @Qualifier("OfertaLaboralServiceImp")
+    private IOfertaLaboralService ofertaLaboralSvc;
 
 	@Autowired
 	@Qualifier("UsuarioServiceImp")
@@ -72,6 +83,13 @@ public class NuevoCiudadanoController {
 		return mov;
 	}
 
+	@GetMapping("/verEmpleo/{id}")
+    public ModelAndView getEditOfertaLaboralPage(@PathVariable(value = "id") Long id) throws Exception {
+        ModelAndView mov = new ModelAndView("verEmpleo");
+        OfertaLaboral ofertaLaboral = ofertaLaboralSvc.findOfertaLaboral(id);
+        mov.addObject("ofertaLaboral", ofertaLaboral);
+        return mov;
+    }
 
 	@GetMapping("/cargarCv")
 	public String getCargarCvPage(Model model) {
