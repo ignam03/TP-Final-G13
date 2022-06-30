@@ -17,7 +17,7 @@
 		<div class="container">
 			<div class="caption">
 				<h2>TRABAJOS EN TECNOLOGÍA. ENCONTRÁ EL TUYO HOY</h2>
-				<form>
+				<form th:action="@{/ofertaLaboral/verEmpleos}">
 					<fieldset>
 						<div class="row">
 							<!-- <div class="col-md-4 col-sm-4 no-pad">
@@ -25,7 +25,8 @@
 									placeholder="Skills, Designation, Companies" />
 							</div> -->
 							<div class="col-md-4 col-sm-3 no-pad">
-								<select class="selectpicker border-right">
+								<select class="selectpicker border-right" name="provincia" id="provincia"
+									th:value="provincia">
 									<option value="">Provincia</option>
 									<option value="Buenos Aires">Buenos Aires</option>
 									<option value="Catamarca">Catamarca</option>
@@ -52,7 +53,7 @@
 									<option value="Tucumán">Tucumán</option>
 								</select>
 							</div>
-							<div class="col-md-4 col-sm-3 no-pad">
+							<!-- <div class="col-md-4 col-sm-3 no-pad">
 								<select class="selectpicker">
 									<option>Fecha Publicacion</option>
 									<option>Accounf & Finance</option>
@@ -60,9 +61,18 @@
 									<option>Marketing</option>
 									<option>Food & Restaurent</option>
 								</select>
+							</div> -->
+							<div class="col-md-2 col-sm-4 no-pad">
+								<input type="date" class="form-control border-right" placeholder="Desde" />
 							</div>
-							<div class="col-md-4 col-sm-2 no-pad">
+							<div class="col-md-2 col-sm-4 no-pad">
+								<input type="date" class="form-control border-right" placeholder="Hasta," />
+							</div>
+							<div class="col-md-2 col-sm-2 no-pad">
 								<input type="submit" class="btn seub-btn" value="Buscar" />
+							</div>
+							<div class="col-md-2 col-sm-2 no-pad" style="border-left: 1px solid #000;">
+								<input type="button" class="btn seub-btn" value="Todas" onclick="limpiar()" />
 							</div>
 						</div>
 					</fieldset>
@@ -95,7 +105,7 @@
 				</div> -->
 			</div>
 		</nav>
-		<div class="row">
+		<!-- <div class="row">
 			<div class="col-lg-4 col-md-6 col-sm-6">
 				<div class="category mb-30">
 					<div class="job">
@@ -235,7 +245,7 @@
 					<span class="fas fa-arrow-right"></span>
 				</div>
 			</div>
-		</div>
+		</div> -->
 	</div>
 	<div class="container">
 		<div class="row">
@@ -265,10 +275,45 @@
 							</ul>
 							<div class="d-flex align-items-center justify-content-between">
 								<div class="left">
-									<p th:text="${ofertaLaboral.tareas}">Globe Solution Ltd.</p>
+									<p th:text="${ofertaLaboral.disponibilidad}">Globe Solution Ltd.</p>
 								</div>
-								<span class="time" th:text="${ofertaLaboral.disponible}"></span>
-								<a href="" class="btn btn-primary">Solicitar</a>
+								<span class="time" th:text="${ofertaLaboral.provincia}"></span>
+								<a sec:authorize="hasAuthority('CIUDADANO')"
+									th:href="@{/ciudadano/verEmpleo/}+${ofertaLaboral.oferNumber}"
+									class="btn btn-sm btn-primary"> Detalles</a>
+								
+									<div class="text-center">
+											<a sec:authorize="hasAuthority('CIUDADANO')" href=""
+									class="btn btn-sm btn-primary" data-bs-toggle="modal"
+									data-bs-target="#exampleModal">Solicitar</a>
+									</div>
+									<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+										aria-hidden="true">
+										<div class="modal-dialog">
+											<div class="modal-content">
+												<div class="modal-header">
+													<div class="text-center">
+														<h5 class="modal-title " id="exampleModalLabel">Aplicar Empleo</h5>
+													</div>
+													<button type="button" class="btn-close" data-bs-dismiss="modal"
+														aria-label="Close"></button>
+												</div>
+												<div class="modal-body">
+													<div class="text-center">
+														<img src="https://i.imgur.com/l4gliRI.png">
+													</div>
+													<p class="text-center text-success text-uppercase fs-5 fw-bold">Esta
+														seguro de solicitar el empleo?</p>
+												</div>
+												<div class="modal-footer">
+													<button type="button" class="btn btn-secondary"
+														data-bs-dismiss="modal">Close</button>
+													<a th:href="@{/ofertaLaboral/eliminar/}+${ofertaLaboral.oferNumber}"
+														id="eliminarDocente" class="btn btn-primary">Solicitar</a>
+												</div>
+											</div>
+										</div>
+									</div>
 							</div>
 						</div>
 					</div>
@@ -276,14 +321,21 @@
 			</div>
 			<div class="col-12 d-flex align-items-center justify-content-center"
 				sec:authorize="hasAuthority('EMPLEADOR')">
-				<div >
-					<a class="btn btn-primary mb-30" th:href="@{/ofertaLaboral/nuevo}">Publicar Empleo  <span class="fas fa-arrow-right"></span></a>
-					
+				<div>
+					<a class="btn btn-primary mb-30" th:href="@{/ofertaLaboral/nuevo}">Publicar Empleo <span
+							class="fas fa-arrow-right"></span></a>
+
 				</div>
 			</div>
 		</div>
 	</div>
 	</div>
+
+	<script type="text/javascript">
+		function limpiar(){
+			window.location='/ofertaLaboral/verEmpleos'
+		}
+	</script>
 
 	<footer th:replace="/layout/footer::footer"></footer>
 

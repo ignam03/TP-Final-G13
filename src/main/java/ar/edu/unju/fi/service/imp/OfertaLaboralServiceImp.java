@@ -25,7 +25,7 @@ public class OfertaLaboralServiceImp implements IOfertaLaboralService {
         // TODO Auto-generated method stub
         return ofertaLaboralDaoImp.findAll();
     }
-    
+
     @Override
     public void deleteOfertaLaboral(Long id) {
         ofertaLaboralDaoImp.deleteById(id);
@@ -35,7 +35,7 @@ public class OfertaLaboralServiceImp implements IOfertaLaboralService {
     public OfertaLaboral modify(OfertaLaboral unaOfertaLaboral) throws Exception {
         // TODO Auto-generated method stub
         OfertaLaboral ofertaLaboralGuardar = findOfertaLaboral(unaOfertaLaboral.getOferNumber());
-        mapearOfertaLaboral(ofertaLaboralGuardar,unaOfertaLaboral);
+        mapearOfertaLaboral(ofertaLaboralGuardar, unaOfertaLaboral);
         return ofertaLaboralDaoImp.save(ofertaLaboralGuardar);
     }
 
@@ -61,5 +61,12 @@ public class OfertaLaboralServiceImp implements IOfertaLaboralService {
         return ofertaLaboralDaoImp.findById(id).orElseThrow(() -> new Exception("El Usuario no Existe"));
     }
 
+    @Override
+    public List<OfertaLaboral> getOfertasLaboralesPronvicas(String provincia) {
+        if (provincia != null) {
+            return ofertaLaboralDaoImp.findByProvincia(provincia);
+        }
+        return ofertaLaboralDaoImp.findAll();
+    }
 
 }

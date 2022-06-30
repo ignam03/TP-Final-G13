@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Empleos G13</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/empleo.css}">
+    <link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}">
+    <link th:rel="stylesheet" type="text/css" th:href="@{/webjars/font-awesome/css/all.min.css}" />
+</head>
+
+<body>
+
+    <header th:replace="/layout/header::header"></header>
+
+    <!-- <form class="information" th:each="ofertaLaboral:${ofertaLaboral}">
+        <h4 class="form-heading" th:text="${ofertaLaboral.puesto}">Let's get back to your quotes!</h4>
+        <p class="form-para" th:text="${ofertaLaboral.cantVacantes}"> -->
+
+    <!-- <div class="container m-5 mx-auto">
+        <div class="row main">
+            <div class="col-lg-6 col-12 my-5 rcol">
+                <h3 class="product text-center">DETALLES DEL EMPLEO</h3>
+                <div class="image text-center"><img src="https://img.icons8.com/color/96/000000/meeting.png"
+                        width="300px" height="350px"></div>
+                <p class="text-center my-3">Toilet paper is a tissue paper product primarily used to clean<br>the anus
+                    and surrounding area of feces after defecation,<br> and to clean the vulva and perineum of puppies
+                </p>
+            </div>
+            <div class="col-lg-6 col-12 my-5 scol" th:each="ofertaLaboral:${ofertaLaboral}">
+                <div class="row r1">
+                    <h6 class="text-muted">EMPLEO</h6>
+                    <h4 class="text-danger" th:text="${ofertaLaboral.salario}+'$'">58&#36;</h4>
+                </div>
+                <div class="row r2">
+                    <h6 th:text="${ofertaLaboral.resumen}">Lilly Soft & Strong 32 pack</h6>
+                    <h6 class="htwo">X4</h6>
+                </div>
+                <div class="row r3">
+                    <h3 class="payment">PAYMENT DETAILS</h3>
+                </div>
+                <div class="row r4">
+                    <h6 class="payment-method">Select Payment method:</h6>
+                </div>
+                <div class="row r5">
+                    <div class="col-2"><img src="https://img.icons8.com/color/48/000000/mastercard-logo.png" /></div>
+                    <div class="col-2"><img src="https://img.icons8.com/color/48/000000/visa.png" /></div>
+                    <div class="col-2"><img src="https://img.icons8.com/color/48/000000/amex.png" /></div>
+                    <div class="col-2"><img src="https://img.icons8.com/color/48/000000/paypal.png" /></div>
+                </div>
+                <div class="row r6">
+                    <form class="personalDetails">
+                        <div class="form-group">
+                            <input type="text" class="form-control" placeholder="Cardholder Name">
+                        </div>
+                        <div class="form-group">
+                            <input type="text" class="form-control" placeholder="Card number">
+                        </div>
+                        <div class="form-group">
+                            <div class="row">
+                                <div class="col-4">
+                                    <input type="text" class="form-control" placeholder="MM/YY">
+                                </div>
+                                <div class="col-4 offset-2">
+                                    <input type="password" class="form-control" placeholder="CCV">
+                                </div>
+                                <div class="col-2 th"><i class="far fa-credit-card"></i>
+                                </div>
+                            </div>
+                        </div>
+                        <button type="submit" class="btn btn-primary mt-3">PLACE ORDER</button>
+                    </form>
+                </div>
+
+            </div>
+        </div>
+    </div> -->
+
+    <div class="container">
+        <div class="row">
+            <div class="receipt-main mt-5 mb-5 col-6 offset-3" th:each="ofertaLaboral:${ofertaLaboral}">
+                <div class="row">
+                    <div class="receipt-header">
+                        <div class="col-xs-6 col-sm-6 col-md-6">
+                            <div class="receipt-left">
+                                <img class="img-responsive" alt="iamgurdeeposahan"
+                                    src="https://img.icons8.com/color/96/000000/meeting.png"
+                                    style="width: 71px; border-radius: 43px;">
+                            </div>
+                        </div>
+                        <div class="col-xs-6 col-sm-6 col-md-6 text-right">
+                            <div class="receipt-right">
+                                <h5>TechiTouch.</h5>
+                                <p><b>Puesto :</b>
+                                <p th:text="${ofertaLaboral.puesto}"></p>
+                                </p>
+                                <p><b>Provincia :</b>
+                                <p th:text="${ofertaLaboral.provincia}"></p>
+                                </p>
+                                <!-- <p>info@gmail.com <i class="fa fa-envelope-o"></i></p> -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="receipt-header receipt-header-mid">
+                        <div class="col-xs-8 col-sm-8 col-md-8 text-left">
+                            <div class="receipt-right">
+                                <!-- <h5>Gurdeep Singh <small>  |   Lucky Number : 156</small></h5> -->
+                                <!-- <p><b>Mobile :</b> +91 12345-6789</p> -->
+                                <p><b>Datos :</b>
+                                <p th:text="${ofertaLaboral.datos}"></p>
+                                </p>
+                                <!-- <p><b>Address :</b> Australia</p> -->
+                            </div>
+                        </div>
+                        <div class="col-xs-4 col-sm-4 col-md-4">
+                            <div class="receipt-left">
+                                <h1>Detalles</h1>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div>
+                    <table class="table table-bordered">
+                        <thead>
+                            <tr>
+                                <th>Descripcion</th>
+                                <th>Datos</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="col-md-9">Cantidad de Vacantes</td>
+                                <td class="col-md-3">
+                                    <p th:text="${ofertaLaboral.cantVacantes}"></p>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="col-md-9">Resumen del Puesto</td>
+                                <td class="col-md-3">
+                                    <p th:text="${ofertaLaboral.resumen}"></p>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="col-md-9">Disponibilidad</td>
+                                <td class="col-md-3">
+                                    <p th:text="${ofertaLaboral.disponibilidad}"></p>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="col-md-9">Tareas</td>
+                                <td class="col-md-3">
+                                    <p th:text="${ofertaLaboral.tareas}"></p>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="col-md-9">Jornada</td>
+                                <td class="col-md-3">
+                                    <p th:text="${ofertaLaboral.jornada}"></p>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="col-md-9">Requisitos</td>
+                                <td class="col-md-3">
+                                    <p th:text="${ofertaLaboral.requisitos}"></p>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="col-md-9">Beneficios</td>
+                                <td class="col-md-3">
+                                    <p th:text="${ofertaLaboral.beneficios}"></p>
+                                </td>
+                            </tr>
+                            <!-- <tr>
+                                <td class="text-right">
+                                    <p>
+                                        <strong>Total Amount: </strong>
+                                    </p>
+                                    <p>
+                                        <strong>Late Fees: </strong>
+                                    </p>
+                                    <p>
+                                        <strong>Payable Amount: </strong>
+                                    </p>
+                                    <p>
+                                        <strong>Balance Due: </strong>
+                                    </p>
+                                </td>
+                                <td>
+                                    <p>
+                                        <strong><i class="fa fa-inr"></i> 65,500/-</strong>
+                                    </p>
+                                    <p>
+                                        <strong><i class="fa fa-inr"></i> 500/-</strong>
+                                    </p>
+                                    <p>
+                                        <strong><i class="fa fa-inr"></i> 1300/-</strong>
+                                    </p>
+                                    <p>
+                                        <strong><i class="fa fa-inr"></i> 9500/-</strong>
+                                    </p>
+                                </td>
+                            </tr> -->
+                            <tr>
+                                <td class="text-right">
+                                    <h2><strong>Salario: </strong></h2>
+                                </td>
+                                <td class="text-left text-danger">
+                                    <h2><strong th:text="${ofertaLaboral.salario}+'$'"></strong></h2>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="row">
+                    <div class="receipt-header receipt-header-mid receipt-footer">
+                        <div class="col-xs-8 col-sm-8 col-md-8 text-left">
+                            <div class="receipt-right">
+                                <p><b>Fecha de publicacion :</b>
+                                <p th:text="${ofertaLaboral.fechaPub}"></p>
+                                </p>
+                                <h5 style="color: rgb(140, 140, 140);">Gracias !</h5>
+                            </div>
+                        </div>
+                        <!-- <div class="col-xs-4 col-sm-4 col-md-4">
+                            <div class="receipt-left">
+                                <h1>Signature</h1>
+                            </div>
+                        </div> -->
+                        <div class="text-center">
+                            <a href="" class="btn btn-primary" data-bs-toggle="modal"
+                                data-bs-target="#exampleModal">Solicitar!</a>
+                        </div>
+                        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+                            aria-hidden="true">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <div class="text-center">
+                                            <h5 class="modal-title " id="exampleModalLabel">Aplicar Empleo</h5>
+                                        </div>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                            aria-label="Close"></button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <div class="text-center">
+                                            <img src="https://i.imgur.com/l4gliRI.png">
+                                        </div>
+                                        <p class="text-center text-success text-uppercase fs-5 fw-bold">Esta
+                                            seguro de solicitar el empleo?</p>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary"
+                                            data-bs-dismiss="modal">Close</button>
+                                        <a th:href="@{/ofertaLaboral/eliminar/}+${ofertaLaboral.oferNumber}"
+                                            id="eliminarDocente" class="btn btn-primary">Solicitar</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <footer th:replace="/layout/footer::footer"></footer>
+
+    <script type="text/javascript" th:src="@{/webjars/jquery/dist/jquery.min.js}"></script>
+    <script type="text/javascript" th:src="@{/webjars/popper.js/umd/popper.min.js}"></script>
+    <script type="text/javascript" th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
+</body>
+
+</html>

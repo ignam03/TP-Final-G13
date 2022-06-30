@@ -2,6 +2,7 @@ package ar.edu.unju.fi.repository;
 
 import java.time.LocalDate;
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
@@ -14,5 +15,5 @@ public interface OfertaLaboralRepository extends JpaRepository<OfertaLaboral, Lo
     public List<OfertaLaboral> findByfechaPubBetween(LocalDate date1, LocalDate date2);
 
     //todo buscar por nombre
-
+    public List<OfertaLaboral> findByProvincia(String provincia);
 }

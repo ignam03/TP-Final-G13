@@ -68,13 +68,37 @@
                             </ul>
                             <div class="d-flex align-items-center justify-content-between">
                                 <div class="left">
-                                    <p th:text="${ofertaLaboral.tareas}">Globe Solution Ltd.</p>
+                                    <p th:text="${ofertaLaboral.disponibilidad}">Globe Solution Ltd.</p>
                                 </div>
-                                <span class="time" th:text="${ofertaLaboral.disponible}"></span>
-                                <a href="" class="btn btn-primary">Solicitar</a>
+                                <span class="time" th:text="${ofertaLaboral.provincia}"></span>
+                                <!-- <a href="" class="btn btn-primary">Solicitar</a> -->
                                 <a th:href="@{/ofertaLaboral/eliminar/}+${ofertaLaboral.oferNumber}"
-                                    class="btn btn-danger">Eliminar</a>
+                                    id="eliminarCandidato" class="btn btn-danger" data-bs-toggle="modal"
+                                    data-bs-target="#exampleModal">Eliminar</a>
+                                <div class="modal fade" id="exampleModal" tabindex="-1"
+                                    aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                    <div class="modal-dialog">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h5 class="modal-title" id="exampleModalLabel">Eliminar Candidato</h5>
+                                                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                    aria-label="Close"></button>
+                                            </div>
+                                            <div class="modal-body">
+                                                <p class="text-center text-danger text-uppercase fs-5 fw-bold">Esta
+                                                    seguro de eliminar el empleo?</p>
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-secondary"
+                                                    data-bs-dismiss="modal">Close</button>
+                                                <a th:href="@{/ofertaLaboral/eliminar/}+${ofertaLaboral.oferNumber}"
+                                                    id="eliminarDocente" class="btn btn-danger">Eliminar</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
+
                         </div>
                     </div>
                 </div>
@@ -82,8 +106,8 @@
             <div class="col-12 d-flex align-items-center justify-content-center"
                 sec:authorize="hasAuthority('EMPLEADOR')">
                 <div>
-                    <a class="btn btn-primary mb-30" th:href="@{/ofertaLaboral/nuevo}">Publicar Empleo <span
-                            class="fas fa-arrow-right"></span></a>
+                    <a class="btn btn-primary mb-30" th:href="@{/ofertaLaboral/verEmpleos}"> Volver <span
+                            class="fas fa-arrow-left"></span></a>
 
                 </div>
             </div>

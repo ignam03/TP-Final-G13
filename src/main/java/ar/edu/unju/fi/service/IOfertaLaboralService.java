@@ -10,4 +10,5 @@ public interface IOfertaLaboralService {
     public void deleteOfertaLaboral(Long id);
     public OfertaLaboral modify(OfertaLaboral unaOfertaLaboral)throws Exception;
     public OfertaLaboral findOfertaLaboral(Long id)throws Exception;
+    public List<OfertaLaboral> getOfertasLaboralesPronvicas(String provincia);
 }

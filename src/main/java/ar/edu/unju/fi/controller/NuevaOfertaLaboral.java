@@ -8,6 +8,7 @@ import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
@@ -61,9 +62,10 @@ public class NuevaOfertaLaboral {
     }
 
     @GetMapping("/verEmpleos")
-    public String getListaEmpleoPage(Model model) {
-        List<OfertaLaboral> listaLaborales = ofertaLaboralSvc.getOfertasLaborales();
+    public String getListaEmpleoPage(Model model,@Param("provincia")String provincia) {
+        List<OfertaLaboral> listaLaborales = ofertaLaboralSvc.getOfertasLaboralesPronvicas(provincia);
         model.addAttribute("ofertasLaborales", listaLaborales);
+        model.addAttribute("provincia",provincia);
         for (OfertaLaboral ofertaLaboral : listaLaborales) {
 
         }
