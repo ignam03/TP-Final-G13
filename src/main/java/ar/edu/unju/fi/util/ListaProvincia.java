@@ -13,7 +13,7 @@ public class ListaProvincia {
     private List<Provincia> provincias;
 
     public ListaProvincia() {
-        provincias = new ArrayList<Provincia>();;
+        provincias = new ArrayList<Provincia>();        
         provincias.add(new Provincia(2, "Buenos Aires"));
         provincias.add(new Provincia(3, "Catamarca"));
         provincias.add(new Provincia(4, "Chaco"));
