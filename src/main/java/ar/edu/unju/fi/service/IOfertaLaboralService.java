@@ -8,4 +8,6 @@ public interface IOfertaLaboralService {
     public void saveOfertaLaboral(OfertaLaboral ofertaLaboral);
     public List<OfertaLaboral> getOfertasLaborales();
     public void deleteOfertaLaboral(Long id);
+    public OfertaLaboral modify(OfertaLaboral unaOfertaLaboral)throws Exception;
+    public OfertaLaboral findOfertaLaboral(Long id)throws Exception;
 }
