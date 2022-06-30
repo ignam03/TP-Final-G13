@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Empleos G13</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/nostros.css}">
+    <link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}">
+    <link th:rel="stylesheet" type="text/css" th:href="@{/webjars/font-awesome/css/all.min.css}" />
+</head>
+
+<body>
+
+    <header th:replace="/layout/header::header"></header>
+
+    <div class="py-5" style="background-color:#fff;" id="venue">
+        <div class="container">
+            <div class="row animate-in-down" th:each="curso:${curso}" style="background-color:cornflowerblue;">
+                <div class="p-4 col-md-6 align-self-center text-color">
+                    <h2 th:text="${curso.nombre}"></h2>
+                    <p class="my-4" th:text="${curso.descripcion}"></p>
+                </div>
+                <div class="p-0 col-md-6">
+                    <div class="carousel slide" data-ride="carousel" id="carousel1">
+                        <div role="listbox">
+                            <div class="carousel-item active"> <img class="d-block img-fluid w-100"
+                                    src="https://i.imgur.com/c8952Iz.jpg" data-holder-rendered="true">
+                                <div class="carousel-caption">
+                                    <h3>Hauzkhas Village Bar</h3>
+                                    <p>Enjoy our long drink</p>
+                                </div>
+                            </div>
+                        </div> <a class="carousel-control-prev" href="#carousel1" role="button" data-slide="prev"> <span
+                                class="carousel-control-prev-icon" aria-hidden="true"></span> <span
+                                class="sr-only">Previous</span> </a> <a class="carousel-control-next" href="#carousel1"
+                            role="button" data-slide="next"> <span class="carousel-control-next-icon"
+                                aria-hidden="true"></span> <span class="sr-only">Next</span> </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer th:replace="/layout/footer::footer"></footer>
+
+    <script type="text/javascript" th:src="@{/webjars/jquery/dist/jquery.min.js}"></script>
+    <script type="text/javascript" th:src="@{/webjars/popper.js/umd/popper.min.js}"></script>
+    <script type="text/javascript" th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
+</body>
+
+</html>

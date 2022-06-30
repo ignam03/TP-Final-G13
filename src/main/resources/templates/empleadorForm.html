@@ -115,23 +115,25 @@
                            </div>
                         </div>
                         <div hidden class="form-outline mb-4" type="hidden">
-									<label class="form-label" for="perfilId" type="hidden">Perfil </label>
-									<select type="hidden" class="form-select" th:field="*{perfil}" name="perfil"
-										id="perfilId">
-										<option value="EMPLEADOR">Empleador</option>
-									</select>
-									<div class="alert alert-danger text-black" role="alert"
-										th:if="${#fields.hasErrors('perfil')}" th:errors="*{perfil}"></div>
-								</div>
+							<label class="form-label" for="perfilId" type="hidden">Perfil </label>
+							<select type="hidden" class="form-select" th:field="*{perfil}" name="perfil"
+								id="perfilId">
+								<option value="EMPLEADOR">Empleador</option>
+							</select>
+							<div class="alert alert-danger text-black" role="alert"
+								th:if="${#fields.hasErrors('perfil')}" th:errors="*{perfil}"></div>
+						</div>
                         <div class="col-md-3">
                            <div class="form-btn">
-								<button class="submit-btn text-center">Registrar</button>
+								<button class="submit-btn text-center bg-info">Registrar</button>
 							</div>
                         </div>
-                        	<div class="col-md-3">
-                           <div class="form-btn">
-                              <button th:ref="@{/empleos/inicio}" class="submit-btn text-center">Volver</button>
-                           </div>
+                    	<div class="col-md-3">
+	                       <div class="form-btn">
+	                          <div class="form-btn">
+								   <a th:href="@{/empleos/inicio}" class="btn submit-btn text-center">Volver</a>
+							  </div>
+	                       </div>
                         </div>
                     	</div>
                         </div>
