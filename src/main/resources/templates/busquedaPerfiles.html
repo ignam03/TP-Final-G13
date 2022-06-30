@@ -17,15 +17,16 @@
         <div class="container">
             <div class="caption">
                 <h2>BUSQUEDA DE PERILES LABORALES</h2>
-                <form>
+                <form th:action="@{/empleos/perfilesLaborales}">
                     <fieldset>
                         <div class="row">
                             <div class="col-md-4 col-sm-4 no-pad">
                                 <input type="text" class="form-control border-right"
-                                    placeholder="Skills, Programador, Desarrollador" />
+                                    placeholder="Skills, Programador, Desarrollador" name="filtro" id="filtro"
+                                    th:value="filtro" />
                             </div>
                             <div class="col-md-4 col-sm-3 no-pad">
-                                <select class="selectpicker border-right">
+                                <select class="selectpicker border-right" >
                                     <option value="">Provincia</option>
                                     <option value="Buenos Aires">Buenos Aires</option>
                                     <option value="Catamarca">Catamarca</option>
@@ -88,117 +89,73 @@
         </nav>
     </div>
 
-    <div class="container d-flex justify-content-center mt-5">
-
-        <div class="card text-center mb-5">
-            <div class="circle-image">
-                <img src="https://i.imgur.com/hczKIze.jpg" width="50">
-            </div>
-            <span class="dot"></span>
-            <span class="name mb-1 fw-500">Bryan Williams</span>
-            <small class="text-black-50">Tata Ace</small>
-            <small class="text-black-50 font-weight-bold">QP09AA9090</small>
-            <div class="location mt-4">
-                <span class="d-block"><i class="fa fa-map-marker start"></i> <small class="text-truncate ml-2">Ganesha
-                        Road, preet vihar new delhi</small> </span>
-                <span><i class="fa fa-map-marker stop mt-2"></i> <small class="text-truncate ml-2">Mandir Road, Mayur
-                        vihar, new delhi</small> </span>
-            </div>
-            <div class="rate bg-success py-3 text-white mt-3">
-                <h6 class="mb-0">Rate your driver</h6>
-                <div class="rating"> <input type="radio" name="rating" value="5" id="5"><label for="5">☆</label> <input
-                        type="radio" name="rating" value="4" id="4"><label for="4">☆</label> <input type="radio"
-                        name="rating" value="3" id="3"><label for="3">☆</label> <input type="radio" name="rating"
-                        value="2" id="2"><label for="2">☆</label> <input type="radio" name="rating" value="1"
-                        id="1"><label for="1">☆</label>
-                </div>
-                <div class="buttons px-4 mt-0">
-                    <button class="btn btn-warning btn-block rating-submit">Submit</button>
+    <div class="container d-flex justify-content-center">
+        <div class="row">
+            <div class="col-md-4">
+                <div class="card p-3 py-4 mt-5 mb-5">
+                    <div class="text-center">
+                        <img src="https://i.imgur.com/stD0Q19.jpg" width="100" class="rounded-circle">
+                        <h3 class="mt-2">Maria Smantha</h3>
+                        <span class="mt-1 clearfix">Android Developer</span>
+                        <small class="mt-4">I am an android developer working at google Inc at california,USA</small>
+                        <div class="social-buttons mt-5">
+                            <button class="neo-button"><i class="fa fa-facebook fa-1x"></i> </button>
+                            <button class="neo-button"><i class="fa fa-linkedin fa-1x"></i></button>
+                            <button class="neo-button"><i class="fa fa-google fa-1x"></i> </button>
+                            <button class="neo-button"><i class="fa fa-youtube fa-1x"></i> </button>
+                        </div>
+                    </div>
                 </div>
             </div>
-        </div>
-        <div class="card text-center mb-5">
-            <div class="circle-image">
-                <img src="https://i.imgur.com/hczKIze.jpg" width="50">
-            </div>
-            <span class="dot"></span>
-            <span class="name mb-1 fw-500">Bryan Williams</span>
-            <small class="text-black-50">Tata Ace</small>
-            <small class="text-black-50 font-weight-bold">QP09AA9090</small>
-            <div class="location mt-4">
-                <span class="d-block"><i class="fa fa-map-marker start"></i> <small class="text-truncate ml-2">Ganesha
-                        Road, preet vihar new delhi</small> </span>
-                <span><i class="fa fa-map-marker stop mt-2"></i> <small class="text-truncate ml-2">Mandir Road, Mayur
-                        vihar, new delhi</small> </span>
-            </div>
-            <div class="rate bg-success py-3 text-white mt-3">
-                <h6 class="mb-0">Rate your driver</h6>
-                <div class="rating"> <input type="radio" name="rating" value="5" id="5"><label for="5">☆</label> <input
-                        type="radio" name="rating" value="4" id="4"><label for="4">☆</label> <input type="radio"
-                        name="rating" value="3" id="3"><label for="3">☆</label> <input type="radio" name="rating"
-                        value="2" id="2"><label for="2">☆</label> <input type="radio" name="rating" value="1"
-                        id="1"><label for="1">☆</label>
-                </div>
-                <div class="buttons px-4 mt-0">
-                    <button class="btn btn-warning btn-block rating-submit">Submit</button>
+            <div class="col-md-4">
+                <div class="card p-3 py-4 mt-5">
+                    <div class="text-center">
+                        <img src="https://i.imgur.com/xELPaag.jpg" width="100" class="rounded-circle">
+                        <h3 class="mt-2">Simona Disa</h3>
+                        <span class="mt-1 clearfix">Graphics Designer</span>
+                        <small class="mt-4">I am an Graphics Designer working at google Inc at california,USA</small>
+                        <div class="social-buttons mt-5">
+                            <button class="neo-button"><i class="fa fa-facebook fa-1x"></i> </button>
+                            <button class="neo-button"><i class="fa fa-linkedin fa-1x"></i></button>
+                            <button class="neo-button"><i class="fa fa-google fa-1x"></i> </button>
+                            <button class="neo-button"><i class="fa fa-youtube fa-1x"></i> </button>
+                        </div>
+                    </div>
                 </div>
             </div>
-        </div>
-        <div class="card text-center mb-5">
-            <div class="circle-image">
-                <img src="https://i.imgur.com/hczKIze.jpg" width="50">
-            </div>
-            <span class="dot"></span>
-            <span class="name mb-1 fw-500">Bryan Williams</span>
-            <small class="text-black-50">Tata Ace</small>
-            <small class="text-black-50 font-weight-bold">QP09AA9090</small>
-            <div class="location mt-4">
-                <span class="d-block"><i class="fa fa-map-marker start"></i> <small class="text-truncate ml-2">Ganesha
-                        Road, preet vihar new delhi</small> </span>
-                <span><i class="fa fa-map-marker stop mt-2"></i> <small class="text-truncate ml-2">Mandir Road, Mayur
-                        vihar, new delhi</small> </span>
-            </div>
-            <div class="rate bg-success py-3 text-white mt-3">
-                <h6 class="mb-0">Rate your driver</h6>
-                <div class="rating"> <input type="radio" name="rating" value="5" id="5"><label for="5">☆</label> <input
-                        type="radio" name="rating" value="4" id="4"><label for="4">☆</label> <input type="radio"
-                        name="rating" value="3" id="3"><label for="3">☆</label> <input type="radio" name="rating"
-                        value="2" id="2"><label for="2">☆</label> <input type="radio" name="rating" value="1"
-                        id="1"><label for="1">☆</label>
+            <div class="col-md-4">
+                <div class="card p-3 py-4 mt-5">
+                    <div class="text-center">
+                        <img src="https://i.imgur.com/nAcoHRf.jpg" width="100" class="rounded-circle">
+                        <h3 class="mt-2">John Smith</h3>
+                        <span class="mt-1 clearfix">Java Architect</span>
+                        <small class="mt-4">I am an Java Architect working at google Inc at california,USA</small>
+                        <div class="social-buttons mt-5">
+                            <button class="neo-button"><i class="fa fa-facebook fa-1x"></i> </button>
+                            <button class="neo-button"><i class="fa fa-linkedin fa-1x"></i></button>
+                            <button class="neo-button"><i class="fa fa-google fa-1x"></i> </button>
+                            <button class="neo-button"><i class="fa fa-youtube fa-1x"></i> </button>
+                        </div>
+                    </div>
                 </div>
-                <div class="buttons px-4 mt-0">
-                    <button class="btn btn-warning btn-block rating-submit">Submit</button>
+            </div>
+            <div class="col-md-4">
+                <div class="card p-3 py-4 mt-5 mb-5">
+                    <div class="text-center">
+                        <img src="https://i.imgur.com/nAcoHRf.jpg" width="100" class="rounded-circle">
+                        <h3 class="mt-2">John Smith</h3>
+                        <span class="mt-1 clearfix">Java Architect</span>
+                        <small class="mt-4">I am an Java Architect working at google Inc at california,USA</small>
+                        <div class="social-buttons mt-5">
+                            <button class="neo-button"><i class="fa fa-facebook fa-1x"></i> </button>
+                            <button class="neo-button"><i class="fa fa-linkedin fa-1x"></i></button>
+                            <button class="neo-button"><i class="fa fa-google fa-1x"></i> </button>
+                            <button class="neo-button"><i class="fa fa-youtube fa-1x"></i> </button>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
-        <div class="card text-center mb-5">
-            <div class="circle-image">
-                <img src="https://i.imgur.com/hczKIze.jpg" width="50">
-            </div>
-            <span class="dot"></span>
-            <span class="name mb-1 fw-500">Bryan Williams</span>
-            <small class="text-black-50">Tata Ace</small>
-            <small class="text-black-50 font-weight-bold">QP09AA9090</small>
-            <div class="location mt-4">
-                <span class="d-block"><i class="fa fa-map-marker start"></i> <small class="text-truncate ml-2">Ganesha
-                        Road, preet vihar new delhi</small> </span>
-                <span><i class="fa fa-map-marker stop mt-2"></i> <small class="text-truncate ml-2">Mandir Road, Mayur
-                        vihar, new delhi</small> </span>
-            </div>
-            <div class="rate bg-success py-3 text-white mt-3">
-                <h6 class="mb-0">Rate your driver</h6>
-                <div class="rating"> <input type="radio" name="rating" value="5" id="5"><label for="5">☆</label> <input
-                        type="radio" name="rating" value="4" id="4"><label for="4">☆</label> <input type="radio"
-                        name="rating" value="3" id="3"><label for="3">☆</label> <input type="radio" name="rating"
-                        value="2" id="2"><label for="2">☆</label> <input type="radio" name="rating" value="1"
-                        id="1"><label for="1">☆</label>
-                </div>
-                <div class="buttons px-4 mt-0">
-                    <button class="btn btn-warning btn-block rating-submit">Submit</button>
-                </div>
-            </div>
-        </div>
-        
     </div>
 
     <footer th:replace="/layout/footer::footer"></footer>
