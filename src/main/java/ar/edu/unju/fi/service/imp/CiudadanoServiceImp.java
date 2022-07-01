@@ -29,6 +29,12 @@ public class CiudadanoServiceImp implements ICiudadanoService{
 	public List<Ciudadano> getCiudadanos() {
 		return ciudadanoDaoImp.findAll();
 	}
-	
 
+	@Override
+	public Ciudadano findCiudadano(Long id) throws Exception {
+		// TODO Auto-generated method stub
+		return ciudadanoDaoImp.findById(id).orElseThrow(() -> new Exception("El Usuario no Existe"));
+	}
+	
+	
 }

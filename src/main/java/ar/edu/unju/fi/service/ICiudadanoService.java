@@ -8,5 +8,5 @@ public interface ICiudadanoService {
 	
 	public void saveCiudadano(Ciudadano ciudadano);
 	public List<Ciudadano> getCiudadanos();
-	
+	public Ciudadano findCiudadano(Long id)throws Exception;
 }

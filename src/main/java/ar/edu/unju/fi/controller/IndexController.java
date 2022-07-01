@@ -4,6 +4,9 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -11,11 +14,17 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
+import ar.edu.unju.fi.entity.Curriculum;
 import ar.edu.unju.fi.entity.Curso;
+import ar.edu.unju.fi.service.ICurriculumService;
 
 @Controller
 @RequestMapping("/empleos")
 public class IndexController {
+
+    @Autowired
+	@Qualifier("CurriculumServiceImp")
+	private ICurriculumService curriculumSvc;
 
     @GetMapping("/inicio")
     public String getInicioPage(Model model) {
@@ -63,7 +72,12 @@ public class IndexController {
     }
 
     @GetMapping("/perfilesLaborales")
-    public String getPerfilesLaboralesPage(Model model) {
+    public String getPerfilesLaboralesPage(Model model, @Param("filtro")String filtro) {
+        List<Curriculum> listaCurriculums = curriculumSvc.getOCurriculm(filtro);
+        model.addAttribute("perfiles",listaCurriculums);
+        for(Curriculum curriculum : listaCurriculums){
+            
+        }
         return "busquedaPerfiles";
     }
     

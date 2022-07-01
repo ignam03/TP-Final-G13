@@ -39,21 +39,24 @@ public class NuevoCvController {
 	public String getFormNewCurriculumPage(Model model) {
 		model.addAttribute("curriculum", new Curriculum());
 		List<Ciudadano> ciudadanos = ciudadanoSvc.getCiudadanos();
-		model.addAttribute("ciudadanos",ciudadanos);
+		model.addAttribute("ciudadano", ciudadanos);
 		return "createCv";
 	}
 
 	@PostMapping("/guardar")
-	public ModelAndView guardarCurriculum(@Validated @ModelAttribute("curriculum") Curriculum curriculum, BindingResult bindingResult){
-
+	public ModelAndView guardarCurriculum(@Validated @ModelAttribute("curriculum") Curriculum curriculum,
+			BindingResult bindingResult) {
+		LOGGER.info("cirruculum" + curriculum);
 		List<Ciudadano> ciudadanos = ciudadanoSvc.getCiudadanos();
 		ModelAndView model = new ModelAndView("cv");
+		LOGGER.info("cirruculum" + curriculum.getApellido());
 		curriculumSvc.saveCurriculum(curriculum);
 		return model;
 	}
 
 	@GetMapping("/verCv")
 	public String getCvPage(Model model) {
+		model.addAttribute("attributeValue");
 		return "cv";
 	}
 }

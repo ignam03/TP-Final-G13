@@ -3,7 +3,8 @@ body {
 }
 
 .card {
-  width: 350px;
+  width: 500px;
+  max-width: 100%;
   border: none;
   box-shadow: 5px 6px 6px 2px #e9ecef;
   border-radius: 12px;

@@ -2,50 +2,51 @@
 <html lang="en" xmlns:th="http://thymeleaf.org">
 
 <head>
-    <meta charset="UTF-8">
-    <title>Empleos G13</title>
-    <link rel="stylesheet" type="text/css" th:href="@{/css/curso.css}">
-    <link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}">
-    <link th:rel="stylesheet" type="text/css" th:href="@{/webjars/font-awesome/css/all.min.css}" />
+	<meta charset="UTF-8">
+	<title>Empleos G13</title>
+	<link rel="stylesheet" type="text/css" th:href="@{/css/curso.css}">
+	<link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}">
+	<link th:rel="stylesheet" type="text/css" th:href="@{/webjars/font-awesome/css/all.min.css}" />
 </head>
 
 <body>
 
-    <header th:replace="/layout/header::header"></header>
+	<header th:replace="/layout/header::header"></header>
 
-    <div class="container mt-5 mb-5">
-        	<div class="row">
-	        	<div class="card border-0 mb-3 col-3" th:each="curso:${curso}">
-	                <div class="backgroundEffect"></div>
-	                <div class="pic"> <img class=""
-	                        src="https://images.pexels.com/photos/4491881/pexels-photo-4491881.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500"
-	                        alt="">
-	                    <div class="date"> <span class="day">26</span> <span class="month">June</span> <span
-	                            class="year">2019</span> </div>
-	                </div>
-	                <div class="content">
-	                    <p class="h-1 mt-4" th:text="${curso.nombre}"></p>
-	                    <p class="text-muted mt-3">Aprovecha Ofertas Para Ti!!</p>
-	                    <div class="d-flex align-items-center justify-content-between">
-							<a th:href="@{/empleos/verC?id={id}(id=${curso.id})} " class="btn btn-primary">Ver Mas<span class="fas fa-arrow-right"></span></a>
-	                        <div class="d-flex align-items-center justify-content-center foot">
-	                            <p class="admin" th:text="${curso.tipo}"></p>
-	                            <p class="ps-3 icon text-muted"><span class="fas fa-comment-alt pe-1"></span>3</p>
-	                        </div>
-	                    </div>
-	                </div>
-	            </div>
-        	</div>
-        	<div class="cards">
-    </div>
-    
-</div>
-    
-    <footer th:replace="/layout/footer::footer"></footer>
+	<div class="container mt-5 mb-5">
+		<div class="row">
+			<div class="card border-0 mb-3 col-3" th:each="curso:${curso}">
+				<div class="backgroundEffect"></div>
+				<div class="pic"> <img class=""
+						src="https://images.pexels.com/photos/4491881/pexels-photo-4491881.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500"
+						alt="">
+					<div class="date"> <span class="day">26</span> <span class="month">June</span> <span
+							class="year">2019</span> </div>
+				</div>
+				<div class="content">
+					<p class="h-1 mt-4" th:text="${curso.nombre}"></p>
+					<p class="text-muted mt-3">Aprovecha Ofertas Para Ti!!</p>
+					<div class="d-flex align-items-center justify-content-between">
+						<a th:href="@{/empleos/verC?id={id}(id=${curso.id})} " class="btn btn-primary">Ver Mas<span
+								class="fas fa-arrow-right"></span></a>
+						<div class="d-flex align-items-center justify-content-center foot">
+							<p class="admin" th:text="${curso.tipo}"></p>
+							<p class="ps-3 icon text-muted"><span class="fas fa-comment-alt pe-1"></span>3</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="cards">
+		</div>
 
-    <script type="text/javascript" th:src="@{/webjars/jquery/dist/jquery.min.js}"></script>
-    <script type="text/javascript" th:src="@{/webjars/popper.js/umd/popper.min.js}"></script>
-    <script type="text/javascript" th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
+	</div>
+
+	<footer th:replace="/layout/footer::footer"></footer>
+
+	<script type="text/javascript" th:src="@{/webjars/jquery/dist/jquery.min.js}"></script>
+	<script type="text/javascript" th:src="@{/webjars/popper.js/umd/popper.min.js}"></script>
+	<script type="text/javascript" th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
 </body>
 
 </html>

@@ -22,8 +22,8 @@
                         <div class="row">
                             <div class="col-md-4 col-sm-4 no-pad">
                                 <input type="text" class="form-control border-right"
-                                    placeholder="Skills, Programador, Desarrollador" name="filtro" id="filtro"
-                                    th:value="filtro" />
+                                    placeholder="Nombre, Apellido, id" name="filtro" id="filtro"
+                                    />
                             </div>
                             <div class="col-md-4 col-sm-3 no-pad">
                                 <select class="selectpicker border-right" >
@@ -53,9 +53,12 @@
                                     <option value="Tucumán">Tucumán</option>
                                 </select>
                             </div>
-                            <div class="col-md-4 col-sm-2 no-pad">
-                                <input type="submit" class="btn seub-btn" value="Buscar" />
+                            <div class="col-md-2 col-sm-2 no-pad">
+                                <input type="submit" class="btn seub-btn" value="Buscar"/>
                             </div>
+                            <div class="col-md-2 col-sm-2 no-pad" style="border-left: 1px solid #000;">
+								<input type="button" class="btn seub-btn" value="Todas" onclick="limpiar()" />
+							</div>
                         </div>
                     </fieldset>
                 </form>
@@ -89,41 +92,26 @@
         </nav>
     </div>
 
-    <div class="container d-flex justify-content-center">
+    <div class="container  ">
         <div class="row">
-            <div class="col-md-4">
-                <div class="card p-3 py-4 mt-5 mb-5">
+            <div class="col-lg-4 col-md-6 col-sm-6" th:each="perfil:${perfiles}">
+                <div class="card p-3 py-4 mt-5 mb-5 ms-5">
                     <div class="text-center">
-                        <img src="https://i.imgur.com/stD0Q19.jpg" width="100" class="rounded-circle">
-                        <h3 class="mt-2">Maria Smantha</h3>
+                        <img src="/images/profile/descargar (1).jpg" width="100" class="rounded-circle">
+                        <h3 class="mt-2" th:text="${perfil.nombre}+' '+${perfil.apellido}">Maria Smantha</h3>
                         <span class="mt-1 clearfix">Android Developer</span>
-                        <small class="mt-4">I am an android developer working at google Inc at california,USA</small>
+                        <small class="mt-4" th:text="${perfil.pais}">I am an android developer working at google Inc at california,USA</small>
                         <div class="social-buttons mt-5">
-                            <button class="neo-button"><i class="fa fa-facebook fa-1x"></i> </button>
-                            <button class="neo-button"><i class="fa fa-linkedin fa-1x"></i></button>
-                            <button class="neo-button"><i class="fa fa-google fa-1x"></i> </button>
-                            <button class="neo-button"><i class="fa fa-youtube fa-1x"></i> </button>
+                            <button class="neo-button"><i class="fab fa-facebook "></i> </button>
+                            <button class="neo-button"><i class="fab fa-linkedin "></i></button>
+                            <button class="neo-button"><i class="fab fa-google "></i> </button>
+                            <button class="neo-button"><i class="fab fa-youtube "></i> </button>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="col-md-4">
-                <div class="card p-3 py-4 mt-5">
-                    <div class="text-center">
-                        <img src="https://i.imgur.com/xELPaag.jpg" width="100" class="rounded-circle">
-                        <h3 class="mt-2">Simona Disa</h3>
-                        <span class="mt-1 clearfix">Graphics Designer</span>
-                        <small class="mt-4">I am an Graphics Designer working at google Inc at california,USA</small>
-                        <div class="social-buttons mt-5">
-                            <button class="neo-button"><i class="fa fa-facebook fa-1x"></i> </button>
-                            <button class="neo-button"><i class="fa fa-linkedin fa-1x"></i></button>
-                            <button class="neo-button"><i class="fa fa-google fa-1x"></i> </button>
-                            <button class="neo-button"><i class="fa fa-youtube fa-1x"></i> </button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4">
+            
+            <!-- <div class="col-md-4">
                 <div class="card p-3 py-4 mt-5">
                     <div class="text-center">
                         <img src="https://i.imgur.com/nAcoHRf.jpg" width="100" class="rounded-circle">
@@ -154,9 +142,31 @@
                         </div>
                     </div>
                 </div>
-            </div>
+            </div> 
+            <div class="col-md-4" th:each="perfil:${perfiles}">
+                <div class="card p-3 py-4 mt-5 mb-5" >
+                    <div class="text-center">
+                        <img src="https://i.imgur.com/nAcoHRf.jpg" width="100" class="rounded-circle">
+                        <h3 class="mt-2" th:text="${perfil.nombre}">John Smith</h3>
+                        <span class="mt-1 clearfix" th:text="${perfil.pais}">Java Architect</span>
+                        <small class="mt-4">I am an Java Architect working at google Inc at california,USA</small>
+                        <div class="social-buttons mt-5">
+                            <button class="neo-button"><i class="fa fa-facebook fa-1x"></i> </button>
+                            <button class="neo-button"><i class="fa fa-linkedin fa-1x"></i></button>
+                            <button class="neo-button"><i class="fa fa-google fa-1x"></i> </button>
+                            <button class="neo-button"><i class="fa fa-youtube fa-1x"></i> </button>
+                        </div>
+                    </div>
+                </div>
+            </div> -->
         </div>
     </div>
+
+    <script type="text/javascript">
+		function limpiar(){
+			window.location='/empleos/perfilesLaborales'
+		}
+	</script>
 
     <footer th:replace="/layout/footer::footer"></footer>
 
