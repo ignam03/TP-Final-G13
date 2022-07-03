@@ -10,9 +10,11 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.validation.constraints.Email;
+import javax.validation.constraints.Min;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.PastOrPresent;
 import javax.validation.constraints.Size;
 
 import org.springframework.format.annotation.DateTimeFormat;
@@ -28,7 +30,7 @@ public class Empleador implements Serializable {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long empleadorNumber;
-	
+
 	//cuit
 	@Column(name = "emp_cuit")
 	private Long cuit;
@@ -52,6 +54,7 @@ public class Empleador implements Serializable {
 	private String nom_comercial;
 	
 	//inicio actividad
+	@PastOrPresent
 	@Column(name = "emp_fechaInic")
 	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	private LocalDate fechaInic;
@@ -89,8 +92,7 @@ public class Empleador implements Serializable {
 	private String pag_web;
 	
 	//descripcion
-	@NotBlank(message = "El campo descripcion no puede estar vacio")
-	@Size(min = 3, message = "La descripcion debe tener entre 3 a 20 caracteres")
+	@NotBlank(message = "El campo descripcion no puede estar vacio") 
 	@Column(name = "emp_descripcion")
 	private String descripcion;
 

@@ -40,14 +40,16 @@ public class NuevoEmpleadorController {
 	}
 
 	@PostMapping("/guardar")
-	public ModelAndView guardarEmpleador(@Validated @ModelAttribute("empleador") Empleador empleador,
-			BindingResult bindingResult) {
+	public ModelAndView guardarEmpleador(@Validated @ModelAttribute("empleador") Empleador empleador, 
+		BindingResult bindingResult) 
+	{
 		if (bindingResult.hasErrors()) {
 			LOGGER.info("No se cumplen las validaciones");
 			ModelAndView mov = new ModelAndView("empleadorForm");
+			//mov.addObject("empleador", empleador);
 			return mov;
 		}
-
+		
 		ModelAndView mov = new ModelAndView("loginCiudadano");
 		Usuario usuario = new Usuario();
 		usuario.setUsername(empleador.getCuit());
@@ -56,6 +58,7 @@ public class NuevoEmpleadorController {
 		usuarioSvc.saveUsuario(usuario);
 		empleadorSvc.saveEmpleador(empleador);
 		mov.addObject("inicio");
+		
 		return mov;
 	}
 

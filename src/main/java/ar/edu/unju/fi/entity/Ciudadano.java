@@ -16,6 +16,7 @@ import javax.validation.constraints.Min;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.PastOrPresent;
 import javax.validation.constraints.Size;
 
 import org.springframework.format.annotation.DateTimeFormat;
@@ -30,10 +31,10 @@ public class Ciudadano implements Serializable {
 	 * 
 	 */
 	private static final long serialVersionUID = -3611893865263492725L;
-	@Min(value = 1000000, message = "El DNI debe ser mayor a 1.000.000")
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long ciudadanoNumber;
+	@Min(value = 1000000, message = "El DNI debe ser mayor a 1.000.000")
 	@Column(name = "ciu_dni")
 	private Long dni;
 	@Size(min = 3, max = 20, message = "El nombre debe tener entre 3 a 20 caracteres")
@@ -44,13 +45,14 @@ public class Ciudadano implements Serializable {
 	@Email
 	@Column(name = "ciu_email")
 	private String email;
-	@NotNull(message = "Debe seleccionar un docente")
+	@NotEmpty(message = "seleccione el estado civil")
 	@Column(name = "ciu_estadoCivil")
 	private String estadoCivil;
 	@Size(min = 5, max = 10)
 	@NotEmpty(message = "El telefono no puede ser vacío")
 	@Column(name = "ciu_telefono")
 	private String telefono;
+	@PastOrPresent
 	@Column(name = "ciud_fechaNac")
 	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	private LocalDate fechaNac;
@@ -58,7 +60,7 @@ public class Ciudadano implements Serializable {
 	@Size(min = 3, message = "La contraseña debe tener entre 3 a 20 caracteres")
 	@Column(name = "ciu_contrasena")
 	private String contrasena;
-	@NotNull(message = "Debe seleccionar una provincia")
+	@NotEmpty(message = "seleccione una provincia")
 	@Column(name = "ciud_provincia")
 	private String provincia;
 	private String perfil;
