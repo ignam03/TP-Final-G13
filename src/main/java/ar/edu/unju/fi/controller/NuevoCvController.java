@@ -1,5 +1,6 @@
 package ar.edu.unju.fi.controller;
 
+import java.security.Principal;
 import java.util.List;
 
 import org.apache.commons.logging.Log;
@@ -12,6 +13,7 @@ import org.springframework.validation.BindingResult;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
@@ -38,25 +40,72 @@ public class NuevoCvController {
 	@GetMapping("/nuevo")
 	public String getFormNewCurriculumPage(Model model) {
 		model.addAttribute("curriculum", new Curriculum());
-		List<Ciudadano> ciudadanos = ciudadanoSvc.getCiudadanos();
-		model.addAttribute("ciudadano", ciudadanos);
+		// List<Ciudadano> ciudadanos = ciudadanoSvc.getCiudadanos();
+		// model.addAttribute("ciudadano", ciudadanos);
 		return "createCv";
 	}
 
 	@PostMapping("/guardar")
-	public ModelAndView guardarCurriculum(@Validated @ModelAttribute("curriculum") Curriculum curriculum,
+	public ModelAndView guardarCurriculum(@Validated @ModelAttribute("curriculum") Curriculum curriculum, Model model,
 			BindingResult bindingResult) {
 		LOGGER.info("cirruculum" + curriculum);
-		List<Ciudadano> ciudadanos = ciudadanoSvc.getCiudadanos();
-		ModelAndView model = new ModelAndView("cv");
+		if (bindingResult.hasErrors()) {
+			LOGGER.info("No se cumplen las validaciones");
+			ModelAndView mov = new ModelAndView("cv");
+			return mov;
+		}
+		// List<Ciudadano> ciudadanos = ciudadanoSvc.getCiudadanos();
+		ModelAndView mod = new ModelAndView("cv");
 		LOGGER.info("cirruculum" + curriculum.getApellido());
 		curriculumSvc.saveCurriculum(curriculum);
-		return model;
+		return mod;
 	}
 
 	@GetMapping("/verCv")
-	public String getCvPage(Model model) {
+	public String getVerCvPage(Model model, Principal principal) throws Exception {
+		try {
+			// LOGGER.info(principal);
+			Ciudadano existe = ciudadanoSvc.getCiudadanoByDni(Long.parseLong(principal.getName()));
+			// LOGGER.info(existe.getDni());
+			LOGGER.info(existe.getCurriculum());
+			model.addAttribute("ciudadanoActual", existe);
+
+			return "cv";
+		} catch (Exception e) {
+			model.addAttribute("usuarioErrorMensaje", e.getMessage());
+		}
 		model.addAttribute("attributeValue");
 		return "cv";
+	}
+
+	@GetMapping("/editar/{id}")
+	public ModelAndView getEditOfertaLaboralPage(@PathVariable(value = "id") Long id) throws Exception {
+		ModelAndView mov = new ModelAndView("editarCv");
+		Curriculum curriculum = curriculumSvc.findCurriculum(id);
+		mov.addObject("curriculum", curriculum);
+		return mov;
+	}
+
+	@PostMapping("/modificar")
+	public ModelAndView editarDatosOfertaLaboral(
+			@Validated @ModelAttribute("curriculum") Curriculum curriculum,
+			BindingResult bindingResult) throws Exception {
+		if (bindingResult.hasErrors()) {
+			LOGGER.info("ocurrio un error " + curriculum);
+			ModelAndView mav = new ModelAndView("editarOfertaLaboral");
+			mav.addObject("curriculum", curriculum);
+			return mav;
+		}
+		;
+		ModelAndView mav = new ModelAndView("redirect:/curriculum/verCv");
+		try {
+			curriculumSvc.modify(curriculum);
+			LOGGER.info("oferta " + curriculum.getApellido());
+			LOGGER.info("oferta " + curriculum.getConocimientos());
+		} catch (Exception e) {
+			LOGGER.info("erorr" + e.getMessage());
+		}
+		LOGGER.info("guardado");
+		return mav;
 	}
 }

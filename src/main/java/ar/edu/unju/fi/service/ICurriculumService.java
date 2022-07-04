@@ -9,7 +9,12 @@ public interface ICurriculumService {
 
     public Curriculum findCurriculum(Long id) throws Exception;
 
+    public Curriculum modify(Curriculum curriculum)throws Exception;
+
     public List<Curriculum> getCurrriculums();
 
     public List<Curriculum> getOCurriculm(String filtro);
+
+    public List<Curriculum> getCurriculumPronvicas(String provincia);
+
 }

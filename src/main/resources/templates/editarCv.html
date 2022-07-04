@@ -16,12 +16,11 @@
         <div class="container rounded bg-white mt-5 mb-5">
                 <div class="row">
                         <div class="col-md-3 border-right">
-                                <div class="d-flex flex-column align-items-center text-center p-3 py-5"
-                                        th:each="ciudadano:${ciudadano}"><img class="rounded-circle mt-5" width="150px"
+                                <div class="d-flex flex-column align-items-center text-center p-3 py-5"><img
+                                                class="rounded-circle mt-5" width="150px"
                                                 src="https://st3.depositphotos.com/15648834/17930/v/600/depositphotos_179308454-stock-illustration-unknown-person-silhouette-glasses-profile.jpg"><span
-                                                class="font-weight-bold" th:text="${ciudadano.dni}">Edogaru</span><span
-                                                class="text-black-50"
-                                                th:text="${ciudadano.email}">edogaru@mail.com.my</span><span> </span>
+                                                class="font-weight-bold">Ejemplo</span><span
+                                                class="text-black-50">Ejemplo@mail.com.my</span><span> </span>
                                 </div>
                         </div>
                         <div class="col-md-5 border-right">
@@ -29,10 +28,12 @@
                                         <div class="d-flex justify-content-between align-items-center mb-3">
                                                 <h4 class="text-right">Profile Settings</h4>
                                         </div>
-                                        <form th:action="@{/curriculum/guardar}" method="POST" th:each="ciudadano:${ciudadano}" th:object="${curriculum}">
+                                        <form th:action="@{/curriculum/modificar}" method="POST"
+                                                th:object="${curriculum}">
                                                 <div class="form-group">
                                                         <input type="hidden" th:field="*{curriculumNumber}" />
                                                 </div>
+                                                
                                                 <!-- <div class="row mt-2">
                                                         <label class="form-label" for="ciudadanoId">Docente </label>
                                                         <select class="form-select" th:field="*{ciudadano.dni}" name=""
@@ -75,16 +76,14 @@
                                                                         type="text" class="form-control"
                                                                         placeholder="País" th:field="*{pais}">
                                                         </div>
-                                                        <div class="col-md-12"><label
-                                                                class="labels">Provincia</label><input type="text"
+                                                        <!-- <div class="col-md-12"><input type="hidden"
                                                                 class="form-control"
-                                                                placeholder="Provincia" disabled="disabled" th:value="${ciudadano.provincia}">
-                                                        </div>
-                                                        <!-- <div class="col-md-12"><label
-                                                                class="labels">Dni</label><input type="number"
-                                                                class="form-control"
-                                                                placeholder="Dni" th:value="${ciudadano.dni}">
-                                                        </div>  -->
+                                                                placeholder="Provincia" disabled="disabled" th:field="*{ciudadano}">
+                                                        </div>   -->
+                                                        <!-- <div class="col-md-12"><label class="labels">Dni</label><input
+                                                                        type="number" class="form-control"
+                                                                        placeholder="Dni" th:field="*{ciudadano}">
+                                                        </div> -->
                                                         <!-- <div class="col-md-12"><label
                                                                 class="labels">Email</label><input type="email"
                                                                 class="form-control"
@@ -100,21 +99,6 @@
                                                                 class="form-control"
                                                                 placeholder="Fecha Nacimiento" th:value="${ciudadano.fechaNac}">
                                                         </div> -->
-                                                        <div class="col-md-12"><label class="labels"
-                                                                        for="generoId">Genero</label>
-                                                                <select class="form-control" th:field="*{genero}"
-                                                                        id="generoId" name="genero">
-                                                                        <!-- <option th:each="provincia : ${provincias}" th:value="${provincia.codigo}"
-                                                                                        th:text="${provincia.nombreP}">
-                                                                                </option> -->
-                                                                        <option value="">Seleccione</option>
-                                                                        <option value="Hombre">Hombre </option>
-                                                                        <option value="Mujer">Mujer</option>
-                                                                        <option value="x">Prefiero no decirlo</option>
-                                                                        <option value="Binarie">Binarie</option>
-                                                                        <option value="Trans">Trans</option>
-                                                                </select>
-                                                        </div>
                                                         <div class="col-md-12"><label
                                                                         class="labels">Idiomas</label><input type="text"
                                                                         class="form-control" placeholder="Idiomas"

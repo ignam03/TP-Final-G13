@@ -13,4 +13,7 @@ public interface CurriculumRepository extends JpaRepository<Curriculum, Long> {
     @Query("SELECT p FROM Curriculum p WHERE" + " CONCAT(p.id,p.nombre,p.apellido)" + "LIKE %?1%")
     public List<Curriculum> filter(String filtro);
 
+    @Query("SELECT p FROM Curriculum p WHERE" + " CONCAT(p.ciudadano.provincia)" + "LIKE %?1%")
+    public List<Curriculum> filterProvincia(String provincia);
+
 }
