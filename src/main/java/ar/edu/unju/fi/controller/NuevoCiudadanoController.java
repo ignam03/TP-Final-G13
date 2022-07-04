@@ -25,19 +25,19 @@ import ar.edu.unju.fi.entity.Usuario;
 import ar.edu.unju.fi.service.ICiudadanoService;
 import ar.edu.unju.fi.service.IOfertaLaboralService;
 import ar.edu.unju.fi.service.IUsuarioService;
-import ar.edu.unju.fi.util.ListaProvincia;
 
 @Controller
 @RequestMapping("/ciudadano")
 public class NuevoCiudadanoController {
 
+	//
 	@Autowired
 	@Qualifier("CiudadanoServiceImp")
 	private ICiudadanoService ciudadanoSvc;
 
 	@Autowired
-    @Qualifier("OfertaLaboralServiceImp")
-    private IOfertaLaboralService ofertaLaboralSvc;
+	@Qualifier("OfertaLaboralServiceImp")
+	private IOfertaLaboralService ofertaLaboralSvc;
 
 	@Autowired
 	@Qualifier("UsuarioServiceImp")
@@ -48,8 +48,6 @@ public class NuevoCiudadanoController {
 	@GetMapping("/nuevo")
 	public String getFormNewCiuddanoPage(Model model) {
 		model.addAttribute("ciudadano", new Ciudadano());
-		ListaProvincia listaProvincia = new ListaProvincia();
-		model.addAttribute("provincias", listaProvincia.getProvincias());
 		return "ciudadanoForm";
 	}
 
@@ -81,12 +79,12 @@ public class NuevoCiudadanoController {
 	}
 
 	@GetMapping("/verEmpleo/{id}")
-    public ModelAndView getEditOfertaLaboralPage(@PathVariable(value = "id") Long id) throws Exception {
-        ModelAndView mov = new ModelAndView("verEmpleo");
-        OfertaLaboral ofertaLaboral = ofertaLaboralSvc.findOfertaLaboral(id);
-        mov.addObject("ofertaLaboral", ofertaLaboral);
-        return mov;
-    }
+	public ModelAndView getEditOfertaLaboralPage(@PathVariable(value = "id") Long id) throws Exception {
+		ModelAndView mov = new ModelAndView("verEmpleo");
+		OfertaLaboral ofertaLaboral = ofertaLaboralSvc.findOfertaLaboral(id);
+		mov.addObject("ofertaLaboral", ofertaLaboral);
+		return mov;
+	}
 
 	@GetMapping("/cargarCv")
 	public String getCargarCvPage(Model model) {

@@ -4,12 +4,15 @@ import java.io.Serializable;
 import java.time.LocalDate;
 import java.time.temporal.ChronoUnit;
 
-
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.Min;
@@ -33,43 +36,58 @@ public class Ciudadano implements Serializable {
 	private static final long serialVersionUID = -3611893865263492725L;
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "ciu_id")
 	private Long ciudadanoNumber;
+
 	@Min(value = 1000000, message = "El DNI debe ser mayor a 1.000.000")
-	@Column(name = "ciu_dni")
+	@Column(name = "ciu_dni", length = 150, nullable = false, unique = true)
 	private Long dni;
+
 	@Size(min = 3, max = 20, message = "El nombre debe tener entre 3 a 20 caracteres")
 	@NotEmpty(message = "El nroTramite del ciudadano no puede ser vacio")
 	@Column(name = "ciu_nroTramite")
 	private String nroTramite;
+
 	@NotEmpty
 	@Email
 	@Column(name = "ciu_email")
 	private String email;
+
 	@NotEmpty(message = "seleccione el estado civil")
 	@Column(name = "ciu_estadoCivil")
 	private String estadoCivil;
+
 	@Size(min = 5, max = 10)
 	@NotEmpty(message = "El telefono no puede ser vacío")
 	@Column(name = "ciu_telefono")
 	private String telefono;
+
 	@PastOrPresent
 	@Column(name = "ciud_fechaNac")
 	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	private LocalDate fechaNac;
+
 	@NotBlank(message = "El campo password no puede estar vacio")
 	@Size(min = 3, message = "La contraseña debe tener entre 3 a 20 caracteres")
 	@Column(name = "ciu_contrasena")
 	private String contrasena;
+
 	@NotEmpty(message = "seleccione una provincia")
 	@Column(name = "ciud_provincia")
 	private String provincia;
+
+	@OneToOne(cascade = CascadeType.ALL)
+	@JoinColumn(name = "CURRICULUM_ID")
+	private Curriculum curriculum;
+
 	private String perfil;
 
 	public Ciudadano() {
 	}
 
 	public Ciudadano(Long dni, String nroTramite, String email, String estadoCivil,
-			String telefono, LocalDate fechaNac, String contrasena, String provincia, String perfil) {
+			String telefono, LocalDate fechaNac, String contrasena, String provincia, String perfil,
+			Curriculum curriculum) {
 		this.dni = dni;
 		this.nroTramite = nroTramite;
 		this.email = email;
@@ -79,6 +97,7 @@ public class Ciudadano implements Serializable {
 		this.contrasena = contrasena;
 		this.provincia = provincia;
 		this.perfil = perfil;
+		this.curriculum = curriculum;
 	}
 
 	public Long getDni() {
@@ -166,6 +185,22 @@ public class Ciudadano implements Serializable {
 		LocalDate now = LocalDate.now();
 		long edad = ChronoUnit.YEARS.between(fechaNa, now);
 		return edad;
+	}
+
+	public Curriculum getCurriculum() {
+		return curriculum;
+	}
+
+	public void setCurriculum(Curriculum curriculum) {
+		this.curriculum = curriculum;
+	}
+
+	@Override
+	public String toString() {
+		return "Ciudadano [ciudadanoNumber=" + ciudadanoNumber + ", contrasena=" + contrasena + ", curriculum="
+				+ curriculum + ", dni=" + dni + ", email=" + email + ", estadoCivil=" + estadoCivil + ", fechaNac="
+				+ fechaNac + ", nroTramite=" + nroTramite + ", perfil=" + perfil + ", provincia=" + provincia
+				+ ", telefono=" + telefono + "]";
 	}
 
 }

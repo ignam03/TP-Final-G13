@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://thymeleaf.org">
+
+<head>
+        <meta charset="UTF-8">
+        <title>Empleos G13</title>
+        <link rel="stylesheet" type="text/css" th:href="@{/css/cv1.css}">
+        <link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}">
+        <link th:rel="stylesheet" type="text/css" th:href="@{/webjars/font-awesome/css/all.min.css}" />
+</head>
+
+<body>
+
+        <header th:replace="/layout/header::header"></header>
+
+        <div class="container rounded bg-white mt-5 mb-5">
+                <div class="row">
+                        <div class="col-md-3 border-right">
+                                <div class="d-flex flex-column align-items-center text-center p-3 py-5"><img
+                                                class="rounded-circle mt-5" width="150px"
+                                                src="https://st3.depositphotos.com/15648834/17930/v/600/depositphotos_179308454-stock-illustration-unknown-person-silhouette-glasses-profile.jpg"><span
+                                                class="font-weight-bold">Ejemplo</span><span
+                                                class="text-black-50">Ejemplo@mail.com.my</span><span> </span>
+                                </div>
+                        </div>
+                        <div class="col-md-5 border-right">
+                                <div class="p-3 py-5">
+                                        <div class="d-flex justify-content-between align-items-center mb-3">
+                                                <h4 class="text-right">Profile Settings</h4>
+                                        </div>
+                                        <form th:action="@{/curriculum/modificar}" method="POST"
+                                                th:object="${curriculum}">
+                                                <div class="form-group">
+                                                        <input type="hidden" th:field="*{curriculumNumber}" />
+                                                </div>
+                                                
+                                                <!-- <div class="row mt-2">
+                                                        <label class="form-label" for="ciudadanoId">Docente </label>
+                                                        <select class="form-select" th:field="*{ciudadano.dni}" name=""
+                                                                id="ciudadanoId">
+                                                                <option th:each="ciudadano : ${ciudadano}"
+                                                                        th:value="${ciudadano.dni}"
+                                                                        th:text="${ciudadano.email}+', '+ ${ciudadano.telefono}">
+                                                                </option>
+                                                        </select>
+                                                </div> -->
+                                                <div class="row mt-2">
+                                                        <div class="col-md-6"><label class="labels">Nombre</label><input
+                                                                        type="text" class="form-control"
+                                                                        placeholder="Nombre " th:field="*{nombre}">
+                                                        </div>
+                                                        <div class="col-md-6"><label
+                                                                        class="labels">Apellido</label><input
+                                                                        type="text" class="form-control" value=""
+                                                                        placeholder="Apellido" th:field="*{apellido}">
+                                                        </div>
+                                                </div>
+                                                <div class="row mt-3">
+                                                        <div class="col-md-12"><label
+                                                                        class="labels">Direccion</label><input
+                                                                        type="text" class="form-control"
+                                                                        placeholder="Direccion" th:field="*{direccion}">
+                                                        </div>
+
+                                                        <!-- <div class="row mt-3">
+                                                                <div class="col-md-6"><label
+                                                                                class="labels">País</label><input
+                                                                                type="text" class="form-control"
+                                                                                placeholder="País" value=""></div>
+                                                                <div class="col-md-6"><label
+                                                                                class="labels">Localidad</label><input
+                                                                                type="text" class="form-control"
+                                                                                value="" placeholder="Localidad"></div>
+                                                        </div> -->
+                                                        <div class="col-md-12"><label class="labels">País</label><input
+                                                                        type="text" class="form-control"
+                                                                        placeholder="País" th:field="*{pais}">
+                                                        </div>
+                                                        <!-- <div class="col-md-12"><input type="hidden"
+                                                                class="form-control"
+                                                                placeholder="Provincia" disabled="disabled" th:field="*{ciudadano}">
+                                                        </div>   -->
+                                                        <!-- <div class="col-md-12"><label class="labels">Dni</label><input
+                                                                        type="number" class="form-control"
+                                                                        placeholder="Dni" th:field="*{ciudadano}">
+                                                        </div> -->
+                                                        <!-- <div class="col-md-12"><label
+                                                                class="labels">Email</label><input type="email"
+                                                                class="form-control"
+                                                                placeholder="Email" th:value="${ciudadano.email}">
+                                                        </div> -->
+                                                        <!-- <div class="col-md-12"><label
+                                                                class="labels">Telefono</label><input type="number"
+                                                                class="form-control"
+                                                                placeholder="Telefono" th:value="${ciudadano.telefono}">
+                                                        </div> -->
+                                                        <!-- <div class="col-md-12"><label
+                                                                class="labels">Fecha Nacimiento</label><input type="date"
+                                                                class="form-control"
+                                                                placeholder="Fecha Nacimiento" th:value="${ciudadano.fechaNac}">
+                                                        </div> -->
+                                                        <div class="col-md-12"><label
+                                                                        class="labels">Idiomas</label><input type="text"
+                                                                        class="form-control" placeholder="Idiomas"
+                                                                        value="" th:field="*{idioma}">
+                                                        </div>
+                                                        <div class="col-md-12"><label
+                                                                        class="labels">Conocimientos</label><input
+                                                                        type="text" class="form-control"
+                                                                        placeholder="Conocimientos"
+                                                                        th:field="*{conocimientos}" value="">
+                                                        </div>
+                                                        <div class="col-md-12"><label class="labels">Informacion
+                                                                        Complementaria</label><input type="text"
+                                                                        class="form-control" placeholder="Informacion"
+                                                                        th:field="*{infoComplementaria}" value="">
+                                                        </div>
+                                                        <div class="col-md-12"><label class="labels">Datos Adicionales
+                                                                </label><input type="text" class="form-control"
+                                                                        placeholder="Adicionales"
+                                                                        th:field="*{datoAdicionales}" value=""></div>
+                                                </div>
+
+                                                <div class="mt-5 text-center">
+                                                        <button class="btn submit btn-primary profile-button"
+                                                                type="submit">Save Profile
+                                                        </button>
+                                                </div>
+                                        </form>
+                                </div>
+                        </div>
+                        <div class="col-md-4">
+                                <div class="p-3 py-5">
+                                        <div class="d-flex justify-content-between align-items-center experience">
+                                                <span>
+                                                        Experiencia</span><span
+                                                        class="border px-3 p-1 add-experience"><i
+                                                                class="fa fa-plus"></i>&nbsp;Experience</span>
+                                        </div><br>
+                                        <div class="col-md-12"><label class="labels">Experience in
+                                                        Designing</label><input type="text" class="form-control"
+                                                        placeholder="experience" value=""></div> <br>
+                                        <div class="col-md-12"><label class="labels">Additional Details</label><input
+                                                        type="text" class="form-control"
+                                                        placeholder="additional details" value=""></div>
+                                </div>
+                                <div class="p-3 py-5">
+                                        <div class="d-flex justify-content-between align-items-center experience">
+                                                <span>Educacion
+                                                </span><span class="border px-3 p-1 add-experience"><i
+                                                                class="fa fa-plus"></i>&nbsp;Experience</span>
+                                        </div><br>
+                                        <div class="col-md-12"><label class="labels">Experience in
+                                                        Designing</label><input type="text" class="form-control"
+                                                        placeholder="experience" value=""></div> <br>
+                                        <div class="col-md-12"><label class="labels">Additional Details</label><input
+                                                        type="text" class="form-control"
+                                                        placeholder="additional details" value=""></div>
+                                </div>
+                        </div>
+                        </form>
+                </div>
+        </div>
+        </div>
+        </div>
+        </div>
+        </div>
+
+
+        <footer th:replace="/layout/footer::footer"></footer>
+        <script type="text/javascript" th:src="@{/js/cv.js}"></script>
+        <script type="text/javascript" th:src="@{/webjars/jquery/dist/jquery.min.js}"></script>
+        <script type="text/javascript" th:src="@{/webjars/popper.js/umd/popper.min.js}"></script>
+        <script type="text/javascript" th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
+</body>
+
+</html>

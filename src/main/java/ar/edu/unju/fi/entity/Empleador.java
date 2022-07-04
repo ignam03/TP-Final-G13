@@ -53,7 +53,7 @@ public class Empleador implements Serializable {
 	@Column(name = "emp_nom_com")
 	private String nom_comercial;
 	
-	//inicio actividad
+
 	@PastOrPresent
 	@Column(name = "emp_fechaInic")
 	@DateTimeFormat(pattern = "yyyy-MM-dd")

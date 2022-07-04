@@ -41,4 +41,31 @@ public class CurriculumServiceImp implements ICurriculumService {
         return curriculumDaoImp.findAll();
     }
 
+    @Override
+    public Curriculum modify(Curriculum curriculum) throws Exception {
+        Curriculum curriculumGuardar = findCurriculum(curriculum.getCurriculumNumber());
+        mapearCurriculum(curriculumGuardar, curriculum);
+        return curriculumDaoImp.save(curriculumGuardar);
+    }
+
+    public void mapearCurriculum(Curriculum desde, Curriculum hasta) {
+        desde.setNombre(hasta.getNombre());
+        desde.setApellido(hasta.getApellido());
+        desde.setCiudadano(hasta.getCiudadano());
+        desde.setConocimientos(hasta.getConocimientos());
+        desde.setDatoAdicionales(hasta.getDatoAdicionales());
+        desde.setIdioma(hasta.getIdioma());
+        desde.setDireccion(hasta.getDireccion());
+        desde.setPais(hasta.getPais());
+        desde.setInfoComplementaria(hasta.getInfoComplementaria());
+    }
+
+    @Override
+    public List<Curriculum> getCurriculumPronvicas(String provincia) {
+        if (provincia != null) {
+            return curriculumDaoImp.filterProvincia(provincia);
+        }
+        return curriculumDaoImp.findAll();
+    }
+
 }

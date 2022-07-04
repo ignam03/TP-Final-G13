@@ -99,7 +99,10 @@
                     <div class="text-center">
                         <img src="/images/profile/descargar (1).jpg" width="100" class="rounded-circle">
                         <h3 class="mt-2" th:text="${perfil.nombre}+' '+${perfil.apellido}">Maria Smantha</h3>
-                        <span class="mt-1 clearfix">Android Developer</span>
+                        <span class="mt-1 clearfix" >Android Developer</span>
+                        <span class="mt-1 clearfix" th:text="${perfil.conocimientos}">Android Developer</span>
+                        <span class="mt-1 clearfix" th:text="${perfil.ciudadano.calcularEdad}">Android Developer</span>
+                        <span class="mt-1 clearfix" th:text="${perfil.idioma}">Android Developer</span>
                         <small class="mt-4" th:text="${perfil.pais}">I am an android developer working at google Inc at california,USA</small>
                         <div class="social-buttons mt-5">
                             <button class="neo-button"><i class="fab fa-facebook "></i> </button>
@@ -107,6 +110,7 @@
                             <button class="neo-button"><i class="fab fa-google "></i> </button>
                             <button class="neo-button"><i class="fab fa-youtube "></i> </button>
                         </div>
+                        <a href="" class="btn btn-primary mt-4">Contratar</a>
                     </div>
                 </div>
             </div>

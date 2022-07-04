@@ -3,12 +3,21 @@ package ar.edu.unju.fi.entity;
 import java.io.Serializable;
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
+
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.Size;
+
+
 
 import org.springframework.stereotype.Component;
 
@@ -19,51 +28,98 @@ public class Curriculum implements Serializable {
 
     private static final long serialVersionUID = -7679397724502218352L;
     @Id
-    @Column(name = "cur_id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "cur_id")
     private Long curriculumNumber;
-    //private Ciudadano ciudadano;
+
     // private Contacto contacto;
+
+    // private String provincia;
+
+    // List@Size(min = 3, max = 15)
+    // List@NotEmpty(message = "El nombre no puede ser vacío")
+    @Column(name = "cur_nombre")
+
     private String provincia;
+
     private String nombre;
+
+
+    // List@Size(min = 3, max = 15)
+    // List@NotEmpty(message = "El nombre no puede ser vacío")
+    @Column(name = "cur_apellido")
+
     private String apellido;
+
+    // List@Size(min = 3, max = 15)
+    // List@NotEmpty(message = "La direccion no puede estar vacío")
+    @Column(name = "cur_direccion")
     private String direccion;
+
+    // List@NotEmpty(message = "seleccione una provincia")
+    @Column(name = "cur_pais")
     private String pais;
-    private String genero;
+
     // private List<Experiencia> experiencia;
     // private List<Educacion> educacion;
+    // List@NotEmpty(message = "seleccione una idioma")
+    @Column(name = "cur_idioma")
     private String idioma;
+
+
+    // List@NotEmpty(message = "Los conocimientos no pueden estar vacío")
+    @Column(name = "cur_conocimientos")
+
     private String conocimientos;
+
+
+    // List@NotEmpty(message = "Los conocimientos no pueden estar vacío")
+    @Column(name = "cur_infoComplementaria")
+
     private String infoComplementaria;
+
+
+    // List@NotEmpty(message = "Los dato Adicionales no pueden estar vacío")
+    @Column(name = "cur_datoAdicionales")
+
     private String datoAdicionales;
+
+    // @OneToOne(mappedBy = "curriculum", fetch = FetchType.LAZY) va abjaocascade =
+    // { CascadeType.ALL }
+
+    // @OneToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL, mappedBy =
+    // "curriculum")
+    // @JoinColumn(name = "ciu_id")
+    @OneToOne(cascade = CascadeType.ALL, mappedBy = "curriculum")
+    private Ciudadano ciudadano;
 
     public Curriculum() {
     }
+    // List
 
     public Curriculum(Long curriculumNumber, Ciudadano ciudadano, String nombre, String apellido, String direccion,
             String pais, String genero, String idioma, String conocimientos, String infoComplementaria,
-            String datoAdicionales,String provincia) {
+            String datoAdicionales) {
         this.curriculumNumber = curriculumNumber;
-        //this.ciudadano = ciudadano;
+        this.ciudadano = ciudadano;
         this.nombre = nombre;
         this.apellido = apellido;
         this.direccion = direccion;
         this.pais = pais;
-        this.genero = genero;
         this.idioma = idioma;
         this.conocimientos = conocimientos;
         this.infoComplementaria = infoComplementaria;
         this.datoAdicionales = datoAdicionales;
-        this.provincia = provincia;
+        // this.provincia = provincia;
     }
 
-    // public Ciudadano getCiudadano() {
-    //     return ciudadano;
-    // }
+    public Ciudadano getCiudadano() {
+        return ciudadano;
+    }
 
-    // public void setCiudadano(Ciudadano ciudadano) {
-    //     this.ciudadano = ciudadano;
-    // }
+    public void setCiudadano(Ciudadano ciudadano) {
+        this.ciudadano = ciudadano;
+    }
 
     // public Contacto getContacto() {
     // return contacto;
@@ -161,21 +217,12 @@ public class Curriculum implements Serializable {
         this.pais = pais;
     }
 
-    public String getGenero() {
-        return genero;
-    }
+    // public String getProvincia() {
+    // return provincia;
+    // }
 
-    public void setGenero(String genero) {
-        this.genero = genero;
-    }
+    // public void setProvincia(String provincia) {
+    // this.provincia = provincia;
+    // }
 
-    public String getProvincia() {
-        return provincia;
-    }
-
-    public void setProvincia(String provincia) {
-        this.provincia = provincia;
-    }
-
-    
 }

@@ -1,5 +1,6 @@
 package ar.edu.unju.fi.controller;
 
+import java.security.Principal;
 import java.text.ParseException;
 import java.util.List;
 import java.util.Optional;
@@ -23,7 +24,9 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
+import ar.edu.unju.fi.entity.Empleador;
 import ar.edu.unju.fi.entity.OfertaLaboral;
+import ar.edu.unju.fi.service.IEmpleadorService;
 import ar.edu.unju.fi.service.IOfertaLaboralService;
 
 @Controller
@@ -33,6 +36,10 @@ public class NuevaOfertaLaboral {
     @Autowired
     @Qualifier("OfertaLaboralServiceImp")
     private IOfertaLaboralService ofertaLaboralSvc;
+
+    @Autowired
+    @Qualifier("EmpleadorServiceImp")
+    private IEmpleadorService empleadorSvc;
 
     private static final Log LOGGER = LogFactory.getLog(NuevaOfertaLaboral.class);
 
@@ -52,20 +59,31 @@ public class NuevaOfertaLaboral {
     }
 
     @GetMapping("/misPublicaciones")
-    public String getCvPage(Model model) {
+    public String getCvPage(Model model, Principal principal) {
+
+        // try {
+        // // LOGGER.info(principal);
+        // Empleador existe =
+        // empleadorSvc.getEmpleadorByCuit(Long.parseLong(principal.getName()));
+        // LOGGER.info(existe.getCuit())s;
+        // return "publicaciones";
+        // } catch (Exception e) {
+        // model.addAttribute("usuarioErrorMensaje", e.getMessage());
+        // }
         List<OfertaLaboral> listaLaborales = ofertaLaboralSvc.getOfertasLaborales();
         model.addAttribute("ofertasLaborales", listaLaborales);
         for (OfertaLaboral ofertaLaboral : listaLaborales) {
 
         }
+
         return "publicaciones";
     }
 
     @GetMapping("/verEmpleos")
-    public String getListaEmpleoPage(Model model,@Param("provincia")String provincia) {
+    public String getListaEmpleoPage(Model model, @Param("provincia") String provincia) {
         List<OfertaLaboral> listaLaborales = ofertaLaboralSvc.getOfertasLaboralesPronvicas(provincia);
         model.addAttribute("ofertasLaborales", listaLaborales);
-        model.addAttribute("provincia",provincia);
+        model.addAttribute("provincia", provincia);
         for (OfertaLaboral ofertaLaboral : listaLaborales) {
 
         }
@@ -125,12 +143,14 @@ public class NuevaOfertaLaboral {
 
     // @GetMapping("/eliminar/{id}")
     // @ResponseBody // Usos response para ver resultado de consultas rapido
-    // public List<OfertaLaboral> mostrar(@RequestParam(value = "desde", defaultValue = "01/01/1800") String desde,
-    //     @RequestParam(value = "hasta") String hasta, ModelAndView mp) throws ParseException {
-    //     // Paso fechas a servicio
-    //     mp.addObject("hola", movimientoServicio.buscarFecha(desde, hasta));
-    //     System.out.println(desde + "    " + hasta);
-    //     return movimientoServicio.buscarFecha(desde, hasta);
+    // public List<OfertaLaboral> mostrar(@RequestParam(value = "desde",
+    // defaultValue = "01/01/1800") String desde,
+    // @RequestParam(value = "hasta") String hasta, ModelAndView mp) throws
+    // ParseException {
+    // // Paso fechas a servicio
+    // mp.addObject("hola", movimientoServicio.buscarFecha(desde, hasta));
+    // System.out.println(desde + " " + hasta);
+    // return movimientoServicio.buscarFecha(desde, hasta);
 
     // }
 }

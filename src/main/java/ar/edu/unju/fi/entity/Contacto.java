@@ -12,15 +12,15 @@ import javax.persistence.Table;
 import org.springframework.stereotype.Component;
 
 @Entity
-@Table(name="contactos")
+@Table(name = "contactos")
 @Component
-public class Contacto implements Serializable{
+public class Contacto implements Serializable {
     private static final long serialVersionUID = 7445182392453978341L;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name="con_id")
+    @Column(name = "con_id")
     private Long contacoNumber;
-	private String telefono;
+    private String telefono;
     private String linkedin;
     private String email;
 

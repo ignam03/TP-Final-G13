@@ -62,11 +62,11 @@
                             <li class="nav-item m-1 "><a class="nav-link" th:href="@{/empleos/loginCiu}"><i
                                         class="fa-regular fa-user"></i> Ingresar</a></li>
                         </div>
-                        <div class="" sec:authorize="hasAuthority('CIUDADANO')">
+                        <!-- <div class="" sec:authorize="hasAuthority('CIUDADANO')">
                             <div class="nav-item m-1">
                                 <a class="nav-link " th:href="@{/curriculum/nuevo}">Crear Cv</a>
                             </div>
-                        </div>
+                        </div> -->
                         <div class="" sec:authorize="hasAuthority('CIUDADANO')">
                             <div class="nav-item m-1">
                                 <a class="nav-link " th:href="@{/curriculum/verCv}">Ver Cv</a>
