@@ -1,6 +1,7 @@
 package ar.edu.unju.fi.service.imp;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
@@ -35,6 +36,12 @@ public class CiudadanoServiceImp implements ICiudadanoService{
 		// TODO Auto-generated method stub
 		return ciudadanoDaoImp.findById(id).orElseThrow(() -> new Exception("El Usuario no Existe"));
 	}
-	
+
+	@Override
+	public Ciudadano getCiudadanoByDni(Long dni) throws Exception {
+		// TODO Auto-generated method stub
+		return ciudadanoDaoImp.findByDni(dni).orElseThrow(() -> new Exception("El Usuario no Existe"));
+	}
+
 	
 }

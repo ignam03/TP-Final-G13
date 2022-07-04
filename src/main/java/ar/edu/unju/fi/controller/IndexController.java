@@ -72,9 +72,11 @@ public class IndexController {
     }
 
     @GetMapping("/perfilesLaborales")
-    public String getPerfilesLaboralesPage(Model model, @Param("filtro")String filtro) {
+    public String getPerfilesLaboralesPage(Model model, @Param("filtro")String filtro,@Param("provincia")String provincia) {
         List<Curriculum> listaCurriculums = curriculumSvc.getOCurriculm(filtro);
-        model.addAttribute("perfiles",listaCurriculums);
+        List<Curriculum> listaCurriculumsProv = curriculumSvc.getCurriculumPronvicas(provincia);
+        //model.addAttribute("perfiles",listaCurriculums);
+        model.addAttribute("perfiles",listaCurriculumsProv);
         for(Curriculum curriculum : listaCurriculums){
             
         }
