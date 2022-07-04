@@ -9,6 +9,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.validation.constraints.NotBlank;
 
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.stereotype.Component;
@@ -24,6 +25,7 @@ public class OfertaLaboral implements Serializable{
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long oferNumber;
 	private int cantVacantes;
+	@NotBlank(message = "El campo no puede estar vacio")
     private String puesto;
     private String resumen;
     private String disponibilidad;

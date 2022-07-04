@@ -26,6 +26,7 @@
                               <input th:field="*{cuit}" class="form-control"  id="cuitId" type="text" placeholder="Numero de Cuit">
                               <div class="alert alert-danger text-black" role="alert"
 								th:if="${#fields.hasErrors('cuit')}" th:errors="*{cuit}"></div>
+								
                            </div>
                         </div>
                         <div class="col-md-6">
@@ -42,12 +43,16 @@
                            <div class="form-group">
                               <span class="form-label">Razon Social</span>
                               <input th:field="*{razon_social}" class="form-control" type="text" placeholder="Ingrese razon social">
+                              <div class="alert alert-danger text-black" role="alert"
+								th:if="${#fields.hasErrors('razon_social')}" th:errors="*{razon_social}"></div>
                            </div>
                         </div>
                         <div class="col-md-6">
                            <div class="form-group">
                               <span class="form-label">Nombre Comercial</span>
                               <input th:field="*{nom_comercial}" class="form-control" type="text" placeholder="Ingrese Nombre Comercial">
+                              <div class="alert alert-danger text-black" role="alert"
+								th:if="${#fields.hasErrors('nom_comercial')}" th:errors="*{nom_comercial}"></div>
                            </div>
                         </div>
                         <div class="col-md-4">
@@ -61,12 +66,17 @@
                            <div class="form-group">
                               <span class="form-label">Email</span>
                               <input th:field="*{email}" class="form-control" type="email" placeholder="Ingrese Email">
+                              <div class="alert alert-danger text-black" role="alert"
+								th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></div>
+                              
                            </div>
                         </div>
                         <div class="col-md-4">
                            <div class="form-group">
                               <span class="form-label">Telefono</span>
                               <input th:field="*{telefono}" class="form-control" type="text" placeholder="Ingrese Telefono">
+                              <div class="alert alert-danger text-black" role="alert"
+								th:if="${#fields.hasErrors('telefono')}" th:errors="*{telefono}"></div>
                            </div>
                         </div>
                      </div>
@@ -75,6 +85,8 @@
                            <div class="form-group">
                               <span class="form-label">Domicilio</span>
                               <input th:field="*{domicilio}" class="form-control" type="text" placeholder="Ingrese Domicilio" >
+                              <div class="alert alert-danger text-black" role="alert"
+								th:if="${#fields.hasErrors('domicilio')}" th:errors="*{domicilio}"></div>
                            </div>
                         </div>
                         <div class="col-md-6">
@@ -110,7 +122,8 @@
                         <div class="col-md-4">
                            <div class="form-group">
                               <span class="form-label">Pagina Web</span>
-                              <input th:field="*{pag_web}" class="form-control" type="text" placeholder="Ingrese Pagina Web" required>
+                              <input th:field="*{pag_web}" class="form-control" type="text" placeholder="Ingrese Pagina Web" >
+                              
                            </div>
                         </div>
                         <div class="col-md-8">
