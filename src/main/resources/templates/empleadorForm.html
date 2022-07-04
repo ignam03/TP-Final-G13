@@ -1,170 +1,201 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://thymeleaf.org">
+
 <head>
-	<meta charset="UTF-8">
-	<title>Emplea2 Form</title>
-	<link rel="stylesheet" type="text/css" th:href="@{/css/style.css}">
-	<link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}">
-	<link th:rel="stylesheet" type="text/css" th:href="@{/webjars/font-awesome/css/all.min.css}" />
+   <meta charset="UTF-8">
+   <title>Emplea2 Form</title>
+   <link rel="stylesheet" type="text/css" th:href="@{/css/style.css}">
+   <link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}">
+   <link th:rel="stylesheet" type="text/css" th:href="@{/webjars/font-awesome/css/all.min.css}" />
 </head>
+
 <body>
-	<header th:replace="/layout/header::header"></header>
-	<div id="booking2" class="section">
+   <header th:replace="/layout/header::header"></header>
+
+
+   <!-- <div id="booking2" class="section">
       <div class="section-center">
          <div class="container">
-            <div>
-            <h1 class="text-center text-white">Registro Empleador</h1>
-               <div class="booking-form">
-                  <form th:action="@{/empleador/guardar}" method="POST" th:object="${empleador}">
-                     <div class="form-group">
-						<input type="hidden" th:field="*{empleadorNumber}" />
-					 </div>
-                     <div class="row">
-                        <div class="col-md-6">
-                           <div class="form-group">
-                              <span class="form-label">CUIT</span>
-                              <input th:field="*{cuit}" class="form-control"  id="cuitId" type="text" placeholder="Numero de Cuit">
-                              <div class="alert alert-danger text-black" role="alert"
-								th:if="${#fields.hasErrors('cuit')}" th:errors="*{cuit}"></div>
-								
+            <div class="row">
+               
+            </div>
+         </div>
+      </div>
+   </div> -->
+
+   <div class="container-fluid" id="booking2">
+      <div class="container">
+         <div class="row">
+            <div class="col-12">
+               <div class="col-12 mt-5 mb-5">
+                  <h1 class="text-center text-white ">Registro Empleador</h1>
+                  <div class="booking-form">
+                     <form th:action="@{/empleador/guardar}" method="POST" th:object="${empleador}">
+                        <div class="form-group">
+                           <input type="hidden" th:field="*{empleadorNumber}" />
+                        </div>
+                        <div class="row">
+                           <div class="col-md-6">
+                              <div class="form-group">
+                                 <span class="form-label">CUIT</span>
+                                 <input th:field="*{cuit}" class="form-control" id="cuitId" type="text"
+                                    placeholder="Numero de Cuit">
+                                 <div class="alert alert-danger text-black" role="alert"
+                                    th:if="${#fields.hasErrors('cuit')}" th:errors="*{cuit}"></div>
+   
+                              </div>
+                           </div>
+                           <div class="col-md-6">
+                              <div class="form-group">
+                                 <span class="form-label">Contraseña</span>
+                                 <input th:field="*{contrasena}" class="form-control" type="password"
+                                    placeholder="Ingresar Contraseña">
+                                 <div class="alert alert-danger text-black" role="alert"
+                                    th:if="${#fields.hasErrors('contrasena')}" th:errors="*{contrasena}"></div>
+                              </div>
                            </div>
                         </div>
-                        <div class="col-md-6">
-                           <div class="form-group">
-                              <span class="form-label">Contraseña</span>
-                              <input th:field="*{contrasena}" class="form-control" type="password" placeholder="Ingresar Contraseña">
-                              <div class="alert alert-danger text-black" role="alert"
-								th:if="${#fields.hasErrors('contrasena')}" th:errors="*{contrasena}"></div>
+                        <div class="row">
+                           <div class="col-md-6">
+                              <div class="form-group">
+                                 <span class="form-label">Razon Social</span>
+                                 <input th:field="*{razon_social}" class="form-control" type="text"
+                                    placeholder="Ingrese razon social">
+                                 <div class="alert alert-danger text-black" role="alert"
+                                    th:if="${#fields.hasErrors('razon_social')}" th:errors="*{razon_social}">
+                                 </div>
+                              </div>
+                           </div>
+                           <div class="col-md-6">
+                              <div class="form-group">
+                                 <span class="form-label">Nombre Comercial</span>
+                                 <input th:field="*{nom_comercial}" class="form-control" type="text"
+                                    placeholder="Ingrese Nombre Comercial">
+                                 <div class="alert alert-danger text-black" role="alert"
+                                    th:if="${#fields.hasErrors('nom_comercial')}" th:errors="*{nom_comercial}">
+                                 </div>
+                              </div>
+                           </div>
+                           <div class="col-md-4">
+                              <div class="form-group">
+                                 <span class="form-label">Inicio de Actividad</span>
+                                 <input th:field="*{fechaInic}" class="form-control" type="date">
+   
+                              </div>
+                           </div>
+                           <div class="col-md-4">
+                              <div class="form-group">
+                                 <span class="form-label">Email</span>
+                                 <input th:field="*{email}" class="form-control" type="email"
+                                    placeholder="Ingrese Email">
+                                 <div class="alert alert-danger text-black" role="alert"
+                                    th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></div>
+   
+                              </div>
+                           </div>
+                           <div class="col-md-4">
+                              <div class="form-group">
+                                 <span class="form-label">Telefono</span>
+                                 <input th:field="*{telefono}" class="form-control" type="text"
+                                    placeholder="Ingrese Telefono">
+                                 <div class="alert alert-danger text-black" role="alert"
+                                    th:if="${#fields.hasErrors('telefono')}" th:errors="*{telefono}"></div>
+                              </div>
                            </div>
                         </div>
-                     </div>
-                     <div class="row">
-                        <div class="col-md-6">
-                           <div class="form-group">
-                              <span class="form-label">Razon Social</span>
-                              <input th:field="*{razon_social}" class="form-control" type="text" placeholder="Ingrese razon social">
-                              <div class="alert alert-danger text-black" role="alert"
-								th:if="${#fields.hasErrors('razon_social')}" th:errors="*{razon_social}"></div>
+                        <div class="row">
+                           <div class="col-md-6">
+                              <div class="form-group">
+                                 <span class="form-label">Domicilio</span>
+                                 <input th:field="*{domicilio}" class="form-control" type="text"
+                                    placeholder="Ingrese Domicilio">
+                                 <div class="alert alert-danger text-black" role="alert"
+                                    th:if="${#fields.hasErrors('domicilio')}" th:errors="*{domicilio}"></div>
+                              </div>
                            </div>
-                        </div>
-                        <div class="col-md-6">
-                           <div class="form-group">
-                              <span class="form-label">Nombre Comercial</span>
-                              <input th:field="*{nom_comercial}" class="form-control" type="text" placeholder="Ingrese Nombre Comercial">
-                              <div class="alert alert-danger text-black" role="alert"
-								th:if="${#fields.hasErrors('nom_comercial')}" th:errors="*{nom_comercial}"></div>
+                           <div class="col-md-6">
+                              <div class="form-group">
+                                 <span for="provinciaId" class="form-label">Provincia</span>
+                                 <select class="form-control" th:field="*{provincia}" id="provinciaId">
+                                    <option value="">Seleccione</option>
+                                    <option value="Buenos Aires">Buenos Aires</option>
+                                    <option value="Catamarca">Catamarca</option>
+                                    <option value="Chaco">Chaco</option>
+                                    <option value="Chubut">Chubut</option>
+                                    <option value="Córdoba">Córdoba</option>
+                                    <option value="Entre Ríos">Entre Ríos</option>
+                                    <option value="Formosa">Formosa</option>
+                                    <option value="Jujuy">Jujuy</option>
+                                    <option value="La Pampa">La Pampa</option>
+                                    <option value="La Rioja">La Rioja</option>
+                                    <option value="Mendoza">Mendoza</option>
+                                    <option value="Misiones">Misiones</option>
+                                    <option value="Neuquén">Neuquén</option>
+                                    <option value="Río Negro">Río Negro</option>
+                                    <option value="Salta">Salta</option>
+                                    <option value="San Juan">San Juan</option>
+                                    <option value="San Luis">San Luis</option>
+                                    <option value="Santa Cruz">Santa Cruz</option>
+                                    <option value="Santa Fe">Santa Fe</option>
+                                    <option value="Santiago del Estero">Santiago del Estero</option>
+                                    <option value="Tierra del Fuego, Antártida e Islas del Atlántico Sur">
+                                       Tierra del Fuego,
+                                       Antártida e Islas del Atlántico Sur</option>
+                                    <option value="Tucumán">Tucumán</option>
+                                 </select>
+                              </div>
                            </div>
-                        </div>
-                        <div class="col-md-4">
-                           <div class="form-group">
-                              <span class="form-label">Inicio de Actividad</span>
-                              <input th:field="*{fechaInic}" class="form-control" type="date" >
-                              
+                           <div class="col-md-4">
+                              <div class="form-group">
+                                 <span class="form-label">Pagina Web</span>
+                                 <input th:field="*{pag_web}" class="form-control" type="text"
+                                    placeholder="Ingrese Pagina Web">
+   
+                              </div>
                            </div>
-                        </div>
-                        <div class="col-md-4">
-                           <div class="form-group">
-                              <span class="form-label">Email</span>
-                              <input th:field="*{email}" class="form-control" type="email" placeholder="Ingrese Email">
-                              <div class="alert alert-danger text-black" role="alert"
-								th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></div>
-                              
+                           <div class="col-md-8">
+                              <div class="form-group">
+                                 <span class="form-label">Descripcion</span>
+                                 <textarea th:field="*{descripcion}" class="form-control" id="exampleFormControlDesc"
+                                    rows="1"></textarea>
+                              </div>
                            </div>
-                        </div>
-                        <div class="col-md-4">
-                           <div class="form-group">
-                              <span class="form-label">Telefono</span>
-                              <input th:field="*{telefono}" class="form-control" type="text" placeholder="Ingrese Telefono">
-                              <div class="alert alert-danger text-black" role="alert"
-								th:if="${#fields.hasErrors('telefono')}" th:errors="*{telefono}"></div>
-                           </div>
-                        </div>
-                     </div>
-                     <div class="row">
-                        <div class="col-md-6">
-                           <div class="form-group">
-                              <span class="form-label">Domicilio</span>
-                              <input th:field="*{domicilio}" class="form-control" type="text" placeholder="Ingrese Domicilio" >
-                              <div class="alert alert-danger text-black" role="alert"
-								th:if="${#fields.hasErrors('domicilio')}" th:errors="*{domicilio}"></div>
-                           </div>
-                        </div>
-                        <div class="col-md-6">
-                           <div class="form-group">
-                              <span for="provinciaId" class="form-label">Provincia</span>
-                              <select class="form-control" th:field="*{provincia}" id="provinciaId">
-                                 <option value="">Seleccione</option>
-									<option value="Buenos Aires">Buenos Aires</option>
-									<option value="Catamarca">Catamarca</option>
-									<option value="Chaco">Chaco</option>
-									<option value="Chubut">Chubut</option>
-									<option value="Córdoba">Córdoba</option>
-									<option value="Entre Ríos">Entre Ríos</option>
-									<option value="Formosa">Formosa</option>
-									<option value="Jujuy">Jujuy</option>
-									<option value="La Pampa">La Pampa</option>
-									<option value="La Rioja">La Rioja</option>
-									<option value="Mendoza">Mendoza</option>
-									<option value="Misiones">Misiones</option>
-									<option value="Neuquén">Neuquén</option>
-									<option value="Río Negro">Río Negro</option>
-									<option value="Salta">Salta</option>
-									<option value="San Juan">San Juan</option>
-									<option value="San Luis">San Luis</option>
-									<option value="Santa Cruz">Santa Cruz</option>
-									<option value="Santa Fe">Santa Fe</option>
-									<option value="Santiago del Estero">Santiago del Estero</option>
-									<option value="Tierra del Fuego, Antártida e Islas del Atlántico Sur">Tierra del Fuego, Antártida e Islas del Atlántico Sur</option>
-									<option value="Tucumán">Tucumán</option>
+                           <div hidden class="form-outline mb-4" type="hidden">
+                              <label class="form-label" for="perfilId" type="hidden">Perfil </label>
+                              <select type="hidden" class="form-select" th:field="*{perfil}" name="perfil"
+                                 id="perfilId">
+                                 <option value="EMPLEADOR">Empleador</option>
                               </select>
+                              <div class="alert alert-danger text-black" role="alert"
+                                 th:if="${#fields.hasErrors('perfil')}" th:errors="*{perfil}"></div>
+                           </div>
+                           <div class="col-md-3">
+                              <div class="form-btn">
+                                 <button class="submit-btn text-center bg-info">Registrar</button>
+                              </div>
+                           </div>
+                           <div class="col-md-3">
+                              <div class="form-btn">
+                                 <div class="form-btn">
+                                    <a th:href="@{/empleos/inicio}" class="btn submit-btn text-center">Volver</a>
+                                 </div>
+                              </div>
                            </div>
                         </div>
-                        <div class="col-md-4">
-                           <div class="form-group">
-                              <span class="form-label">Pagina Web</span>
-                              <input th:field="*{pag_web}" class="form-control" type="text" placeholder="Ingrese Pagina Web" >
-                              
-                           </div>
-                        </div>
-                        <div class="col-md-8">
-                           <div class="form-group">
-                              <span class="form-label">Descripcion</span>
-                              <textarea th:field="*{descripcion}" class="form-control" id="exampleFormControlDesc" rows="1"></textarea>
-                           </div>
-                        </div>
-                        <div hidden class="form-outline mb-4" type="hidden">
-							<label class="form-label" for="perfilId" type="hidden">Perfil </label>
-							<select type="hidden" class="form-select" th:field="*{perfil}" name="perfil"
-								id="perfilId">
-								<option value="EMPLEADOR">Empleador</option>
-							</select>
-							<div class="alert alert-danger text-black" role="alert"
-								th:if="${#fields.hasErrors('perfil')}" th:errors="*{perfil}"></div>
-						</div>
-                        <div class="col-md-3">
-                           <div class="form-btn">
-								<button class="submit-btn text-center bg-info">Registrar</button>
-							</div>
-                        </div>
-                    	<div class="col-md-3">
-	                       <div class="form-btn">
-	                          <div class="form-btn">
-								   <a th:href="@{/empleos/inicio}" class="btn submit-btn text-center">Volver</a>
-							  </div>
-	                       </div>
-                        </div>
-                    	</div>
-                        </div>
-                     </div>
-                  </form>
+                     </form>
+                  </div>
                </div>
             </div>
          </div>
       </div>
    </div>
-	<footer th:replace="/layout/footer::footer"></footer>
-	<script type="text/javascript" th:src="@{/webjars/jquery/dist/jquery.min.js}"></script>
-	<script type="text/javascript" th:src="@{/webjars/popper.js/umd/popper.min.js}"></script>
-	<script type="text/javascript" th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
+
+   
+
+   <footer th:replace="/layout/footer::footer"></footer>
+   <script type="text/javascript" th:src="@{/webjars/jquery/dist/jquery.min.js}"></script>
+   <script type="text/javascript" th:src="@{/webjars/popper.js/umd/popper.min.js}"></script>
+   <script type="text/javascript" th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
 </body>
+
 </html>
