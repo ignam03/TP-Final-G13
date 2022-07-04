@@ -62,13 +62,13 @@ public class NuevaOfertaLaboral {
     public String getCvPage(Model model, Principal principal) {
 
         // try {
-        //     // LOGGER.info(principal);
-        //     Empleador existe = empleadorSvc.getEmpleadorByCuit(Long.parseLong(principal.getName()));
-        //     LOGGER.info(existe.getCuit());
-           
-        //     return "publicaciones";
+        // // LOGGER.info(principal);
+        // Empleador existe =
+        // empleadorSvc.getEmpleadorByCuit(Long.parseLong(principal.getName()));
+        // LOGGER.info(existe.getCuit());
+        // return "publicaciones";
         // } catch (Exception e) {
-        //     model.addAttribute("usuarioErrorMensaje", e.getMessage());
+        // model.addAttribute("usuarioErrorMensaje", e.getMessage());
         // }
         List<OfertaLaboral> listaLaborales = ofertaLaboralSvc.getOfertasLaborales();
         model.addAttribute("ofertasLaborales", listaLaborales);
