@@ -59,20 +59,17 @@ public class NuevoCiudadanoController {
 		if (bindingResult.hasErrors()) {
 			LOGGER.info("No se cumplen las validaciones");
 			ModelAndView mov = new ModelAndView("ciudadanoForm");
-			ListaProvincia listaProvincia = new ListaProvincia();
-			mov.addObject("provincias", listaProvincia.getProvincias());
 			return mov;
 
 		}
 
+		if (ciudadano.calcularEdad() < 18) {
+			ModelAndView mave = new ModelAndView("errorEdad");
+			mave.addObject("ciudadano", ciudadano);
+			return mave;
+		}
+
 		ModelAndView mov = new ModelAndView("loginCiudadano");
-		// ListaProvincia listaProvincia = new ListaProvincia();
-		// Optional<Provincia> provincia = listaProvincia.getProvincias().stream()
-		// .filter(d -> d.getCodigo() ==
-		// ciudadano.getProvincia().getCodigo()).findFirst();
-		// LOGGER.info("Provincia"+ provincia.get().getNombreP());
-		// ciudadano.setProvincia(provincia.get());
-		// LOGGER.info("ciudadano pr " + ciudadano.getProvincia().getNombreP());
 		Usuario usuario = new Usuario();
 		usuario.setUsername(ciudadano.getDni());
 		usuario.setPassword(ciudadano.getContrasena());
