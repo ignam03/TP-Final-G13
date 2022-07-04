@@ -95,4 +95,9 @@ public class NuevoCiudadanoController {
 	public String getCvPage(Model model) {
 		return "cv";
 	}
+	
+	@GetMapping("/contratado")
+	public String getContratadoPage(Model model) {
+		return "contratado";
+	}
 }
