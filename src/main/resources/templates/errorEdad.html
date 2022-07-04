@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Empleos G13</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/nostros.css}">
+    <link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}">
+    <link th:rel="stylesheet" type="text/css" th:href="@{/webjars/font-awesome/css/all.min.css}" />
+</head>
+
+<body>
+
+    <header th:replace="/layout/header::header"></header>
+
+    <div class="container">
+        <div class="card mb-0">
+            <div class="card-body-t">
+                <p class="display-6 mb-3 fw-bolder">DEBE SER MAYOR DE EDAD G13</p>
+                <p class="mb-0">La calidad es nuestro compromiso con las empresas que confían en nosotros.</p>
+                <p class="mb-0">En SIERRA evaluamos todo, nuestros procesos están sometidos a una constante evaluación,
+                </p>
+                <p class="mb-0">así como nuestros productos, empleados, documentación, pruebas de funcionamiento y
+                    comunicación.</p>
+                <a th:href="@{/ciudadano/nuevo}" class="btn btn-primary">Registro</a>
+                <div class="allbox-1">
+                    <div class="box-1"> </div>
+                    <div class="box-2"> </div>
+                </div>
+                <div class="allbox-2">
+                    <div class="box-1"> </div>
+                    <div class="box-2"> </div>
+                </div>
+                <div class="allbox-3">
+                    <div class="box-1">
+                    </div>
+                    <div class="box-2">
+                    </div>
+                </div>
+                <div class="box-3"></div>
+                <div class="box-4"></div>
+            </div>
+            <div class="card-footer">
+                <div class="row mb-5">
+                    <div class="col-lg-3 offset-1">
+                        <div class="box active">
+                            <span class=" icons fas fa-comment-dollar"></span>
+                            <p class="mt-3">TOTALMENTE GRATIS</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-3">
+                        <div class="box">
+                            <span class=" icons fab fa-searchengin"></span>
+                            <p class="mt-3">¿PORQUE DEBO SER MAYOR DE EDAD EN G13? </p>
+                        </div>
+                    </div>
+                    <div class="col-lg-3">
+                        <div class="box">
+                            <span class=" icons fas fa-th-large"></span>
+                            <p class="mt-3"> ¿POR QUÉ ELEGIRNOS? </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="row mt-2">
+                    <div class="col-md-7">
+                        <div class="d-flex flex-column">
+                            <div class="mb-3">
+                                <div>
+                                    <a class="btn btn-primary p-2 w-100 h-100 d-flex align-items-center justify-content-between"
+                                        data-bs-toggle="collapse" href="#collapse1" role="button" aria-expanded="true"
+                                        aria-controls="collapse1">
+                                        <span>TOTALMENTE SEGURO</span>
+                                        <span class="fas fa-chevron-down"></span>
+                                    </a>
+                                </div>
+                                <div class="collapse show p-2 pt-0" id="collapse1">
+                                    <div class="">
+                                        <p class="mb-0">
+                                            Somos una de las pocas empresas que previo a
+                                            la compra de un cliente, brinda un correcto asesoramiento
+                                            técnico-comercial con una escucha activa de las necesidades,
+                                            devolviéndole las alternativas adecuadas.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="mb-3">
+                                <div>
+                                    <a class="btn btn-primary p-2 w-100 h-100 d-flex align-items-center justify-content-between"
+                                        data-bs-toggle="collapse" href="#collapse2" role="button" aria-expanded="true"
+                                        aria-controls="collapse2">
+                                        <span>¿BUSCAS TRABAJO EN G13?</span>
+                                        <span class="fas fa-chevron-down"></span>
+                                    </a>
+                                </div>
+                                <div class="collapse  p-2 pt-0" id="collapse2">
+                                    <div class="">
+                                        <p class="mb-0">
+                                            Nuestra experiencia abarca tanto a compañías con altos niveles de
+                                            facturación,
+                                            como a emprendedores que proyectan su primera experiencia. No importa el
+                                            tamaño de su empresa,
+                                            todos nuestros clientes son importantes para nosotros.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="mb-3">
+                                <div>
+                                    <a class="btn btn-primary p-2 w-100 h-100 d-flex align-items-center justify-content-between"
+                                        data-bs-toggle="collapse" href="#collapse3" role="button" aria-expanded="true"
+                                        aria-controls="collapse3">
+                                        <span>¿POR QUÉ ELEGIRNOS?</span>
+                                        <span class="fas fa-chevron-down"></span>
+                                    </a>
+                                </div>
+                                <div class="collapse  p-2 pt-0" id="collapse3">
+                                    <div class="">
+                                        <p class="mb-0">Porque llevamos mas de 5 años trabajando en equipo, mantenemos
+                                            realaciones a largo placo con nuestros clientes y recibimos muchas
+                                            recomendaciones
+                                            y eso nos hace demostrar que trabajamos de una manera muy correcta.Logramos
+                                            ser una buena empresa con quién trabajar.
+
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-5">
+                        <div class="img-box">
+                            <img class=""
+                                src="https://images.pexels.com/photos/3277806/pexels-photo-3277806.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500"
+                                alt="">
+                            <div class="box-1"></div>
+                            <div class="box-2"></div>
+                            <div class="box-3"></div>
+                            <div class="box-4"></div>
+                            <div class="box-5"></div>
+                            <div class="box-6"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <footer th:replace="/layout/footer::footer"></footer>
+
+    <script type="text/javascript" th:src="@{/webjars/jquery/dist/jquery.min.js}"></script>
+    <script type="text/javascript" th:src="@{/webjars/popper.js/umd/popper.min.js}"></script>
+    <script type="text/javascript" th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
+</body>
+
+</html>

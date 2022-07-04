@@ -25,7 +25,6 @@ import ar.edu.unju.fi.entity.Usuario;
 import ar.edu.unju.fi.service.ICiudadanoService;
 import ar.edu.unju.fi.service.IOfertaLaboralService;
 import ar.edu.unju.fi.service.IUsuarioService;
-import ar.edu.unju.fi.util.ListaProvincia;
 
 @Controller
 @RequestMapping("/ciudadano")
@@ -36,8 +35,8 @@ public class NuevoCiudadanoController {
 	private ICiudadanoService ciudadanoSvc;
 
 	@Autowired
-    @Qualifier("OfertaLaboralServiceImp")
-    private IOfertaLaboralService ofertaLaboralSvc;
+	@Qualifier("OfertaLaboralServiceImp")
+	private IOfertaLaboralService ofertaLaboralSvc;
 
 	@Autowired
 	@Qualifier("UsuarioServiceImp")
@@ -48,8 +47,6 @@ public class NuevoCiudadanoController {
 	@GetMapping("/nuevo")
 	public String getFormNewCiuddanoPage(Model model) {
 		model.addAttribute("ciudadano", new Ciudadano());
-		ListaProvincia listaProvincia = new ListaProvincia();
-		model.addAttribute("provincias", listaProvincia.getProvincias());
 		return "ciudadanoForm";
 	}
 
@@ -59,20 +56,17 @@ public class NuevoCiudadanoController {
 		if (bindingResult.hasErrors()) {
 			LOGGER.info("No se cumplen las validaciones");
 			ModelAndView mov = new ModelAndView("ciudadanoForm");
-			ListaProvincia listaProvincia = new ListaProvincia();
-			mov.addObject("provincias", listaProvincia.getProvincias());
 			return mov;
 
 		}
 
+		if (ciudadano.calcularEdad() < 18) {
+			ModelAndView mave = new ModelAndView("errorEdad");
+			mave.addObject("ciudadano", ciudadano);
+			return mave;
+		}
+
 		ModelAndView mov = new ModelAndView("loginCiudadano");
-		// ListaProvincia listaProvincia = new ListaProvincia();
-		// Optional<Provincia> provincia = listaProvincia.getProvincias().stream()
-		// .filter(d -> d.getCodigo() ==
-		// ciudadano.getProvincia().getCodigo()).findFirst();
-		// LOGGER.info("Provincia"+ provincia.get().getNombreP());
-		// ciudadano.setProvincia(provincia.get());
-		// LOGGER.info("ciudadano pr " + ciudadano.getProvincia().getNombreP());
 		Usuario usuario = new Usuario();
 		usuario.setUsername(ciudadano.getDni());
 		usuario.setPassword(ciudadano.getContrasena());
@@ -84,12 +78,12 @@ public class NuevoCiudadanoController {
 	}
 
 	@GetMapping("/verEmpleo/{id}")
-    public ModelAndView getEditOfertaLaboralPage(@PathVariable(value = "id") Long id) throws Exception {
-        ModelAndView mov = new ModelAndView("verEmpleo");
-        OfertaLaboral ofertaLaboral = ofertaLaboralSvc.findOfertaLaboral(id);
-        mov.addObject("ofertaLaboral", ofertaLaboral);
-        return mov;
-    }
+	public ModelAndView getEditOfertaLaboralPage(@PathVariable(value = "id") Long id) throws Exception {
+		ModelAndView mov = new ModelAndView("verEmpleo");
+		OfertaLaboral ofertaLaboral = ofertaLaboralSvc.findOfertaLaboral(id);
+		mov.addObject("ofertaLaboral", ofertaLaboral);
+		return mov;
+	}
 
 	@GetMapping("/cargarCv")
 	public String getCargarCvPage(Model model) {
