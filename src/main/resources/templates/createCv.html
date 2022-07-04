@@ -11,11 +11,11 @@
 
 <body>
 
-      <header th:replace="/layout/header::header"></header>
+        <header th:replace="/layout/header::header"></header>
 
-       <div class="container rounded bg-white mt-5 mb-5">
-               <div class="row">
-                       <div class="col-md-3 border-right">
+        <div class="container rounded bg-white mt-5 mb-5">
+                <div class="row">
+                        <div class="col-md-3 border-right">
                                 <div class="d-flex flex-column align-items-center text-center p-3 py-5"
                                         th:each="ciudadano:${ciudadano}"><img class="rounded-circle mt-5" width="150px"
                                                 src="https://st3.depositphotos.com/15648834/17930/v/600/depositphotos_179308454-stock-illustration-unknown-person-silhouette-glasses-profile.jpg"><span
@@ -46,18 +46,12 @@
                                                 <div class="row mt-2">
                                                         <div class="col-md-6"><label class="labels">Nombre</label><input
                                                                         type="text" class="form-control"
-                                                                        placeholder="Nombre " th:field="*{nombre}" required>  
-                                                                        <div class="alert alert-danger text-black" role="alert"
-																		th:if="${#fields.hasErrors('nombre')}" th:errors="*{nombre}"></div>                          
+                                                                        placeholder="Nombre " th:field="*{nombre}">
                                                         </div>
-                                                        
-                                                        
                                                         <div class="col-md-6"><label
                                                                         class="labels">Apellido</label><input
                                                                         type="text" class="form-control" value=""
                                                                         placeholder="Apellido" th:field="*{apellido}">
-                                                                        <div class="alert alert-danger text-black" role="alert"
-																		th:if="${#fields.hasErrors('apellido')}" th:errors="*{apellido}"></div> 
                                                         </div>
                                                 </div>
                                                 <div class="row mt-3">
@@ -65,8 +59,6 @@
                                                                         class="labels">Direccion</label><input
                                                                         type="text" class="form-control"
                                                                         placeholder="Direccion" th:field="*{direccion}">
-                                                                        <div class="alert alert-danger text-black" role="alert"
-																		th:if="${#fields.hasErrors('direccion')}" th:errors="*{direccion}"></div>
                                                         </div>
 
                                                         <!-- <div class="row mt-3">
@@ -82,8 +74,6 @@
                                                         <div class="col-md-12"><label class="labels">País</label><input
                                                                         type="text" class="form-control"
                                                                         placeholder="País" th:field="*{pais}">
-                                                                        <div class="alert alert-danger text-black" role="alert" 
-																		th:if="${#fields.hasErrors('pais')}" th:errors="*{pais}"></div>
                                                         </div>
                                                         <div class="col-md-12"><label
                                                                 class="labels">Provincia</label><input type="text"
@@ -129,34 +119,22 @@
                                                                         class="labels">Idiomas</label><input type="text"
                                                                         class="form-control" placeholder="Idiomas"
                                                                         value="" th:field="*{idioma}">
-                                                                        <div class="alert alert-danger text-black" role="alert"
-																		th:if="${#fields.hasErrors('idioma')}" th:errors="*{idioma}"></div>
-                                                                        
                                                         </div>
                                                         <div class="col-md-12"><label
                                                                         class="labels">Conocimientos</label><input
                                                                         type="text" class="form-control"
                                                                         placeholder="Conocimientos"
                                                                         th:field="*{conocimientos}" value="">
-                                                                         <div class="alert alert-danger text-black" role="alert"
-																		th:if="${#fields.hasErrors('conocimientos')}" th:errors="*{conocimientos}"></div>
-                                                                        
                                                         </div>
                                                         <div class="col-md-12"><label class="labels">Informacion
                                                                         Complementaria</label><input type="text"
                                                                         class="form-control" placeholder="Informacion"
                                                                         th:field="*{infoComplementaria}" value="">
-                                                                        <div class="alert alert-danger text-black" role="alert"
-																		th:if="${#fields.hasErrors('infoComplementaria')}" th:errors="*{infoComplementaria}"></div>
-                                                                        
-                                                                        
                                                         </div>
                                                         <div class="col-md-12"><label class="labels">Datos Adicionales
                                                                 </label><input type="text" class="form-control"
                                                                         placeholder="Adicionales"
                                                                         th:field="*{datoAdicionales}" value=""></div>
-                                                                        <div class="alert alert-danger text-black" role="alert"
-																		th:if="${#fields.hasErrors('datoAdicionales')}" th:errors="*{datoAdicionales}"></div>
                                                 </div>
 
                                                 <div class="mt-5 text-center">

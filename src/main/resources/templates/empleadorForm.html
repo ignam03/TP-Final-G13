@@ -16,6 +16,7 @@
    <!-- <div id="booking2" class="section">
       <div class="section-center">
          <div class="container">
+<<<<<<< HEAD
             <div class="row">
                
             </div>
@@ -33,6 +34,23 @@
                      <form th:action="@{/empleador/guardar}" method="POST" th:object="${empleador}">
                         <div class="form-group">
                            <input type="hidden" th:field="*{empleadorNumber}" />
+=======
+            <div>
+            <h1 class="text-center text-white">Registro Empleador</h1>
+               <div class="booking-form">
+                  <form th:action="@{/empleador/guardar}" method="POST" th:object="${empleador}">
+                     <div class="form-group">
+						<input type="hidden" th:field="*{empleadorNumber}" />
+					 </div>
+                     <div class="row">
+                        <div class="col-md-6">
+                           <div class="form-group">
+                              <span class="form-label">CUIT</span>
+                              <input th:field="*{cuit}" class="form-control"  id="cuitId" type="text" placeholder="Numero de Cuit">
+                              <div class="alert alert-danger text-black" role="alert"
+								th:if="${#fields.hasErrors('cuit')}" th:errors="*{cuit}"></div>
+                           </div>
+>>>>>>> parent of f54fcb7 (valid)
                         </div>
                         <div class="row">
                            <div class="col-md-6">
@@ -45,6 +63,7 @@
    
                               </div>
                            </div>
+<<<<<<< HEAD
                            <div class="col-md-6">
                               <div class="form-group">
                                  <span class="form-label">Contraseña</span>
@@ -65,6 +84,21 @@
                                     th:if="${#fields.hasErrors('razon_social')}" th:errors="*{razon_social}">
                                  </div>
                               </div>
+=======
+                        </div>
+                     </div>
+                     <div class="row">
+                        <div class="col-md-6">
+                           <div class="form-group">
+                              <span class="form-label">Razon Social</span>
+                              <input th:field="*{razon_social}" class="form-control" type="text" placeholder="Ingrese razon social">
+                           </div>
+                        </div>
+                        <div class="col-md-6">
+                           <div class="form-group">
+                              <span class="form-label">Nombre Comercial</span>
+                              <input th:field="*{nom_comercial}" class="form-control" type="text" placeholder="Ingrese Nombre Comercial">
+>>>>>>> parent of f54fcb7 (valid)
                            </div>
                            <div class="col-md-6">
                               <div class="form-group">
@@ -76,6 +110,7 @@
                                  </div>
                               </div>
                            </div>
+<<<<<<< HEAD
                            <div class="col-md-4">
                               <div class="form-group">
                                  <span class="form-label">Inicio de Actividad</span>
@@ -101,6 +136,27 @@
                                  <div class="alert alert-danger text-black" role="alert"
                                     th:if="${#fields.hasErrors('telefono')}" th:errors="*{telefono}"></div>
                               </div>
+=======
+                        </div>
+                        <div class="col-md-4">
+                           <div class="form-group">
+                              <span class="form-label">Email</span>
+                              <input th:field="*{email}" class="form-control" type="email" placeholder="Ingrese Email">
+                           </div>
+                        </div>
+                        <div class="col-md-4">
+                           <div class="form-group">
+                              <span class="form-label">Telefono</span>
+                              <input th:field="*{telefono}" class="form-control" type="text" placeholder="Ingrese Telefono">
+                           </div>
+                        </div>
+                     </div>
+                     <div class="row">
+                        <div class="col-md-6">
+                           <div class="form-group">
+                              <span class="form-label">Domicilio</span>
+                              <input th:field="*{domicilio}" class="form-control" type="text" placeholder="Ingrese Domicilio" >
+>>>>>>> parent of f54fcb7 (valid)
                            </div>
                         </div>
                         <div class="row">
@@ -169,10 +225,18 @@
                               <div class="alert alert-danger text-black" role="alert"
                                  th:if="${#fields.hasErrors('perfil')}" th:errors="*{perfil}"></div>
                            </div>
+<<<<<<< HEAD
                            <div class="col-md-3">
                               <div class="form-btn">
                                  <button class="submit-btn text-center bg-info">Registrar</button>
                               </div>
+=======
+                        </div>
+                        <div class="col-md-4">
+                           <div class="form-group">
+                              <span class="form-label">Pagina Web</span>
+                              <input th:field="*{pag_web}" class="form-control" type="text" placeholder="Ingrese Pagina Web" required>
+>>>>>>> parent of f54fcb7 (valid)
                            </div>
                            <div class="col-md-3">
                               <div class="form-btn">

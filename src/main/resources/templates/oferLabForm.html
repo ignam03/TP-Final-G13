@@ -33,11 +33,8 @@
                         <div class="col-md-4">
                            <div class="form-group">
                               <span class="form-label">Puesto requerido</span>
-                              <input th:field="*{puesto}" class="form-control" type="text" placeholder="-" required>
-  								 <div class="alert alert-danger text-black" role="alert"
-										th:if="${#fields.hasErrors('puesto')}" th:errors="*{puesto}"></div>
+                              <input th:field="*{puesto}" class="form-control" type="text" placeholder="-">
                            </div>
-                         
                         </div>
 
                         <div class="col-md-6">
@@ -57,13 +54,13 @@
                         <div class="col-md-4">
                            <div class="form-group">
                               <span class="form-label">Tareas Principales</span>
-                              <input th:field="*{tareas}" class="form-control" type="text" >
+                              <input th:field="*{tareas}" class="form-control" type="text" required>
                            </div>
                         </div>
                         <div class="col-md-4">
                            <div class="form-group">
                               <span class="form-label">Datos de Contacto</span>
-                              <input th:field="*{datos}" class="form-control" type="text" >
+                              <input th:field="*{datos}" class="form-control" type="text" required>
                            </div>
                         </div>
                      </div>
@@ -72,19 +69,19 @@
                            <div class="form-group">
                               <span class="form-label">Jornada</span>
                               <input th:field="*{jornada}" class="form-control" type="text"
-                                 placeholder="Ingrese Contreseña" >
+                                 placeholder="Ingrese Contreseña" required>
                            </div>
                         </div>
                         <div class="col-md-4">
                            <div class="form-group">
                               <span class="form-label">Requisitos</span>
-                              <input th:field="*{requisitos}" class="form-control" type="text" >
+                              <input th:field="*{requisitos}" class="form-control" type="text" required>
                            </div>
                         </div>
                         <div class="col-md-4">
                            <div class="form-group">
                               <span class="form-label">Salario</span>
-                              <input th:field="*{salario}" class="form-control" type="text" >
+                              <input th:field="*{salario}" class="form-control" type="text" required>
                            </div>
                         </div>
                      </div>
@@ -124,7 +121,7 @@
                            <div class="form-group">
                               <span class="form-label">Fecha de Publicacion</span>
                               <input th:field="*{fechaPub}" class="form-control" type="date" th:value="*{fechaPub}"
-                                 id="fechaPubId" >
+                                 id="fechaPubId" required>
                            </div>
                         </div>
                         <div class="col-md-4">
@@ -150,7 +147,7 @@
                         <div class="col-md-6">
                            <div class="form-group">
                               <span class="form-label">Beneficios</span>
-                              <input th:field="*{beneficios}" class="form-control" type="text" >
+                              <input th:field="*{beneficios}" class="form-control" type="text" required>
                            </div>
                         </div>
                         <div class="col-md-3">

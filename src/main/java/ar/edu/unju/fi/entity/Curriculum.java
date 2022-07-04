@@ -9,7 +9,6 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
-import javax.validation.constraints.NotBlank;
 
 import org.springframework.stereotype.Component;
 
@@ -26,9 +25,7 @@ public class Curriculum implements Serializable {
     //private Ciudadano ciudadano;
     // private Contacto contacto;
     private String provincia;
-    @NotBlank(message = "El campo password no puede estar vacio")
     private String nombre;
-    @NotBlank(message = "El campo de no puede estar vacio")
     private String apellido;
     private String direccion;
     private String pais;
@@ -36,11 +33,8 @@ public class Curriculum implements Serializable {
     // private List<Experiencia> experiencia;
     // private List<Educacion> educacion;
     private String idioma;
-    @NotBlank(message = "El campo no puede estar vacio")
     private String conocimientos;
-    @NotBlank(message = "El campo no puede estar vacio")
     private String infoComplementaria;
-    @NotBlank(message = "El campo no puede estar vacio")
     private String datoAdicionales;
 
     public Curriculum() {

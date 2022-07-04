@@ -45,13 +45,10 @@ public class NuevaOfertaLaboral {
     @PostMapping("/guardar")
     public ModelAndView guardarOfertaLaboral(@Validated @ModelAttribute("ofertaLaboral") OfertaLaboral ofertaLaboral,
             BindingResult bindingResult) {
-       
-    	ModelAndView model = new ModelAndView("redirect:/ofertaLaboral/verEmpleos");
+
+        ModelAndView model = new ModelAndView("redirect:/ofertaLaboral/verEmpleos");
         ofertaLaboralSvc.saveOfertaLaboral(ofertaLaboral);
         return model;
-       
-    	   
-        
     }
 
     @GetMapping("/misPublicaciones")

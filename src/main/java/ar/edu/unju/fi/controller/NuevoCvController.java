@@ -16,8 +16,11 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
+<<<<<<< HEAD
 
 
+=======
+>>>>>>> parent of f54fcb7 (valid)
 import ar.edu.unju.fi.entity.Ciudadano;
 import ar.edu.unju.fi.entity.Curriculum;
 import ar.edu.unju.fi.service.ICiudadanoService;
@@ -36,6 +39,7 @@ public class NuevoCvController {
 	private ICiudadanoService ciudadanoSvc;
 
 	private static final Log LOGGER = LogFactory.getLog(NuevoCvController.class);
+
 	@GetMapping("/nuevo")
 	public String getFormNewCurriculumPage(Model model) {
 		model.addAttribute("curriculum", new Curriculum());
@@ -46,15 +50,13 @@ public class NuevoCvController {
 
 	@PostMapping("/guardar")
 	public ModelAndView guardarCurriculum(@Validated @ModelAttribute("curriculum") Curriculum curriculum,
-			BindingResult bindingResult) {			
-			
+			BindingResult bindingResult) {
 		LOGGER.info("cirruculum" + curriculum);
 		List<Ciudadano> ciudadanos = ciudadanoSvc.getCiudadanos();
 		ModelAndView model = new ModelAndView("cv");
 		LOGGER.info("cirruculum" + curriculum.getApellido());
 		curriculumSvc.saveCurriculum(curriculum);
 		return model;
-		
 	}
 
 	@GetMapping("/verCv")
@@ -63,4 +65,3 @@ public class NuevoCvController {
 		return "cv";
 	}
 }
-
