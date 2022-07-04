@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 
+
 import ar.edu.unju.fi.entity.Ciudadano;
 import ar.edu.unju.fi.entity.Curriculum;
 import ar.edu.unju.fi.service.ICiudadanoService;
