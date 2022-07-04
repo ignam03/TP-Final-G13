@@ -18,14 +18,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
 
 
-=======
->>>>>>> parent of f54fcb7 (valid)
->>>>>>> branch 'master' of https://github.com/ignam03/TP-FinalPV-G13.git
 import ar.edu.unju.fi.entity.Ciudadano;
 import ar.edu.unju.fi.entity.Curriculum;
 import ar.edu.unju.fi.service.ICiudadanoService;
@@ -54,11 +48,7 @@ public class NuevoCvController {
 	}
 
 	@PostMapping("/guardar")
-<<<<<<< HEAD
 	public ModelAndView guardarCurriculum(@Validated @ModelAttribute("curriculum") Curriculum curriculum, Model model,
-=======
-	public ModelAndView guardarCurriculum(@Validated @ModelAttribute("curriculum") Curriculum curriculum,
->>>>>>> branch 'master' of https://github.com/ignam03/TP-FinalPV-G13.git
 			BindingResult bindingResult) {
 		LOGGER.info("cirruculum" + curriculum);
 		if (bindingResult.hasErrors()) {
@@ -69,12 +59,9 @@ public class NuevoCvController {
 		// List<Ciudadano> ciudadanoss = ciudadanoSvc.getCiudadanos();
 		ModelAndView mod = new ModelAndView("cv");
 		LOGGER.info("cirruculum" + curriculum.getApellido());
-		curriculumSvc.saveCurriculum(curriculum);
-<<<<<<< HEAD
+
 		return mod;
-=======
-		return model;
->>>>>>> branch 'master' of https://github.com/ignam03/TP-FinalPV-G13.git
+
 	}
 
 	@GetMapping("/verCv")
@@ -93,7 +80,7 @@ public class NuevoCvController {
 		model.addAttribute("attributeValue");
 		return "cv";
 	}
-<<<<<<< HEAD
+
 
 	@GetMapping("/editar/{id}")
 	public ModelAndView getEditOfertaLaboralPage(@PathVariable(value = "id") Long id) throws Exception {
@@ -125,6 +112,5 @@ public class NuevoCvController {
 		LOGGER.info("guardado");
 		return mav;
 	}
-=======
->>>>>>> branch 'master' of https://github.com/ignam03/TP-FinalPV-G13.git
+
 }
