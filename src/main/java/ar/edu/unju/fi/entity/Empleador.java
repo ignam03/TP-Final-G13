@@ -14,6 +14,7 @@ import javax.validation.constraints.Min;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Past;
 import javax.validation.constraints.PastOrPresent;
 import javax.validation.constraints.Size;
 
@@ -57,6 +58,8 @@ public class Empleador implements Serializable {
 	@PastOrPresent
 	@Column(name = "emp_fechaInic")
 	@DateTimeFormat(pattern = "yyyy-MM-dd")
+	@NotNull(message = "tiene que ser mayor a 18 años")
+	@Past(message = "tiene que ser mayor a 18 años")
 	private LocalDate fechaInic;
 
 	@Column(name = "emp_perfil")
@@ -81,7 +84,7 @@ public class Empleador implements Serializable {
 	private String domicilio;
 	
 	//provincia
-	@NotNull(message = "Debe seleccionar una provincia")
+	@NotEmpty(message = "seleccione una provincia")
 	@Column(name = "emp_provincia")
 	private String provincia;
 	

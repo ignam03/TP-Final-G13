@@ -19,6 +19,7 @@ import javax.validation.constraints.Min;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Past;
 import javax.validation.constraints.PastOrPresent;
 import javax.validation.constraints.Size;
 
@@ -65,6 +66,8 @@ public class Ciudadano implements Serializable {
 	@PastOrPresent
 	@Column(name = "ciud_fechaNac")
 	@DateTimeFormat(pattern = "yyyy-MM-dd")
+	@NotNull(message = "tiene que ser mayor a 18 años")
+	@Past(message = "tiene que ser mayor a 18 años")
 	private LocalDate fechaNac;
 
 	@NotBlank(message = "El campo password no puede estar vacio")

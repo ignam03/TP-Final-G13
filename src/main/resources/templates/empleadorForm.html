@@ -80,6 +80,8 @@
                               <div class="form-group">
                                  <span class="form-label">Inicio de Actividad</span>
                                  <input th:field="*{fechaInic}" class="form-control" type="date">
+                                  <div class="alert alert-danger text-black" role="alert"
+                                    th:if="${#fields.hasErrors('fechaInic')}" th:errors="*{fechaInic}"></div>
    
                               </div>
                            </div>
@@ -143,6 +145,8 @@
                                        Antártida e Islas del Atlántico Sur</option>
                                     <option value="Tucumán">Tucumán</option>
                                  </select>
+                                 <div class="alert alert-danger text-black" role="alert"
+											th:if="${#fields.hasErrors('provincia')}" th:errors="*{provincia}"></div>
                               </div>
                            </div>
                            <div class="col-md-4">
@@ -150,6 +154,8 @@
                                  <span class="form-label">Pagina Web</span>
                                  <input th:field="*{pag_web}" class="form-control" type="text"
                                     placeholder="Ingrese Pagina Web">
+                                    <div class="alert alert-danger text-black" role="alert"
+											th:if="${#fields.hasErrors('pag_web')}" th:errors="*{pag_web}"></div>
    
                               </div>
                            </div>
@@ -158,6 +164,8 @@
                                  <span class="form-label">Descripcion</span>
                                  <textarea th:field="*{descripcion}" class="form-control" id="exampleFormControlDesc"
                                     rows="1"></textarea>
+                                    <div class="alert alert-danger text-black" role="alert"
+											th:if="${#fields.hasErrors('descripcion')}" th:errors="*{descripcion}"></div>
                               </div>
                            </div>
                            <div hidden class="form-outline mb-4" type="hidden">
