@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Felicitaciones!!</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/style.css}">
+    <link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}">
+    <link th:rel="stylesheet" type="text/css" th:href="@{/webjars/font-awesome/css/all.min.css}" />
+</head>
+
+<body>
+
+    <header th:replace="/layout/header::header"></header>
+
+    <div class="text-center">
+    	<div th:each="curso:${feli}">
+	    	<h1 class="display-3">Felicitaciones Ya Estas Inscripto</h1>
+	        <p class="lead"><strong th:text="${feli.nombre}"></strong>, en unos dias se habilitara y se te enviara un correo para coordinar horarios
+	        para que comencemos el curso, un saludo!!"</p>
+	        <hr>
+	        <p>
+	            Mas Informacion? <a href="">Contactanos</a>
+	        </p>
+	        <div class="text-center">
+				<img src="https://st4.depositphotos.com/3900811/39962/v/600/depositphotos_399628742-stock-illustration-confirm-ok-sign-in-checkbox.jpg">
+			</div>
+	        <p class="lead">
+	            <a class="btn btn-primary btn-sm" th:href="@{/empleos/cursos}" role="button">Voler a Cursos
+	            </a>
+	        </p>
+	    </div>       
+	</div>
+
+
+    <footer th:replace="/layout/footer::footer"></footer>
+
+    <script type="text/javascript" th:src="@{/webjars/jquery/dist/jquery.min.js}"></script>
+    <script type="text/javascript" th:src="@{/webjars/popper.js/umd/popper.min.js}"></script>
+    <script type="text/javascript" th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
+</body>
+
+</html>

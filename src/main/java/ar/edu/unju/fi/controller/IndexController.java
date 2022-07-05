@@ -133,5 +133,17 @@ public class IndexController {
 
         return modelAndView;
     }
+    
+    @GetMapping("/cursoI")
+    public ModelAndView visualizarCursosI(@RequestParam(name = "id") int id) {
+
+        ModelAndView modelAndView = new ModelAndView("feli");
+
+        Optional<Curso> p = this.getCursos().stream().filter(curso -> id == curso.getId()).findFirst();
+
+        modelAndView.addObject("feli", p.get());
+
+        return modelAndView;
+    }
 
 }

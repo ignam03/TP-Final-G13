@@ -14,7 +14,7 @@
     <header th:replace="/layout/header::header"></header>
 
     <div class="py-5" style="background-color:#fff;" id="venue">
-        <div class="container">          
+        <div class="container text-center">          
             <div th:each="curso:${curso}" >
 	            <div class="card mb-3">
 				  <img src="https://visme.co/blog/wp-content/uploads/2020/11/header-4.png" class="card-img-top" alt="...">
@@ -23,6 +23,35 @@
 				    <p class="card-text" th:text="${curso.descripcion}"></p>
 				    <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
 				  </div>
+				<a class="btn btn-primary"
+				 data-bs-toggle="modal" data-bs-target="#exampleModal">Incribirse a Curso</a>
+					<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+						aria-hidden="true">
+						<div class="modal-dialog">
+							<div class="modal-content">
+								<div class="modal-header">
+									<div class="text-center">
+										<h5 class="modal-title " id="exampleModalLabel">Cofirmacion!!</h5>
+									</div>
+									<button type="button" class="btn-close" data-bs-dismiss="modal"
+										aria-label="Close"></button>
+								</div>
+								<div class="modal-body">
+									<div class="text-center">
+										<img src="https://ideasparaelexito.com/wp-content/uploads/2011/12/Si11-300x300.jpg">
+									</div>
+									<p class="text-center text-success text-uppercase fs-5 fw-bold">Esta
+										seguro de inscribirte al curso?</p>
+								</div>
+								<div class="modal-footer">
+									<button type="button" class="btn btn-secondary"
+										data-bs-dismiss="modal">Cancelar</button>
+									<a th:href="@{/empleos/cursoI?id={id}(id=${curso.id})}"
+										id="eliminarDocente" class="btn btn-primary">Confirmar</a>
+								</div>
+							</div>
+						</div>
+					</div>
 				</div>
             </div>
             
