@@ -3,6 +3,8 @@ package ar.edu.unju.fi.entity;
 import java.io.Serializable;
 import java.time.LocalDate;
 import java.time.temporal.ChronoUnit;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -12,8 +14,11 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.ManyToMany;
+import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
+import javax.transaction.Transactional;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotBlank;
@@ -29,6 +34,7 @@ import org.springframework.stereotype.Component;
 @Entity
 @Table(name = "ciudadanos")
 @Component
+@Transactional
 public class Ciudadano implements Serializable {
 
 	/**
@@ -85,7 +91,12 @@ public class Ciudadano implements Serializable {
 
 	private String perfil;
 
+	@ManyToMany(cascade = CascadeType.ALL,fetch = FetchType.EAGER)
+	@JoinColumn(name = "ciudadano_ofertaLaboral")
+	private List<OfertaLaboral> ofertaLaborales ;
+
 	public Ciudadano() {
+		
 	}
 
 	public Ciudadano(Long dni, String nroTramite, String email, String estadoCivil,
@@ -198,12 +209,33 @@ public class Ciudadano implements Serializable {
 		this.curriculum = curriculum;
 	}
 
+	
+
 	@Override
 	public String toString() {
 		return "Ciudadano [ciudadanoNumber=" + ciudadanoNumber + ", contrasena=" + contrasena + ", curriculum="
 				+ curriculum + ", dni=" + dni + ", email=" + email + ", estadoCivil=" + estadoCivil + ", fechaNac="
-				+ fechaNac + ", nroTramite=" + nroTramite + ", perfil=" + perfil + ", provincia=" + provincia
-				+ ", telefono=" + telefono + "]";
+				+ fechaNac + ", nroTramite=" + nroTramite + ", ofertaLaborales=" + ofertaLaborales + ", perfil="
+				+ perfil + ", provincia=" + provincia + ", telefono=" + telefono + "]";
 	}
+
+	public void addOfertalLab(OfertaLaboral ofertaLaboral){
+            this.ofertaLaborales = new ArrayList<>();
+        this.ofertaLaborales.add(ofertaLaboral);
+    }
+
+	public List<OfertaLaboral> getOfertaLaborales() {
+		return ofertaLaborales;
+	}
+
+	public void setOfertaLaborales(List<OfertaLaboral> ofertaLaborales) {
+		this.ofertaLaborales = ofertaLaborales;
+	}
+
+	
+
+	
+
+	
 
 }

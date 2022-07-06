@@ -282,10 +282,10 @@
 									th:href="@{/ciudadano/verEmpleo/}+${ofertaLaboral.oferNumber}"
 									class="btn btn-sm btn-primary"> Detalles</a>
 								
-									<div class="text-center">
+									<div class="text-center" th:each="ciudadano:${ciudanos}"> 
 											<a sec:authorize="hasAuthority('CIUDADANO')" href=""
 									class="btn btn-sm btn-primary" data-bs-toggle="modal"
-									data-bs-target="#exampleModal">Solicitar</a>
+									data-bs-target="#exampleModal" th:href="@{/ofertaLaboral/solicitar/}+${ofertaLaboral.oferNumber}+${'/'}+${ciudadano.ciudadanoNumber}">Solicitar</a>
 									</div>
 									<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
 										aria-hidden="true">
@@ -308,7 +308,7 @@
 												<div class="modal-footer">
 													<button type="button" class="btn btn-secondary"
 														data-bs-dismiss="modal">Close</button>
-													<a th:href="@{/ciudadano/contratado}"
+													<a th:href="@{/ofertaLaboral/solicitar/}+${ofertaLaboral.oferNumber}+${'/'}+${ciudadano.ciudadanoNumber}" th:each="ciudadano:${ciudanos}"
 														id="eliminarDocente" class="btn btn-primary">Solicitar</a>
 												</div>
 											</div>

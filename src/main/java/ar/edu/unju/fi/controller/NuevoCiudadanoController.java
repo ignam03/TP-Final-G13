@@ -96,8 +96,8 @@ public class NuevoCiudadanoController {
 		return "cv";
 	}
 	
-	@GetMapping("/contratado")
-	public String getContratadoPage(Model model) {
-		return "contratado";
-	}
+	// @GetMapping("/contratado")
+	// public String getContratadoPage(Model model) {
+	// 	return "contratado";
+	// }
 }

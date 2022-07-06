@@ -253,10 +253,10 @@
                                         <p class="text-center text-success text-uppercase fs-5 fw-bold">Esta
                                             seguro de solicitar el empleo?</p>
                                     </div>
-                                    <div class="modal-footer">
+                                    <div class="modal-footer" th:object="${ciudadano}">
                                         <button type="button" class="btn btn-secondary"
                                             data-bs-dismiss="modal">Close</button>
-                                        <a th:href="@{/ciudadano/contratado}"
+                                        <a th:href="@{/ofertaLaboral/solicitar}"
                                             id="eliminarDocente" class="btn btn-primary">Solicitar</a>
                                     </div>
                                 </div>

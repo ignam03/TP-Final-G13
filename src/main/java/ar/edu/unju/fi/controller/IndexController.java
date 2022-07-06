@@ -138,11 +138,13 @@ public class IndexController {
     public ModelAndView visualizarCursosI(@RequestParam(name = "id") int id) {
 
         ModelAndView modelAndView = new ModelAndView("feli");
-
+        Curso cursoa = new Curso();
         Optional<Curso> p = this.getCursos().stream().filter(curso -> id == curso.getId()).findFirst();
 
         modelAndView.addObject("feli", p.get());
+        cursoa.setId(cursoa.getId()-1);
 
+        
         return modelAndView;
     }
 

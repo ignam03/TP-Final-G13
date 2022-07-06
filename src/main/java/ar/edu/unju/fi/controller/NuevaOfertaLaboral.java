@@ -2,6 +2,7 @@ package ar.edu.unju.fi.controller;
 
 import java.security.Principal;
 import java.text.ParseException;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -24,8 +25,10 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
+import ar.edu.unju.fi.entity.Ciudadano;
 import ar.edu.unju.fi.entity.Empleador;
 import ar.edu.unju.fi.entity.OfertaLaboral;
+import ar.edu.unju.fi.service.ICiudadanoService;
 import ar.edu.unju.fi.service.IEmpleadorService;
 import ar.edu.unju.fi.service.IOfertaLaboralService;
 
@@ -40,6 +43,10 @@ public class NuevaOfertaLaboral {
     @Autowired
     @Qualifier("EmpleadorServiceImp")
     private IEmpleadorService empleadorSvc;
+
+    @Autowired
+    @Qualifier("CiudadanoServiceImp")
+    private ICiudadanoService ciudadanoSvc;
 
     private static final Log LOGGER = LogFactory.getLog(NuevaOfertaLaboral.class);
 
@@ -82,7 +89,9 @@ public class NuevaOfertaLaboral {
     @GetMapping("/verEmpleos")
     public String getListaEmpleoPage(Model model, @Param("provincia") String provincia) {
         List<OfertaLaboral> listaLaborales = ofertaLaboralSvc.getOfertasLaboralesPronvicas(provincia);
+        List<Ciudadano> ciudadanos = ciudadanoSvc.getCiudadanos();
         model.addAttribute("ofertasLaborales", listaLaborales);
+        model.addAttribute("ciudanos", ciudadanos);
         model.addAttribute("provincia", provincia);
         for (OfertaLaboral ofertaLaboral : listaLaborales) {
 
@@ -153,4 +162,51 @@ public class NuevaOfertaLaboral {
     // return movimientoServicio.buscarFecha(desde, hasta);
 
     // }
+
+    @GetMapping("/solicitar/{id1}/{id2}")
+    public ModelAndView aplicarOfertaLaboral(@PathVariable(name = "id1") Long id1, @PathVariable(name = "id2") Long id2)
+            throws Exception {
+        LOGGER.info("hasta aca arranca");
+        ModelAndView mav = new ModelAndView("contratado");
+        OfertaLaboral ofertaLaboral = ofertaLaboralSvc.findOfertaLaboral(id1);
+        Ciudadano ciudadano = ciudadanoSvc.findCiudadano(id2);
+        //LOGGER.info(ofertaLaboral);
+        //List<OfertaLaboral> ofertaLaborales = new ArrayList<OfertaLaboral>();
+        //List<Ciudadano> ciudadanos = new ArrayList<Ciudadano>();
+        //ofertaLaborales.add(ofertaLaboral);
+        //ciudadanos.add(ciudadano);
+        ciudadano.addOfertalLab(ofertaLaboral);
+        ciudadanoSvc.saveCiudadano(ciudadano);
+        //mav.addObject("ciudadano", ciudadano);
+        mav.addObject("ofertaLaboral", ofertaLaboral);
+        //ciudadano.setOfertaLaborales(ofertaLaborales);
+        //ofertaLaboral.setCiudadanos(ciudadanos);
+        return mav;
+    }
+
+    @GetMapping("/postulados")
+    public String getPostuladosPage(Model model, Principal principal) {
+
+        // try {
+        // // LOGGER.info(principal);
+        // Empleador existe =
+        // empleadorSvc.getEmpleadorByCuit(Long.parseLong(principal.getName()));
+        // LOGGER.info(existe.getCuit())s;
+        // return "publicaciones";
+        // } catch (Exception e) {
+        // model.addAttribute("usuarioErrorMensaje", e.getMessage());
+        // }
+        List<OfertaLaboral> listaLaborales = ofertaLaboralSvc.getOfertasLaborales();
+        model.addAttribute("ofertasLaborales", listaLaborales);
+        for (OfertaLaboral ofertaLaboral : listaLaborales) {
+
+        }
+
+        return "OfertaLabPostulados";
+    }
+
+    @GetMapping("/contratar")
+    public String getContratar(){
+        return "contratar";
+    }
 }

@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Empleos G13</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/cv.css}">
+    <link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}">
+    <link th:rel="stylesheet" type="text/css" th:href="@{/webjars/font-awesome/css/all.min.css}" />
+</head>
+
+<body>
+
+    <header th:replace="/layout/header::header"></header>
+
+
+
+    <div class="container card-0 justify-content-center mt-4">
+        <div class="card-body px-sm-4 px-0">
+            <div class="row justify-content-center mb-2">
+                <div class="col-md-10 col">
+                    <h3 class="font-weight-bold ml-md-0 mx-auto text-center text-sm-left">Postulados </h3>
+                    <p class="mt-md-4 ml-md-0 ml-2 text-center text-sm-left"> Entrust with heigh professionalism we are
+                        offering pixel perfect web and mobile application development third party integration and
+                        solution to our.</p>
+                    <p></p>
+                </div>
+            </div>
+            <div class="row justify-content-center round" th:each="ofertaLaboral:${ofertasLaborales}">
+                <div class="col-lg-10 col-md-12 ">
+                    <div class="card shadow-lg card-1">
+                        <div class="card-body inner-card">
+                            <div class="row justify-content-center">
+                                <div class="col-lg-5 col-md-6 col-sm-12">
+                                    <h2 class="" style="">Datos Personales</h2>
+                                    <div class="form-group"><label for="first-name">Nombres </label><input disabled
+                                            type="text" class="form-control"
+                                            th:value="${ofertaLaboral.ciudadanos[0].curriculum.nombre}" id="first-name"
+                                            placeholder="Type your Name"> </div>
+                                    <div class="form-group"> <label for="Mobile-Number">Apellido </label> <input
+                                            disabled type="text" class="form-control"
+                                            th:value="${ofertaLaboral.ciudadanos[0].curriculum.apellido}"
+                                            id="Mobile-Number" placeholder="">
+                                    </div>
+                                    <div class="form-group"> <label for="Mobile-Number">DNI </label> <input disabled
+                                            type="text" class="form-control" id="Mobile-Number"
+                                            th:value="${ofertaLaboral.ciudadanos[0].dni}" placeholder="">
+                                    </div>
+                                    <div class="form-group"> <label for="Mobile-Number">Telefono </label> <input
+                                            disabled type="text" class="form-control"
+                                            th:value="${ofertaLaboral.ciudadanos[0].telefono}" id="Mobile-Number"
+                                            placeholder="">
+                                    </div>
+                                    <div class="form-group"> <label for="Mobile-Number">Fecha de nacimiento </label>
+                                        <input disabled type="date" class="form-control"
+                                            th:value="${ofertaLaboral.ciudadanos[0].fechaNac}" id="Mobile-Number"
+                                            placeholder="">
+                                    </div>
+                                    <div class="form-group"> <label for="Mobile-Number">Estado Civil </label>
+                                        <input disabled type="text" class="form-control"
+                                            th:value="${ofertaLaboral.ciudadanos[0].estadoCivil}" id="Mobile-Number"
+                                            placeholder="">
+                                    </div>
+                                    <div class="form-group"> <label for="Mobile-Number">País </label> <input disabled
+                                            type="text" class="form-control"
+                                            th:value="${ofertaLaboral.ciudadanos[0].curriculum.pais}" id="Mobile-Number"
+                                            placeholder="">
+                                    </div>
+                                    <div class="form-group"> <label for="Mobile-Number">Conocimientos </label> <input
+                                            disabled type="text" class="form-control"
+                                            th:value="${ofertaLaboral.ciudadanos[0].curriculum.conocimientos}"
+                                            id="Mobile-Number" placeholder="">
+                                    </div>
+                                    <h2 class="" style="">Oferta Postuladada</h2>
+                                    <div class="form-group"> <label for="Mobile-Number">Puesto </label> <input disabled
+                                            type="text" class="form-control"
+                                            th:value="${ofertaLaboral.ciudadanos[0].ofertaLaborales[0].puesto}"
+                                            id="Mobile-Number" placeholder="">
+                                    </div>
+                                    <div class="form-group"> <label for="Mobile-Number">Sueldo </label> <input disabled
+                                            type="text" class="form-control"
+                                            th:value="${ofertaLaboral.ciudadanos[0].ofertaLaborales[0].salario}"
+                                            id="Mobile-Number" placeholder="">
+                                    </div>
+                                    <div class="form-group"> <label for="Mobile-Number">Provincia </label> <input
+                                            disabled type="text" class="form-control"
+                                            th:value="${ofertaLaboral.ciudadanos[0].ofertaLaborales[0].provincia}"
+                                            id="Mobile-Number" placeholder="">
+                                    </div>
+                                    <a th:href="@{/ofertaLaboral/contratar}" class="btn btn-primary text-center mt-5">Contratar</a>
+                                </div>
+                                <!-- <div class="form-group"> <label for="inputEmail4">Lenguaje </label> <select disabled
+                                            class="form-control">
+                                            <option>Ingles</option>
+                                            <option>Español</option>
+                                            <option>Aleman</option>
+                                        </select>
+                                        <div class="form-group"> <label for="inputEmail4">Nivel Oral </label> <select
+                                                disabled class="form-control">
+                                                <option>Básico</option>
+                                                <option>Intermedio</option>
+                                                <option>Avanzado</option>
+                                            </select>
+                                        </div>
+                                    </div> -->
+                                <!-- <div class="form-group"> <label for="inputEmail4">Nivel Escrito </label> <select
+                                            disabled class="form-control">
+                                            <option>Básico</option>
+                                            <option>Intermedio</option>
+                                            <option>Avanzado</option>
+                                        </select>
+                                    </div> -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <footer th:replace="/layout/footer::footer"></footer>
+
+    <script type="text/javascript" th:src="@{/webjars/jquery/dist/jquery.min.js}"></script>
+    <script type="text/javascript" th:src="@{/webjars/popper.js/umd/popper.min.js}"></script>
+    <script type="text/javascript" th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
+</body>
+
+</html>
