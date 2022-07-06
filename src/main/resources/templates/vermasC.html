@@ -43,12 +43,14 @@
 									<p class="text-center text-success text-uppercase fs-5 fw-bold">Esta
 										seguro de inscribirte al curso?</p>
 								</div>
-								<div class="modal-footer">
-									<button type="button" class="btn btn-secondary"
-										data-bs-dismiss="modal">Cancelar</button>
-									<a th:href="@{/empleos/cursoI?id={id}(id=${curso.id})}"
-										id="eliminarDocente" class="btn btn-primary">Confirmar</a>
-								</div>
+								<form th:action="@{/empleos/cursoI}">
+									<div class="modal-footer">
+										<button type="button" class="btn btn-secondary"
+											data-bs-dismiss="modal">Cancelar</button>
+										<a th:href="@{/empleos/cursoI?id={id}(id=${curso.id})}"
+											id="eliminarDocente" class="btn btn-primary">Confirmar</a>
+									</div>
+								</form>
 							</div>
 						</div>
 					</div>
