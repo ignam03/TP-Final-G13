@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Empleos G13</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/cv.css}">
+    <link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}">
+    <link th:rel="stylesheet" type="text/css" th:href="@{/webjars/font-awesome/css/all.min.css}" />
+</head>
+
+<body>
+
+	<header th:replace="/layout/header::header"></header>
+
+	
+	<div class="container card-0 justify-content-center mt-4">
+        <div class="card-body px-sm-4 px-0">
+            <div class="row justify-content-center mb-2">
+                <div class="col-md-10 col">
+                    <h3 class="font-weight-bold ml-md-0 mx-auto text-center text-sm-left">CV </h3>
+                    <p class="mt-md-4 ml-md-0 ml-2 text-center text-sm-left"> Entrust with heigh professionalism we are
+                        offering pixel perfect web and mobile application development third party integration and
+                        solution to our.</p>
+                    <p></p>
+                </div>
+            </div>
+        <div th:each="perfil:${perfiles}">
+            <div class="row justify-content-center round">
+                <div class="col-lg-10 col-md-12 ">
+                    <div class="card shadow-lg card-1">
+                        <div class="card-body inner-card">
+                            <div class="row justify-content-center">
+                                <div class="col-lg-5 col-md-6 col-sm-12">
+                                    <h2 class="" style="">Datos Personales</h2>
+                                    <div class="form-group"> <label for="Mobile-Number">Nombre </label> <input
+                                        disabled type="text" class="form-control"
+                                         id="Mobile-Number"
+                                         th:value="${perfil.nombre}"
+                                        placeholder="">
+                                    </div>
+                                    <div class="form-group"> <label for="Mobile-Number">Apellido </label> <input
+                                        disabled type="text" class="form-control"
+                                         id="Mobile-Number"
+                                         th:value="${perfil.apellido}"
+                                        placeholder="">
+                                    </div>
+                                    <div class="form-group"> <label for="Mobile-Number">DNI </label> <input disabled
+                                            type="text" class="form-control" id="Mobile-Number"
+                                            th:value="${perfil.ciudadano.dni}"
+                                             placeholder="">
+                                    </div>
+                                    <div class="form-group"> <label for="Mobile-Number">Telefono </label> <input
+                                            disabled type="text" class="form-control"
+                                            th:value="${perfil.ciudadano.telefono}"
+                                             id="Mobile-Number" placeholder="">
+                                    </div>
+                                    <div class="form-group"> <label for="Mobile-Number">Fecha de nacimiento </label>
+                                        <input disabled type="date" class="form-control"
+                                        th:value="${perfil.ciudadano.fechaNac}"
+                                             id="Mobile-Number" placeholder="">
+                                    </div>
+                                    <div class="form-group"> <label for="Mobile-Number">Estado Civil </label>
+                                        <input disabled type="text" class="form-control"
+                                        th:value="${perfil.ciudadano.estadoCivil}"
+                                             id="Mobile-Number" placeholder="">
+                                             
+                                    </div>
+                                    <div class="form-group"> <label for="Mobile-Number">País de Origen</label> <input disabled
+                                            type="text" class="form-control"
+                                             id="Mobile-Number"
+                                             th:value="${perfil.pais}"
+                                            placeholder="">
+                                    </div>
+                                    <h2 class="mt-2">Idiomas</h2>
+                                    <div class="form-group"> <label for="Mobile-Number">Idioma </label> <input disabled
+                                        type="text" class="form-control"
+                                         id="Mobile-Number"  th:value="${perfil.idioma}"
+                                        placeholder="">
+                                	</div>
+                                </div>
+                                <div class="col-lg-5 col-md-6 col-sm-12">
+                                    <h2>Experiencia Laboral</h2>
+                                    <div class="form-group"> <label for="last-name">Conocimientos de Trabajos Anteriores</label>
+                                        <input disabled type="text" class="form-control" id="last-name" placeholder=""
+                                        th:value="${perfil.conocimientos}">
+                                    </div>
+                                    <div class="form-group"> <label for="inputEmail4">Nivel </label> <select disabled
+                                            class="form-control">
+                                            <option>Junior</option>
+                                            <option>Senior</option>
+                                            <option>Experto</option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group"> <label for="phone">Informacion Complementaria</label> <input
+                                            disabled type="text" class="form-control" id="email" placeholder=""
+                                            th:value="${perfil.infoComplementaria}"> </div>
+                                        <div class="form-group"> <label for="Evaluate Budget">Tipo de industria</label>
+                                            <input disabled type="text" class="form-control" id="Evaluate Budget"
+                                                placeholder=""
+                                                >
+                                        </div>
+                                        <div class="form-group"> <label for="Company-Name">Datos Adicionales</label> <input
+                                                disabled type="text" class="form-control" id="Company-Name"
+                                                placeholder=""
+                                                th:value="${perfil.datoAdicionales}">
+                                        </div>
+                                        <div class="form-group"> <label for="inputEmail4">Pais de Trabajo Anterior</label> <select
+                                            disabled class="form-control">
+                                            <option>India</option>
+                                            <option>China</option>
+                                            <option>UK</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                                <br>
+                                 <div class="d-grid gap-2">
+								  <a th:href="@{/empleos/perfilesLaborales}" class="btn btn-primary" type="button">Volver</a>
+								  <a th:href="@{/empleos/perfilesLaborales}" class="btn btn-primary" type="button">Contratar</a>
+								</div>
+                            </div>
+                            
+                        </div>
+                        
+                    </div>
+                    
+                </div>
+                
+            </div>
+            
+           
+            
+        </div>
+            
+        </div>
+    </div>
+
+
+	<footer th:replace="/layout/footer::footer"></footer>
+
+<script type="text/javascript" th:src="@{/webjars/jquery/dist/jquery.min.js}"></script>
+    <script type="text/javascript" th:src="@{/webjars/popper.js/umd/popper.min.js}"></script>
+    <script type="text/javascript" th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
+</body>
+
+</html>

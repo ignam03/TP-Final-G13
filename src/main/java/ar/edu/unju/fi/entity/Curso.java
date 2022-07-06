@@ -5,7 +5,7 @@ public class Curso {
 	private String nombre;
 	private String descripcion;
 	private String tipo;
-	private String imagen;
+	private int cupos;
 	
 	public Curso() {
 		super();
@@ -44,21 +44,21 @@ public class Curso {
 		this.tipo = tipo;
 	}
 
-	public String getImagen() {
-		return imagen;
+	public int getCupos() {
+		return cupos;
 	}
 
-	public void setImagen(String imagen) {
-		this.imagen = imagen;
+	public void setCupos(int cupos) {
+		this.cupos = cupos;
 	}
 
-	public Curso(int id, String nombre, String descripcion, String tipo, String imagen) {
+	public Curso(int id, String nombre, String descripcion, String tipo, int cupos) {
 		super();
 		this.id = id;
 		this.nombre = nombre;
 		this.descripcion = descripcion;
 		this.tipo = tipo;
-		this.imagen = imagen;
+		this.cupos = cupos;
 	}
 		
 	
