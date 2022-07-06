@@ -12,10 +12,12 @@ import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
+import ar.edu.unju.fi.entity.Ciudadano;
 import ar.edu.unju.fi.entity.Curriculum;
 import ar.edu.unju.fi.entity.Curso;
 import ar.edu.unju.fi.service.ICurriculumService;
@@ -88,7 +90,36 @@ public class IndexController {
         }
         return "busquedaPerfiles";
     }
+    /*
+    @GetMapping("/verCvEmp")
+	public ModelAndView getVerCv(Model model) {
+    	
+		ModelAndView mov = new ModelAndView("verCvEmp");
+		
+		List<Curriculum> listaCurriculums = curriculumSvc.getCurrriculums();
+        		
+		mov.addObject("perfiles", listaCurriculums);
+		
+		return mov;
+		
+	}*/
+    
+    @GetMapping("/verCvEmp")
+    public ModelAndView visualizarCv(@RequestParam(name = "id") int id) {
 
+    	ModelAndView mov = new ModelAndView("verCvEmp");
+    	
+    	List<Curriculum> listaCurriculums = curriculumSvc.getCurrriculums();
+
+        Optional<Curriculum> p = this.curriculumSvc.getCurrriculums().stream().filter(perfil -> id == perfil.getCurriculumNumber()).findFirst();
+
+        mov.addObject("perfiles", p.get());
+
+        return mov;
+    }
+    
+    
+    
     // Tabla y muestra de Cursos
 
     public List<Curso> getCursos() {
@@ -142,7 +173,6 @@ public class IndexController {
     public ModelAndView visualizarCursosI(@RequestParam(name = "id") int id) {
 
         ModelAndView modelAndView = new ModelAndView("feli");
-        
         
         Optional<Curso> p = this.getCursos().stream().filter(curso -> id == curso.getId()).findFirst();
 
