@@ -66,7 +66,7 @@
                                              id="Mobile-Number" placeholder="">
                                              
                                     </div>
-                                    <div class="form-group"> <label for="Mobile-Number">País </label> <input disabled
+                                    <div class="form-group"> <label for="Mobile-Number">País de Origen</label> <input disabled
                                             type="text" class="form-control"
                                              id="Mobile-Number"
                                              th:value="${perfil.pais}"
@@ -81,7 +81,7 @@
                                 </div>
                                 <div class="col-lg-5 col-md-6 col-sm-12">
                                     <h2>Experiencia Laboral</h2>
-                                    <div class="form-group"> <label for="last-name">Nombre del Puesto/Titulo</label>
+                                    <div class="form-group"> <label for="last-name">Conocimientos de Trabajos Anteriores</label>
                                         <input disabled type="text" class="form-control" id="last-name" placeholder=""
                                         th:value="${perfil.conocimientos}">
                                     </div>
@@ -92,23 +92,20 @@
                                             <option>Experto</option>
                                         </select>
                                     </div>
-                                    <div class="form-group"> <label for="phone">Nombre de Empresa/Negocio</label> <input
-                                            disabled type="text" class="form-control" id="email" placeholder=""> </div>
-                                    <div class="form-group"> <label for="inputEmail4">Selecciona un País </label>
-                                        <select disabled class="form-control">
-                                            <option>Argentina</option>
-                                            <option>Estados Unidos</option>
-                                            <option>Otro</option>
-                                        </select>
+                                    <div class="form-group"> <label for="phone">Informacion Complementaria</label> <input
+                                            disabled type="text" class="form-control" id="email" placeholder=""
+                                            th:value="${perfil.infoComplementaria}"> </div>
                                         <div class="form-group"> <label for="Evaluate Budget">Tipo de industria</label>
                                             <input disabled type="text" class="form-control" id="Evaluate Budget"
-                                                placeholder="">
+                                                placeholder=""
+                                                >
                                         </div>
-                                        <div class="form-group"> <label for="Company-Name">Company Name</label> <input
+                                        <div class="form-group"> <label for="Company-Name">Datos Adicionales</label> <input
                                                 disabled type="text" class="form-control" id="Company-Name"
-                                                placeholder="">
+                                                placeholder=""
+                                                th:value="${perfil.datoAdicionales}">
                                         </div>
-                                        <div class="form-group"> <label for="inputEmail4">Country</label> <select
+                                        <div class="form-group"> <label for="inputEmail4">Pais de Trabajo Anterior</label> <select
                                             disabled class="form-control">
                                             <option>India</option>
                                             <option>China</option>
@@ -117,20 +114,22 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="row  justify-content-center">
-                                    <div class="col-md-12 col-lg-10 col-12">
-                                        <div class="mb-2 mt-4">
-                                            <div class="text-right"><button type="button"
-                                                <a th:href="@{/empleos/perfilesLaborales}" class="btn btn-primary mt-4">Volver</a>
-											</div>
-                                        </div>
-                                    </div>
-                                </div>
+                                <br>
+                                 <div class="d-grid gap-2">
+								  <a th:href="@{/empleos/perfilesLaborales}" class="btn btn-primary" type="button">Volver</a>
+								  <a th:href="@{/empleos/perfilesLaborales}" class="btn btn-primary" type="button">Contratar</a>
+								</div>
                             </div>
+                            
                         </div>
+                        
                     </div>
+                    
                 </div>
+                
             </div>
+            
+           
             
         </div>
             
